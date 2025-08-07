@@ -1,0 +1,2313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ThinkHumanly creates bespoke, human-centric learning solutions through activity-based methodologies for schools, corporations, and therapists worldwide.">
+    <meta name="keywords" content="human-centric learning, activity-based learning, bespoke curriculum, civic engagement, critical thinking, empathy development, digital citizenship, educational innovation">
+    <title>ThinkHumanly - Human-Centric Learning Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'neutral-50': '#fafafa',
+                        'neutral-100': '#f5f5f5',
+                        'neutral-200': '#e5e5e5',
+                        'neutral-300': '#d4d4d4',
+                        'neutral-400': '#a3a3a3',
+                        'neutral-500': '#737373',
+                        'neutral-600': '#525252',
+                        'neutral-700': '#404040',
+                        'neutral-800': '#262626',
+                        'neutral-900': '#171717',
+                        'accent': '#2563eb',
+                        'accent-light': '#3b82f6'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'display': ['DM Sans', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: #fafafa;
+            color: #262626;
+        }
+
+        .font-display {
+            font-family: 'DM Sans', system-ui, sans-serif;
+        }
+
+        /* Full Screen Sections */
+        .section-full {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .section-large {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Navigation */
+        .nav-blur {
+            background: rgba(250, 250, 250, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        /* Typography */
+        .hero-title {
+            font-size: clamp(48px, 6vw, 72px);
+            font-weight: 600;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .section-title {
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+
+        .large-text {
+            font-size: clamp(18px, 2.5vw, 22px);
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .body-text {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.7;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background: #262626;
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: #171717;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #262626;
+            border: 1px solid #e5e5e5;
+            padding: 14px 28px;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .btn-secondary:hover {
+            border-color: #262626;
+            background: #fafafa;
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border: 1px solid #e5e5e5;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: #d4d4d4;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+
+        /* Form Elements */
+        .form-input {
+            background: white;
+            border: 1px solid #e5e5e5;
+            border-radius: 6px;
+            padding: 12px 16px;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #262626;
+            box-shadow: 0 0 0 3px rgba(38, 38, 38, 0.1);
+        }
+
+        .form-input::placeholder {
+            color: #a3a3a3;
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Image Styling */
+        .image-rounded {
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .image-rounded:hover {
+            transform: scale(1.02);
+        }
+
+        /* Activity Book Styling */
+        .activity-book {
+            border-radius: 8px;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .activity-book:hover {
+            transform: scale(1.05) rotateY(5deg);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Enhanced Logo Animations */
+        .logo-main {
+            animation: logoFloat 6s ease-in-out infinite, logoGlow 8s ease-in-out infinite alternate;
+            transition: all 0.5s ease;
+            filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.1));
+        }
+
+        .logo-main:hover {
+            transform: scale(1.05) rotate(1deg);
+            filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.15)) brightness(1.05);
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg); 
+            }
+            25% { 
+                transform: translateY(-8px) rotate(0.5deg); 
+            }
+            50% { 
+                transform: translateY(-12px) rotate(0deg); 
+            }
+            75% { 
+                transform: translateY(-6px) rotate(-0.5deg); 
+            }
+        }
+
+        @keyframes logoGlow {
+            0%, 100% { 
+                filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.1)) drop-shadow(0 0 15px rgba(37, 99, 235, 0.1));
+            }
+            50% { 
+                filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.12)) drop-shadow(0 0 25px rgba(37, 99, 235, 0.2));
+            }
+        }
+
+        /* Logo Breathing Effect */
+        @keyframes logoBreathe {
+            0%, 100% { 
+                transform: scale(1); 
+            }
+            50% { 
+                transform: scale(1.02); 
+            }
+        }
+
+        /* Subtle Pulse Ring Around Logo */
+        .logo-pulse-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120%;
+            height: 120%;
+            border: 2px solid rgba(37, 99, 235, 0.1);
+            border-radius: 50%;
+            animation: logoPulse 4s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes logoPulse {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(0.9);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.1);
+                opacity: 0.1;
+            }
+        }
+
+        /* Sparkle Effects Around Logo */
+        .logo-sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.8), transparent);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .sparkle-1 {
+            top: 20%;
+            left: 15%;
+            animation: sparkleFloat 3s ease-in-out infinite;
+        }
+
+        .sparkle-2 {
+            top: 30%;
+            right: 20%;
+            animation: sparkleFloat 3.5s ease-in-out infinite;
+            animation-delay: -1s;
+        }
+
+        .sparkle-3 {
+            bottom: 25%;
+            left: 25%;
+            animation: sparkleFloat 2.8s ease-in-out infinite;
+            animation-delay: -2s;
+        }
+
+        .sparkle-4 {
+            bottom: 35%;
+            right: 15%;
+            animation: sparkleFloat 3.2s ease-in-out infinite;
+            animation-delay: -0.5s;
+        }
+
+        @keyframes sparkleFloat {
+            0%, 100% {
+                opacity: 0;
+                transform: translateY(0) scale(0);
+            }
+            25% {
+                opacity: 1;
+                transform: translateY(-10px) scale(1);
+            }
+            50% {
+                opacity: 0.8;
+                transform: translateY(-5px) scale(1.2);
+            }
+            75% {
+                opacity: 0.6;
+                transform: translateY(-15px) scale(0.8);
+            }
+        }
+
+        /* Text Shadows for Readability */
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .text-shadow-lg {
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Enhanced Glass Effect */
+        .glass-overlay {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Global Page-Wide Animation Container */
+        .page-wide-animation-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* JavaScript-Based Stationery Animation Container */
+        .stationery-animation-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 5; /* Lower z-index so items fall behind and through logo */
+        }
+
+        .js-falling-item {
+            position: absolute;
+            font-size: 2rem;
+            pointer-events: none;
+            user-select: none;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Content Container Styling - Transparent */
+        .content-container {
+            background: transparent;
+            padding: 60px 40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .title-underline {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            margin: 0 auto;
+            border-radius: 2px;
+            margin-top: 16px;
+            animation: underlineGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes underlineGlow {
+            from { box-shadow: 0 0 5px rgba(59, 130, 246, 0.3); }
+            to { box-shadow: 0 0 15px rgba(139, 92, 246, 0.5); }
+        }
+
+        /* Dynamic Animations */
+        
+        /* Ken Burns Effect for Images */
+        .animate-ken-burns-1 {
+            animation: kenBurns1 20s ease-in-out infinite;
+        }
+
+        .animate-ken-burns-2 {
+            animation: kenBurns2 25s ease-in-out infinite;
+        }
+
+        .animate-ken-burns-3 {
+            animation: kenBurns3 30s ease-in-out infinite;
+        }
+
+        @keyframes kenBurns1 {
+            0%, 100% { transform: scale(1) translateX(0); }
+            50% { transform: scale(1.05) translateX(-2%); }
+        }
+
+        @keyframes kenBurns2 {
+            0%, 100% { transform: scale(1.02) translateY(0); }
+            50% { transform: scale(1.07) translateY(-1%); }
+        }
+
+        @keyframes kenBurns3 {
+            0%, 100% { transform: scale(1.01) translateX(0); }
+            50% { transform: scale(1.06) translateX(2%); }
+        }
+
+        /* Gradient Shift Animation */
+        .animate-gradient-shift {
+            animation: gradientShift 8s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 0.4; }
+        }
+
+        /* Subtle Pulse */
+        .animate-pulse-subtle {
+            animation: pulseSubtle 4s ease-in-out infinite;
+        }
+
+        @keyframes pulseSubtle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        /* Floating Particles */
+        .floating-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: floatUp 15s linear infinite;
+        }
+
+        .particle-1 { left: 10%; animation-delay: 0s; animation-duration: 20s; }
+        .particle-2 { left: 25%; animation-delay: -5s; animation-duration: 25s; }
+        .particle-3 { left: 50%; animation-delay: -10s; animation-duration: 18s; }
+        .particle-4 { left: 75%; animation-delay: -15s; animation-duration: 22s; }
+        .particle-5 { left: 90%; animation-delay: -8s; animation-duration: 28s; }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100px) translateX(20px);
+                opacity: 0;
+            }
+        }
+
+        /* Text Container Breathing Effect */
+        .animate-breathe {
+            animation: breathe 6s ease-in-out infinite;
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.01); }
+        }
+
+        /* Text Glow Effect */
+        .animate-text-glow {
+            animation: textGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            from { text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); }
+            to { text-shadow: 0 4px 20px rgba(255, 255, 255, 0.3), 0 4px 8px rgba(0, 0, 0, 0.4); }
+        }
+
+        /* Button Float Animation */
+        .animate-button-float {
+            animation: buttonFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes buttonFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-2px); }
+        }
+
+        /* Additional Dynamic Animations */
+
+        /* Slide In Animations */
+        .animate-slide-in-left {
+            animation: slideInLeft 1s ease-out forwards;
+        }
+
+        .animate-slide-in-right {
+            animation: slideInRight 1s ease-out forwards;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Floating Animations */
+        .animate-float-slow {
+            animation: floatSlow 8s ease-in-out infinite;
+        }
+
+        .animate-float-reverse {
+            animation: floatReverse 6s ease-in-out infinite;
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+
+        @keyframes floatReverse {
+            0%, 100% { transform: translateY(-10px) rotate(0deg); }
+            50% { transform: translateY(5px) rotate(-1deg); }
+        }
+
+        /* Icon Animations */
+        .animate-icon-bounce {
+            animation: iconBounce 2s ease-in-out infinite;
+        }
+
+        .animate-icon-float {
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+
+        .animate-icon-wiggle {
+            animation: iconWiggle 1s ease-in-out infinite;
+        }
+
+        @keyframes iconBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-3px) rotate(2deg); }
+        }
+
+        @keyframes iconWiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-5deg); }
+            75% { transform: rotate(5deg); }
+        }
+
+        /* Text Animations */
+        .animate-typing {
+            animation: typing 2s steps(20) forwards;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 2px solid transparent;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        .animate-text-shimmer {
+            animation: textShimmer 2s ease-in-out infinite;
+        }
+
+        @keyframes textShimmer {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Button Animations */
+        .animate-button-hover {
+            transition: all 0.3s ease;
+        }
+
+        .animate-button-hover:hover {
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        .animate-button-pulse {
+            animation: buttonPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes buttonPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(38, 38, 38, 0.4); }
+            50% { box-shadow: 0 0 0 10px rgba(38, 38, 38, 0); }
+        }
+
+        /* Card Animations */
+        .animate-card-rise {
+            animation: cardRise 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        @keyframes cardRise {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-scale-in {
+            animation: scaleIn 0.6s ease-out forwards;
+            opacity: 0;
+            transform: scale(0.95);
+        }
+
+        @keyframes scaleIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .animate-zoom-in {
+            animation: zoomIn 0.8s ease-out forwards;
+            opacity: 0;
+            transform: scale(0.9);
+        }
+
+        @keyframes zoomIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Form Animations */
+        .animate-form-rise {
+            animation: formRise 1s ease-out forwards;
+        }
+
+        @keyframes formRise {
+            from {
+                opacity: 0;
+                transform: translateY(20px) rotateX(10deg);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) rotateX(0deg);
+            }
+        }
+
+        .animate-input-focus {
+            transition: all 0.3s ease;
+        }
+
+        .animate-input-focus:focus {
+            transform: scale(1.02);
+        }
+
+        /* Badge Animations */
+        .animate-pulse-badge {
+            animation: pulseBadge 3s ease-in-out infinite;
+        }
+
+        @keyframes pulseBadge {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .animate-bounce-gentle {
+            animation: bounceGentle 2s ease-in-out infinite;
+        }
+
+        @keyframes bounceGentle {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+
+        /* Background Animations */
+        .animate-gradient-wave {
+            animation: gradientWave 15s ease-in-out infinite;
+        }
+
+        @keyframes gradientWave {
+            0%, 100% { transform: translateX(-10%) rotate(0deg); }
+            50% { transform: translateX(10%) rotate(1deg); }
+        }
+
+        /* Sparkle Effects */
+        .sparkle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: radial-gradient(circle, #2563eb, transparent);
+            border-radius: 50%;
+            animation: sparkle 3s ease-in-out infinite;
+        }
+
+        .sparkle-1 { top: 20%; left: 15%; animation-delay: 0s; }
+        .sparkle-2 { top: 40%; right: 20%; animation-delay: 1s; }
+        .sparkle-3 { bottom: 30%; left: 25%; animation-delay: 2s; }
+        .sparkle-4 { top: 60%; left: 60%; animation-delay: 0.5s; }
+        .sparkle-5 { bottom: 50%; right: 35%; animation-delay: 1.5s; }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+
+        .animate-glow-pulse {
+            animation: glowPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { box-shadow: 0 0 0 rgba(37, 99, 235, 0); }
+            50% { box-shadow: 0 0 20px rgba(37, 99, 235, 0.3); }
+        }
+
+        .animate-spin-slow {
+            animation: spinSlow 8s linear infinite;
+        }
+
+        @keyframes spinSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Line Drawing Animation */
+        .animate-draw-line {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: drawLine 4s ease-in-out forwards;
+        }
+
+        @keyframes drawLine {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        /* Scale In Up Animation */
+        .animate-scale-in-up {
+            animation: scaleInUp 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            opacity: 0;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Loader */
+        .loader {
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid #262626;
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+        }
+
+        /* Fade animations */
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-out {
+            animation: fadeInOut 2s ease-in-out infinite;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+
+        /* Modal Styles */
+        .modal-backdrop {
+            backdrop-filter: blur(10px);
+            animation: backdropFadeIn 0.3s ease-out;
+        }
+
+        .modal-closing {
+            animation: backdropFadeOut 0.3s ease-out;
+        }
+
+        .modal-content {
+            animation: modalSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .modal-closing .modal-content {
+            animation: modalSlideOut 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes backdropFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes backdropFadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95) translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        @keyframes modalSlideOut {
+            from {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+            to {
+                opacity: 0;
+                transform: scale(0.95) translateY(-20px);
+            }
+        }
+
+        /* Methodology section animation */
+        .methodology-section {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        /* Mobile-First Responsive Adjustments */
+        @media (max-width: 768px) {
+            .section-full,
+            .section-large {
+                min-height: auto;
+                padding: 60px 0;
+            }
+
+            .content-container {
+                padding: 40px 24px;
+                margin: 0 16px;
+            }
+
+            .js-falling-item {
+                font-size: 1.5rem;
+            }
+
+            /* Mobile Navigation Improvements */
+            .nav-blur {
+                padding: 16px 0;
+            }
+
+            /* Mobile Logo Sizing */
+            .logo-main {
+                max-width: 85vw;
+            }
+
+            /* Mobile Form Spacing */
+            .form-input {
+                padding: 14px 16px;
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+
+            /* Mobile Card Adjustments */
+            .card {
+                margin: 0 8px;
+            }
+
+            /* Mobile Button Sizing */
+            .btn-primary,
+            .btn-secondary {
+                padding: 16px 20px;
+                font-size: 16px;
+                min-height: 48px; /* Touch target size */
+            }
+
+            /* Mobile Modal Adjustments */
+            .modal-content {
+                margin: 16px;
+                max-height: 85vh;
+            }
+
+            /* Mobile Methodology Cards */
+            .methodology-section .grid {
+                gap: 16px;
+            }
+
+            /* Mobile Contact Section */
+            #contact .grid {
+                gap: 24px;
+            }
+
+            /* Mobile Typography */
+            .section-title {
+                font-size: clamp(24px, 6vw, 36px);
+            }
+
+            .large-text {
+                font-size: clamp(16px, 4vw, 18px);
+            }
+        }
+
+        /* Small Mobile Devices */
+        @media (max-width: 480px) {
+            .stationery-animation-container,
+            .page-wide-animation-container {
+                overflow: hidden;
+            }
+
+            .js-falling-item {
+                font-size: 1.2rem;
+            }
+
+            .content-container {
+                padding: 32px 20px;
+            }
+
+            /* Ensure touch targets are adequate */
+            button, .btn-primary, .btn-secondary {
+                min-height: 44px;
+                padding: 14px 18px;
+            }
+
+            /* Mobile form improvements */
+            .form-input {
+                padding: 16px 14px;
+            }
+
+            /* Mobile card padding */
+            .card {
+                padding: 24px 20px;
+            }
+        }
+
+        /* Landscape Mobile */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .section-full {
+                min-height: auto;
+                padding: 40px 0;
+            }
+
+            .logo-main {
+                max-height: 120px;
+                width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Page-Wide Animation Container -->
+    <div class="page-wide-animation-container" id="pageWideStationery">
+        <!-- Page-wide falling items will be created here -->
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 nav-blur transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="logo.png" alt="ThinkHumanly Logo" class="h-12 w-auto object-contain" style="max-height: 48px;">
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-neutral-600 hover:text-neutral-900 transition-colors text-sm font-medium">Our Approach</a>
+                    <a href="#solutions" class="text-neutral-600 hover:text-neutral-900 transition-colors text-sm font-medium">Solutions</a>
+                    <a href="#idea-spark" class="text-neutral-600 hover:text-neutral-900 transition-colors text-sm font-medium">✨ Idea Spark</a>
+                    <button class="btn-primary" onclick="openEmailClient()">
+                        Contact Us
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-neutral-600 hover:text-neutral-900 p-2">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Overlay -->
+                <div id="mobile-menu" class="hidden md:hidden fixed inset-0 z-50 bg-black/50 backdrop-blur-sm">
+                    <div class="bg-white h-full w-64 shadow-xl">
+                        <div class="p-6">
+                            <div class="flex justify-between items-center mb-8">
+                                <img src="logo.png" alt="ThinkHumanly Logo" class="h-8 w-auto">
+                                <button id="close-mobile-menu" class="text-neutral-600 hover:text-neutral-900 p-2">
+                                    <i class="fas fa-times text-xl"></i>
+                                </button>
+                            </div>
+                            <nav class="space-y-6">
+                                <a href="#about" class="block text-neutral-700 hover:text-accent font-medium transition-colors" onclick="closeMobileMenu()">Our Approach</a>
+                                <a href="#solutions" class="block text-neutral-700 hover:text-accent font-medium transition-colors" onclick="closeMobileMenu()">Solutions</a>
+                                <a href="#idea-spark" class="block text-neutral-700 hover:text-accent font-medium transition-colors" onclick="closeMobileMenu()">✨ Idea Spark</a>
+                                <a href="#contact" class="block text-neutral-700 hover:text-accent font-medium transition-colors" onclick="closeMobileMenu()">Contact</a>
+                                <button class="btn-primary w-full mt-6" onclick="openEmailClient(); closeMobileMenu();">
+                                    Get Started
+                                </button>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section - JavaScript-Based Falling Stationery -->
+    <section class="section-full relative overflow-hidden bg-white">
+        
+        <!-- Stationery Animation Container -->
+        <div class="stationery-animation-container" id="stationeryContainer">
+            <!-- Items will be dynamically created by JavaScript -->
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-full max-w-4xl mx-auto px-6 text-center relative z-10">
+                
+                <!-- Clean Content Container -->
+                <div class="content-container">
+                    <div class="reveal animate-fade-in-up">
+                        <!-- Enhanced Animated Logo -->
+                        <div class="mb-4 flex justify-center relative">
+                            <div class="relative">
+                                <!-- Pulse Ring Effect -->
+                                <div class="logo-pulse-ring"></div>
+                                
+                                <!-- Main Logo with Enhanced Animations -->
+                                <img src="logo.png" alt="ThinkHumanly" class="w-72 md:w-80 lg:w-96 h-auto object-contain logo-main" style="max-width: 90vw;">
+                                
+                                <!-- Sparkle Effects -->
+                                <div class="logo-sparkle sparkle-1"></div>
+                                <div class="logo-sparkle sparkle-2"></div>
+                                <div class="logo-sparkle sparkle-3"></div>
+                                <div class="logo-sparkle sparkle-4"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="reveal animate-fade-in-up" style="animation-delay: 0.3s;">
+                        <p class="text-lg md:text-2xl text-neutral-600 mb-12 max-w-4xl mx-auto leading-relaxed font-medium">
+                            We craft bespoke, activity-based learning experiences that develop critical thinking and empathy for organizations worldwide.
+                        </p>
+                    </div>
+
+                    <div class="reveal animate-fade-in-up flex flex-col sm:flex-row gap-6 justify-center items-center" style="animation-delay: 0.6s;">
+                        <button class="btn-primary text-lg px-8 py-4" onclick="openEmailClient()">
+                            <i class="fas fa-envelope mr-2"></i>
+                            Begin Your Collaboration
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <div class="w-6 h-10 border-2 border-neutral-400 rounded-full flex justify-center opacity-60">
+                <div class="w-1 h-3 bg-neutral-400 rounded-full mt-2 animate-pulse"></div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-large bg-white relative overflow-hidden">
+        <!-- Animated Background Elements -->
+        <div class="absolute top-10 right-10 w-32 h-32 bg-gradient-to-br from-neutral-100 to-neutral-200 rounded-full opacity-50 animate-float-slow"></div>
+        <div class="absolute bottom-20 left-20 w-20 h-20 bg-gradient-to-br from-accent/20 to-accent/10 rounded-full opacity-60 animate-float-reverse"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal animate-slide-in-left">
+                    <div class="relative group">
+                        <img src="img1.jpg" alt="Little Leaves Activity Book" class="w-full image-rounded transform transition-all duration-700 group-hover:scale-105">
+                        
+                        <!-- Evidence Badge with Pulse Animation -->
+                        <div class="absolute -top-4 -right-4 bg-white border border-neutral-200 p-4 rounded-lg animate-pulse-badge">
+                            <div class="text-2xl mb-1 animate-bounce-gentle">📚</div>
+                            <div class="text-xs font-semibold text-neutral-900">Evidence</div>
+                            <div class="text-xs text-neutral-500">Based</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal animate-slide-in-right">
+                    <div class="space-y-8">
+                        <div class="animate-fade-in-up">
+                            <span class="text-accent font-medium text-sm uppercase tracking-wider animate-text-shimmer">Beyond One-Size-Fits-All</span>
+                            <h2 class="font-display section-title text-neutral-900 mt-4 animate-typing">
+                                Activity-Based Learning<br>
+                                That Transforms
+                            </h2>
+                        </div>
+
+                        <p class="body-text text-neutral-600 animate-fade-in-up" style="animation-delay: 0.3s;">
+                            The most powerful learning happens through activities that are engaging, personally meaningful, and intrinsically rewarding. Our research-backed methodology creates lasting impact through human connection.
+                        </p>
+
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4 animate-slide-in-right" style="animation-delay: 0.5s;">
+                                <div class="w-12 h-12 bg-neutral-900 rounded-lg flex items-center justify-center flex-shrink-0 animate-icon-bounce">
+                                    <i class="fas fa-brain text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-neutral-900 mb-2">Critical Thinking Development</h4>
+                                    <p class="body-text text-neutral-600">Evidence-based activities that improve problem-solving and analytical reasoning.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4 animate-slide-in-right" style="animation-delay: 0.7s;">
+                                <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center flex-shrink-0 animate-icon-bounce" style="animation-delay: 0.2s;">
+                                    <i class="fas fa-heart text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-neutral-900 mb-2">Emotional Intelligence</h4>
+                                    <p class="body-text text-neutral-600">Social learning that measurably improves engagement and outcomes.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="animate-fade-in-up" style="animation-delay: 0.9s;">
+                            <button class="btn-primary animate-button-hover" onclick="openMethodologyModal()">
+                                <i class="fas fa-arrow-right mr-2"></i>
+                                Explore Our Methodology
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="section-large bg-neutral-50 relative overflow-hidden">
+        <!-- Animated Background Grid -->
+        <div class="absolute inset-0 opacity-30">
+            <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-transparent via-accent/5 to-transparent animate-gradient-wave"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-16 reveal animate-zoom-in">
+                <h2 class="font-display section-title text-neutral-900 mb-6 animate-typing">
+                    Our Collaborative Process
+                </h2>
+                <p class="large-text text-neutral-600 max-w-4xl mx-auto animate-fade-in-up" style="animation-delay: 0.4s;">
+                    Discover how we adapt our services to your needs.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Solution 1 -->
+                <div class="card p-8 reveal animate-card-rise group" style="animation-delay: 0.2s;">
+                    <div class="mb-6">
+                        <img src="img1.jpg" alt="Little Leaves Illustration" class="w-full h-48 object-cover rounded-lg mb-4 group-hover:scale-105 transition-transform duration-300">
+                        <div class="w-12 h-12 bg-neutral-900 rounded-lg flex items-center justify-center animate-icon-float group-hover:animate-icon-bounce">
+                            <i class="fas fa-book-open text-white transition-transform group-hover:scale-110"></i>
+                        </div>
+                    </div>
+                    
+                    <h3 class="font-display text-xl font-semibold text-neutral-900 mb-4 group-hover:animate-text-glow">Bespoke Learning Tools</h3>
+                    <p class="body-text text-neutral-600 mb-6">
+                        We co-create tactile resources and activity guides on topics like AI literacy and digital citizenship, tailored to your learners.
+                    </p>
+                </div>
+
+                <!-- Solution 2 -->
+                <div class="card p-8 reveal animate-card-rise group" style="animation-delay: 0.4s;">
+                    <div class="mb-6">
+                        <img src="img2.jpg" alt="Learning is Fun Illustration" class="w-full h-48 object-cover rounded-lg mb-4 group-hover:scale-105 transition-transform duration-300">
+                        <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center animate-icon-float group-hover:animate-icon-bounce" style="animation-delay: 0.2s;">
+                            <i class="fas fa-cogs text-white transition-transform group-hover:scale-110"></i>
+                        </div>
+                    </div>
+                    
+                    <h3 class="font-display text-xl font-semibold text-neutral-900 mb-4 group-hover:animate-text-glow">Curriculum & Program Design</h3>
+                    <p class="body-text text-neutral-600 mb-6">
+                        We partner with you to design and integrate our human-centric methodology into your curriculum, therapy, or training programs.
+                    </p>
+                </div>
+
+                <!-- Solution 3 -->
+                <div class="card p-8 reveal animate-card-rise group" style="animation-delay: 0.6s;">
+                    <div class="mb-6">
+                        <img src="img3.jpg" alt="Other Thoughts Illustration" class="w-full h-48 object-cover rounded-lg mb-4 group-hover:scale-105 transition-transform duration-300">
+                        <div class="w-12 h-12 bg-neutral-700 rounded-lg flex items-center justify-center animate-icon-float group-hover:animate-icon-bounce" style="animation-delay: 0.4s;">
+                            <i class="fas fa-chart-line text-white transition-transform group-hover:scale-110"></i>
+                        </div>
+                    </div>
+                    
+                    <h3 class="font-display text-xl font-semibold text-neutral-900 mb-4 group-hover:animate-text-glow">Growth & Impact Analytics</h3>
+                    <p class="body-text text-neutral-600 mb-6">
+                        We provide frameworks to measure the real-world impact of our collective work on skill development and engagement.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Extra Spacing Section -->
+    <section class="py-16 bg-neutral-50"></section>
+
+    <!-- Idea Spark Section -->
+    <section id="idea-spark" class="section-large bg-white relative overflow-hidden">
+        <!-- Sparkle Animation Background -->
+        <div class="absolute inset-0">
+            <div class="sparkle sparkle-1"></div>
+            <div class="sparkle sparkle-2"></div>
+            <div class="sparkle sparkle-3"></div>
+            <div class="sparkle sparkle-4"></div>
+            <div class="sparkle sparkle-5"></div>
+        </div>
+        
+        <div class="max-w-5xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-16 reveal animate-zoom-in">
+                <div class="inline-flex items-center space-x-2 bg-neutral-50 border border-neutral-200 px-4 py-2 rounded-full mb-8 animate-glow-pulse">
+                    <span class="text-lg animate-spin-slow">✨</span>
+                    <span class="text-sm text-neutral-600">Experience Our Approach</span>
+                </div>
+                
+                <h2 class="font-display section-title text-neutral-900 mb-6 animate-typing">
+                    Activity Idea Spark
+                </h2>
+                
+                <p class="large-text text-neutral-600 max-w-3xl mx-auto animate-fade-in-up" style="animation-delay: 0.4s;">
+                    Get a glimpse of our human-centric methodology. Select your context and let ThinkHumanly generate a unique, hands-on activity idea for you.
+                </p>
+            </div>
+
+            <div class="card p-8 reveal animate-scale-in" style="animation-delay: 0.2s;">
+                <form id="idea-form" class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div class="space-y-3 animate-slide-in-left" style="animation-delay: 0.3s;">
+                        <label class="block text-sm font-medium text-neutral-900">I am a...</label>
+                        <select id="role" class="form-input animate-input-focus">
+                            <option value="Teacher">Teacher</option>
+                            <option value="Corporate Trainer">Corporate Trainer</option>
+                            <option value="Therapist / Psychologist">Therapist / Psychologist</option>
+                            <option value="Educational Consultant">Educational Consultant</option>
+                        </select>
+                    </div>
+
+                    <div class="space-y-3 animate-slide-in-right" style="animation-delay: 0.4s;">
+                        <label class="block text-sm font-medium text-neutral-900">My learners are...</label>
+                        <select id="audience" class="form-input animate-input-focus">
+                            <option value="Young Children (3-7)">Young Children (3-7)</option>
+                            <option value="Primary Students (8-12)">Primary Students (8-12)</option>
+                            <option value="Teenagers (13-18)">Teenagers (13-18)</option>
+                            <option value="Adults">Adults</option>
+                            <option value="Mixed Age Groups">Mixed Age Groups</option>
+                        </select>
+                    </div>
+
+                    <div class="md:col-span-2 space-y-3 animate-fade-in-up" style="animation-delay: 0.5s;">
+                        <label class="block text-sm font-medium text-neutral-900">I want to focus on...</label>
+                        <select id="focus" class="form-input animate-input-focus">
+                            <option value="Civic Engagement">Civic Engagement</option>
+                            <option value="Inclusivity & Diversity">Inclusivity & Diversity</option>
+                            <option value="Critical Thinking">Critical Thinking</option>
+                            <option value="Empathy & Tolerance">Empathy & Tolerance</option>
+                            <option value="Digital Citizenship">Digital Citizenship</option>
+                            <option value="Cultural Acceptance">Cultural Acceptance</option>
+                        </select>
+                    </div>
+
+                    <div class="md:col-span-2 space-y-3 animate-fade-in-up" style="animation-delay: 0.6s;">
+                        <label class="block text-sm font-medium text-neutral-900">Add specific context (optional)</label>
+                        <input type="text" id="context" placeholder="e.g., 'for a multicultural classroom', 'for team building workshop'" 
+                               class="form-input animate-input-focus">
+                    </div>
+                </form>
+
+                <div class="text-center animate-fade-in-up" style="animation-delay: 0.8s;">
+                    <button id="generate-btn" class="btn-primary animate-button-pulse">
+                        <i class="fas fa-magic mr-2 animate-icon-wiggle"></i>
+                        Generate My Activity
+                    </button>
+                </div>
+
+                <div id="loading-indicator" class="hidden mt-8 flex justify-center items-center">
+                    <div class="loader mr-3"></div>
+                    <span class="text-neutral-600 animate-fade-in-out">Creating your personalized activity...</span>
+                </div>
+
+                <div id="result-container" class="hidden mt-12">
+                    <div class="bg-neutral-50 border border-neutral-200 p-8 rounded-lg animate-scale-in">
+                        <div class="flex items-center space-x-4 mb-6">
+                            <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center animate-icon-bounce">
+                                <i class="fas fa-lightbulb text-white"></i>
+                            </div>
+                            <div>
+                                <h3 id="result-title" class="font-display text-xl font-semibold text-neutral-900"></h3>
+                                <div class="text-sm text-neutral-500">Human-Centric Learning Activity</div>
+                            </div>
+                        </div>
+                        
+                        <p id="result-description" class="body-text text-neutral-700 mb-6"></p>
+                        
+                        <div class="bg-white border border-neutral-200 p-6 rounded-lg">
+                            <h4 class="font-medium text-neutral-900 mb-4 flex items-center">
+                                <i class="fas fa-target mr-2 text-accent animate-icon-wiggle"></i>
+                                Key Learning Outcomes:
+                            </h4>
+                            <ul id="result-outcomes" class="space-y-3"></ul>
+                        </div>
+
+                        <div class="mt-8 text-center">
+                            <p class="body-text text-neutral-600 mb-4">Love this approach? Let's create something transformational together!</p>
+                            <button class="btn-primary animate-button-pulse" onclick="openEmailClient()">
+                                <i class="fas fa-handshake mr-2"></i>
+                                Start Full Collaboration
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section - Simplified & Elegant -->
+    <section id="contact" class="section-large bg-gradient-to-br from-neutral-50 via-white to-neutral-50 relative overflow-hidden">
+        <!-- Enhanced Background Elements -->
+        <div class="absolute inset-0">
+            <div class="absolute top-20 right-20 w-40 h-40 bg-gradient-to-br from-accent/10 to-accent/5 rounded-full blur-3xl animate-float-slow"></div>
+            <div class="absolute bottom-32 left-16 w-32 h-32 bg-gradient-to-br from-neutral-200/50 to-neutral-100/50 rounded-full blur-2xl animate-float-reverse"></div>
+            <div class="absolute top-1/2 left-1/2 w-24 h-24 bg-gradient-to-br from-accent/5 to-transparent rounded-full blur-xl animate-pulse-subtle"></div>
+        </div>
+        
+        <div class="max-w-4xl mx-auto px-6 relative z-10">
+            
+            <!-- Section Header -->
+            <div class="text-center mb-20 reveal animate-zoom-in">
+                <div class="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm border border-neutral-200/50 px-6 py-3 rounded-full mb-8 shadow-lg">
+                    <span class="text-2xl animate-spin-slow">🤝</span>
+                    <span class="text-sm text-neutral-600 font-medium">Let's Connect</span>
+                </div>
+                
+                <h2 class="font-display section-title text-neutral-900 mb-6 animate-typing">
+                    Let's Create Together
+                </h2>
+                <p class="large-text text-neutral-600 max-w-3xl mx-auto animate-fade-in-up" style="animation-delay: 0.4s;">
+                    Share your vision with us. We'll explore how our human-centric approach can help you achieve transformational learning outcomes.
+                </p>
+            </div>
+
+            <!-- Contact Cards - Centered Layout -->
+            <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                
+                <!-- Direct Contact Card -->
+                <div class="bg-white/70 backdrop-blur-sm border border-neutral-200/50 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 group reveal animate-slide-in-left">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-neutral-900 to-neutral-700 rounded-2xl flex items-center justify-center shadow-lg mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                            <i class="fas fa-envelope text-white text-xl"></i>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-neutral-900 mb-3">Direct Contact</h3>
+                        <p class="text-accent font-semibold text-lg mb-2">contact@thinkhumanly.co</p>
+                        <p class="text-neutral-600 text-sm mb-6">We respond within 24 hours</p>
+                        
+                        <button onclick="openEmailClient()" class="w-full bg-gradient-to-r from-neutral-900 to-neutral-800 hover:from-neutral-800 hover:to-neutral-700 text-white font-semibold py-4 px-6 rounded-2xl transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 flex items-center justify-center space-x-3 group">
+                            <span>Start Conversation</span>
+                            <div class="group-hover:translate-x-1 transition-transform duration-300">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Global Reach Card -->
+                <div class="bg-white/70 backdrop-blur-sm border border-neutral-200/50 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 group reveal animate-slide-in-right" style="animation-delay: 0.2s;">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-accent to-accent-light rounded-2xl flex items-center justify-center shadow-lg mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                            <i class="fas fa-globe text-white text-xl"></i>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-neutral-900 mb-3">Global Reach</h3>
+                        <p class="text-neutral-700 font-medium text-lg mb-2">UK • USA • India • Middle East</p>
+                        <p class="text-neutral-600 text-sm mb-6">Serving organizations worldwide</p>
+                        
+                        <div class="bg-gradient-to-br from-accent/10 to-accent/5 rounded-2xl p-4 border border-accent/20">
+                            <div class="flex items-center justify-center space-x-2 text-neutral-700">
+                                <div class="text-2xl">🌍</div>
+                                <span class="text-sm font-medium">Transforming learning globally</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-modal" class="fixed inset-0 z-50 hidden">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closePrivacyModal()"></div>
+        
+        <!-- Modal Container -->
+        <div class="relative w-full h-full flex items-center justify-center p-4">
+            <div class="modal-content bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl">
+                
+                <!-- Modal Header -->
+                <div class="sticky top-0 bg-white/95 backdrop-blur-sm border-b border-neutral-200 p-6 flex justify-between items-center z-10">
+                    <h2 class="font-display text-2xl font-bold text-neutral-900">Privacy Policy</h2>
+                    <button onclick="closePrivacyModal()" class="w-10 h-10 bg-neutral-100 hover:bg-neutral-200 rounded-full flex items-center justify-center transition-colors">
+                        <i class="fas fa-times text-neutral-600"></i>
+                    </button>
+                </div>
+
+                <!-- Modal Content -->
+                <div class="overflow-y-auto max-h-[calc(90vh-100px)] p-6 space-y-6">
+                    
+                    <div class="prose prose-neutral max-w-none">
+                        <p class="text-sm text-neutral-500 mb-6">Effective Date: January 2025</p>
+                        
+                        <h3 class="text-lg font-semibold text-neutral-900 mb-3">Information We Collect</h3>
+                        <p class="text-neutral-700 mb-4">
+                            ThinkHumanly operates on a privacy-first approach. We only collect information when you voluntarily contact us through:
+                        </p>
+                        <ul class="list-disc list-inside text-neutral-700 mb-6 space-y-2">
+                            <li>Email communications to contact@thinkhumanly.co</li>
+                            <li>Information you provide in consultation requests</li>
+                        </ul>
+
+                        <h3 class="text-lg font-semibold text-neutral-900 mb-3">How We Use Your Information</h3>
+                        <p class="text-neutral-700 mb-4">
+                            We use the information you provide solely to:
+                        </p>
+                        <ul class="list-disc list-inside text-neutral-700 mb-6 space-y-2">
+                            <li>Respond to your inquiries about our services</li>
+                            <li>Provide educational consultation and collaboration</li>
+                            <li>Develop bespoke learning solutions for your organization</li>
+                        </ul>
+
+                        <h3 class="text-lg font-semibold text-neutral-900 mb-3">Data Security</h3>
+                        <p class="text-neutral-700 mb-6">
+                            We implement appropriate technical and organizational measures to protect your personal information. We do not store personal data on our website - all communications are handled through secure email systems.
+                        </p>
+
+                        <h3 class="text-lg font-semibold text-neutral-900 mb-3">Third-Party Services</h3>
+                        <p class="text-neutral-700 mb-6">
+                            Our website may use third-party services for functionality (such as analytics or CDNs). These services have their own privacy policies, and we recommend reviewing them.
+                        </p>
+
+                        <h3 class="text-lg font-semibold text-neutral-900 mb-3">Your Rights</h3>
+                        <p class="text-neutral-700 mb-4">
+                            You have the right to:
+                        </p>
+                        <ul class="list-disc list-inside text-neutral-700 mb-6 space-y-2">
+                            <li>Request information about data we hold about you</li>
+                            <li>Request correction or deletion of your personal information</li>
+                            <li>Withdraw consent for communications at any time</li>
+                        </ul>
+
+                        <h3 class="text-lg font-semibold text-neutral-900 mb-3">Contact Us</h3>
+                        <p class="text-neutral-700 mb-4">
+                            If you have questions about this Privacy Policy, please contact us at:
+                        </p>
+                        <div class="bg-neutral-50 p-4 rounded-lg">
+                            <p class="text-neutral-700 font-medium">ThinkHumanly</p>
+                            <p class="text-neutral-600">Email: contact@thinkhumanly.co</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div id="terms-modal" class="fixed inset-0 z-50 hidden">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeTermsModal()"></div>
+        
+        <!-- Modal Container -->
+        <div class="relative w-full h-full flex items-center justify-center p-4">
+            <div class="modal-content bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl">
+                
+                <!-- Modal Header -->
+                <div class="sticky top-0 bg-white/95 backdrop-blur-sm border-b border-neutral-200 p-6 flex justify-between items-center z-10">
+                    <h2 class="font-display text-2xl font-bold text-neutral-900">Terms of Service</h2>
+                    <button onclick="closeTermsModal()" class="w-10 h-10 bg-neutral-100 hover:bg-neutral-200 rounded-full flex items-center justify-center transition-colors">
+                        <i class="fas fa-times text-neutral-600"></i>
+                    </button>
+                </div>
+
+                <!-- Modal Content -->
+                <div class="overflow-y-auto max-h-[calc(90vh-100px)] p-6 space-y-6">
+                    
+                    <div class="prose prose-neutral max-w-none">
+                        <p class="text-sm text-neutral-500 mb-6">Effective Date: January 2025</p>
+                        
+                        <h3 class="text-lg font-semibold text-neutral-900 mb-3">Our Services</h3>
+                        <p class="text-neutral-700 mb-4">
+                            ThinkHumanly provides human-centric, activity-based learning solutions including:
+                        </p>
+                        <ul class="list-disc list-inside text-neutral-700 mb-6 space-y-2">
+                            <li>Bespoke learning tool development</li>
+                            <li>Curriculum and program design</li>
+                            <li>Educational consultation and training</li>
+                            <li>Impact analytics and assessment</li>
+                        </ul>
+
+                        <h3 class="text-lg font-semibold text-neutral-900 mb-3">Intellectual Property Rights</h3>
+                        <p class="text-neutral-700 mb-4">
+                            <strong>Our Creative Work:</strong> All educational content, methodologies, activity designs, curricula, and learning frameworks developed by ThinkHumanly are protected by intellectual property rights and remain our exclusive property unless otherwise agreed in writing.
+                        </p>
+                        <p class="text-neutral-700 mb-4">
+                            <strong>Bespoke Solutions:</strong> When we create customized learning solutions for your organization, the specific implementation may be licensed for your use while the underlying methodology and framework remain our intellectual property.
+                        </p>
+                        <p class="text-neutral-700 mb-6">
+                            <strong>Client Content:</strong> Any content, information, or materials provided by clients remain their property. We will not use client-specific information for other projects without explicit permission.
+                        </p>
+
+                        <h3 class="text-lg font-semibold text-neutral-900 mb-3">Usage Rights</h3>
+                        <p class="text-neutral-700 mb-4">
+                            Upon completion and payment for services:
+                        </p>
+                        <ul class="list-disc list-inside text-neutral-700 mb-6 space-y-2">
+                            <li>Clients receive usage rights for the specific deliverables within their organization</li>
+                            <li>Modification or redistribution of our content requires written permission</li>
+                            <li>Credit to ThinkHumanly should be maintained where feasible</li>
+                        </ul>
+
+                        <h3 class="text-lg font-semibold text-neutral-900 mb-3">Service Delivery</h3>
+                        <p class="text-neutral-700 mb-6">
+                            We commit to delivering high-quality, evidence-based educational solutions. All projects will be clearly scoped with deliverables, timelines, and expectations outlined in separate agreements.
+                        </p>
+
+                        <h3 class="text-lg font-semibold text-neutral-900 mb-3">Limitation of Liability</h3>
+                        <p class="text-neutral-700 mb-6">
+                            ThinkHumanly provides educational consultation and content creation. While we strive for excellence, we cannot guarantee specific learning outcomes as these depend on various factors including implementation, context, and learner engagement.
+                        </p>
+
+                        <h3 class="text-lg font-semibold text-neutral-900 mb-3">Confidentiality</h3>
+                        <p class="text-neutral-700 mb-6">
+                            We maintain strict confidentiality regarding all client information, educational contexts, and proprietary content shared during our collaboration.
+                        </p>
+
+                        <h3 class="text-lg font-semibold text-neutral-900 mb-3">Modification of Terms</h3>
+                        <p class="text-neutral-700 mb-6">
+                            We reserve the right to update these terms as our services evolve. Significant changes will be communicated to active clients.
+                        </p>
+
+                        <h3 class="text-lg font-semibold text-neutral-900 mb-3">Contact Information</h3>
+                        <p class="text-neutral-700 mb-4">
+                            For questions about these terms or to discuss licensing arrangements:
+                        </p>
+                        <div class="bg-neutral-50 p-4 rounded-lg">
+                            <p class="text-neutral-700 font-medium">ThinkHumanly</p>
+                            <p class="text-neutral-600">Email: contact@thinkhumanly.co</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Methodology Modal -->
+    <div id="methodology-modal" class="fixed inset-0 z-50 hidden">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeMethodologyModal()"></div>
+        
+        <!-- Modal Container -->
+        <div class="relative w-full h-full flex items-center justify-center p-4">
+            <div class="modal-content bg-white rounded-3xl max-w-6xl w-full max-h-[90vh] overflow-hidden shadow-2xl">
+                
+                <!-- Modal Header -->
+                <div class="sticky top-0 bg-white/95 backdrop-blur-sm border-b border-neutral-200 p-6 flex justify-between items-center z-10">
+                    <h2 class="font-display text-2xl font-bold text-neutral-900">Our Methodology</h2>
+                    <button onclick="closeMethodologyModal()" class="w-10 h-10 bg-neutral-100 hover:bg-neutral-200 rounded-full flex items-center justify-center transition-colors">
+                        <i class="fas fa-times text-neutral-600"></i>
+                    </button>
+                </div>
+
+                <!-- Modal Content -->
+                <div class="overflow-y-auto max-h-[calc(90vh-100px)]">
+                    <div class="p-6 space-y-12">
+                        
+                        <!-- Hero Section -->
+                        <div class="text-center methodology-section">
+                            <div class="w-20 h-20 bg-gradient-to-r from-accent to-neutral-700 rounded-3xl flex items-center justify-center mx-auto mb-6 animate-icon-float">
+                                <i class="fas fa-lightbulb text-white text-2xl"></i>
+                            </div>
+                            <h3 class="font-display text-3xl font-bold text-neutral-900 mb-4">Activity-Based Learning</h3>
+                            <p class="large-text text-neutral-600 max-w-4xl mx-auto">
+                                The most powerful learning happens through activities that are engaging, personally meaningful, and intrinsically rewarding - where the joy of discovery drives the learning process.
+                            </p>
+                        </div>
+
+                        <!-- Four Strategic Pillars - Enhanced Interactive Design -->
+                        <div class="methodology-section">
+                            <h3 class="font-display text-2xl font-bold text-neutral-900 mb-8 text-center">Four Strategic Pillars</h3>
+                            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                                
+                                <!-- Pillar 1: Survive & Thrive -->
+                                <div class="group relative overflow-hidden">
+                                    <div class="bg-gradient-to-br from-rose-50 to-pink-50 p-8 rounded-3xl border border-rose-100 hover:border-rose-300 transition-all duration-500 hover:scale-105 hover:shadow-xl cursor-pointer">
+                                        <div class="flex items-center space-x-4 mb-4">
+                                            <div class="relative">
+                                                <div class="w-16 h-16 bg-gradient-to-br from-rose-400 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-12 group-hover:scale-110 transition-all duration-500">
+                                                    <div class="text-white text-2xl animate-pulse">💖</div>
+                                                </div>
+                                                <div class="absolute -top-2 -right-2 w-6 h-6 bg-rose-200 rounded-full animate-ping group-hover:animate-bounce"></div>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-lg text-rose-800 group-hover:text-rose-900 transition-colors">Survive & Thrive</h4>
+                                                <p class="text-rose-600 text-sm">Holistic well-being</p>
+                                            </div>
+                                        </div>
+                                        <p class="text-neutral-700 text-sm leading-relaxed">Every child deserves to grow in a supportive environment that nurtures their physical, emotional, and social development.</p>
+                                        <div class="absolute top-4 right-4 opacity-20 group-hover:opacity-40 transition-opacity duration-300">
+                                            <div class="text-6xl">🌱</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Pillar 2: Learn -->
+                                <div class="group relative overflow-hidden">
+                                    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-3xl border border-blue-100 hover:border-blue-300 transition-all duration-500 hover:scale-105 hover:shadow-xl cursor-pointer">
+                                        <div class="flex items-center space-x-4 mb-4">
+                                            <div class="relative">
+                                                <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-12 group-hover:scale-110 transition-all duration-500">
+                                                    <div class="text-white text-2xl animate-bounce">🎓</div>
+                                                </div>
+                                                <div class="absolute -top-2 -right-2 w-6 h-6 bg-blue-200 rounded-full animate-ping group-hover:animate-bounce"></div>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-lg text-blue-800 group-hover:text-blue-900 transition-colors">Learn</h4>
+                                                <p class="text-blue-600 text-sm">Quality education</p>
+                                            </div>
+                                        </div>
+                                        <p class="text-neutral-700 text-sm leading-relaxed">Access to meaningful, engaging educational experiences that develop critical thinking and prepare learners for the future.</p>
+                                        <div class="absolute top-4 right-4 opacity-20 group-hover:opacity-40 transition-opacity duration-300">
+                                            <div class="text-6xl">📚</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Pillar 3: Protected -->
+                                <div class="group relative overflow-hidden">
+                                    <div class="bg-gradient-to-br from-emerald-50 to-green-50 p-8 rounded-3xl border border-emerald-100 hover:border-emerald-300 transition-all duration-500 hover:scale-105 hover:shadow-xl cursor-pointer">
+                                        <div class="flex items-center space-x-4 mb-4">
+                                            <div class="relative">
+                                                <div class="w-16 h-16 bg-gradient-to-br from-emerald-400 to-green-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-12 group-hover:scale-110 transition-all duration-500">
+                                                    <div class="text-white text-2xl animate-pulse">🛡️</div>
+                                                </div>
+                                                <div class="absolute -top-2 -right-2 w-6 h-6 bg-emerald-200 rounded-full animate-ping group-hover:animate-bounce"></div>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-lg text-emerald-800 group-hover:text-emerald-900 transition-colors">Protected</h4>
+                                                <p class="text-emerald-600 text-sm">Safety & security</p>
+                                            </div>
+                                        </div>
+                                        <p class="text-neutral-700 text-sm leading-relaxed">Creating safe learning environments free from harm, discrimination, and barriers to personal growth and expression.</p>
+                                        <div class="absolute top-4 right-4 opacity-20 group-hover:opacity-40 transition-opacity duration-300">
+                                            <div class="text-6xl">🏰</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Pillar 4: Participate -->
+                                <div class="group relative overflow-hidden">
+                                    <div class="bg-gradient-to-br from-amber-50 to-orange-50 p-8 rounded-3xl border border-amber-100 hover:border-amber-300 transition-all duration-500 hover:scale-105 hover:shadow-xl cursor-pointer">
+                                        <div class="flex items-center space-x-4 mb-4">
+                                            <div class="relative">
+                                                <div class="w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-12 group-hover:scale-110 transition-all duration-500">
+                                                    <div class="text-white text-2xl animate-bounce">👥</div>
+                                                </div>
+                                                <div class="absolute -top-2 -right-2 w-6 h-6 bg-amber-200 rounded-full animate-ping group-hover:animate-bounce"></div>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-lg text-amber-800 group-hover:text-amber-900 transition-colors">Participate</h4>
+                                                <p class="text-amber-600 text-sm">Active engagement</p>
+                                            </div>
+                                        </div>
+                                        <p class="text-neutral-700 text-sm leading-relaxed">Empowering every learner to have their voice heard and to actively contribute to their communities and learning environments.</p>
+                                        <div class="absolute top-4 right-4 opacity-20 group-hover:opacity-40 transition-opacity duration-300">
+                                            <div class="text-6xl">🤝</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- Interactive Connection Lines -->
+                            <div class="mt-12 relative">
+                                <div class="absolute inset-0 flex items-center justify-center opacity-20">
+                                    <svg width="300" height="200" viewBox="0 0 300 200" class="animate-pulse">
+                                        <path d="M50,50 Q150,0 250,50 Q150,100 50,150 Q150,200 250,150 Q150,100 50,50" stroke="#2563eb" stroke-width="2" fill="none" opacity="0.3"/>
+                                    </svg>
+                                </div>
+                                <div class="text-center">
+                                    <p class="text-sm text-neutral-600 italic">Working together to create transformational learning experiences</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Core Themes -->
+                        <div class="methodology-section">
+                            <h3 class="font-display text-2xl font-bold text-neutral-900 mb-8 text-center">Core Learning Themes</h3>
+                            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                                <div class="bg-neutral-50 p-4 rounded-lg text-center hover:bg-accent/10 transition-all duration-300 hover:scale-105">
+                                    <div class="text-accent text-xl mb-2 animate-bounce">🗳️</div>
+                                    <p class="text-sm font-medium text-neutral-700">Civic Engagement</p>
+                                </div>
+                                <div class="bg-neutral-50 p-4 rounded-lg text-center hover:bg-accent/10 transition-all duration-300 hover:scale-105">
+                                    <div class="text-accent text-xl mb-2 animate-pulse">🤝</div>
+                                    <p class="text-sm font-medium text-neutral-700">Inclusivity</p>
+                                </div>
+                                <div class="bg-neutral-50 p-4 rounded-lg text-center hover:bg-accent/10 transition-all duration-300 hover:scale-105">
+                                    <div class="text-accent text-xl mb-2 animate-bounce">👥</div>
+                                    <p class="text-sm font-medium text-neutral-700">Diversity</p>
+                                </div>
+                                <div class="bg-neutral-50 p-4 rounded-lg text-center hover:bg-accent/10 transition-all duration-300 hover:scale-105">
+                                    <div class="text-accent text-xl mb-2 animate-pulse">⚖️</div>
+                                    <p class="text-sm font-medium text-neutral-700">Tolerance</p>
+                                </div>
+                                <div class="bg-neutral-50 p-4 rounded-lg text-center hover:bg-accent/10 transition-all duration-300 hover:scale-105">
+                                    <div class="text-accent text-xl mb-2 animate-bounce">🧠</div>
+                                    <p class="text-sm font-medium text-neutral-700">Critical Thinking</p>
+                                </div>
+                                <div class="bg-neutral-50 p-4 rounded-lg text-center hover:bg-accent/10 transition-all duration-300 hover:scale-105">
+                                    <div class="text-accent text-xl mb-2 animate-pulse">🏛️</div>
+                                    <p class="text-sm font-medium text-neutral-700">Citizenship</p>
+                                </div>
+                                <div class="bg-neutral-50 p-4 rounded-lg text-center hover:bg-accent/10 transition-all duration-300 hover:scale-105">
+                                    <div class="text-accent text-xl mb-2 animate-bounce">🌍</div>
+                                    <p class="text-sm font-medium text-neutral-700">Cultural Acceptance</p>
+                                </div>
+                                <div class="bg-neutral-50 p-4 rounded-lg text-center hover:bg-accent/10 transition-all duration-300 hover:scale-105">
+                                    <div class="text-accent text-xl mb-2 animate-pulse">🔐</div>
+                                    <p class="text-sm font-medium text-neutral-700">Digital Citizenship</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Evidence & Impact -->
+                        <div class="methodology-section">
+                            <h3 class="font-display text-2xl font-bold text-neutral-900 mb-8 text-center">Proven Impact</h3>
+                            <div class="grid md:grid-cols-3 gap-6">
+                                <div class="bg-gradient-to-br from-accent/10 to-accent/5 p-6 rounded-2xl text-center">
+                                    <div class="text-4xl font-bold text-accent mb-2">80-100%</div>
+                                    <p class="text-neutral-700 font-medium">Knowledge Retention</p>
+                                    <p class="text-sm text-neutral-600 mt-2">Students remembered and understood key concepts</p>
+                                </div>
+                                <div class="bg-gradient-to-br from-neutral-100 to-neutral-50 p-6 rounded-2xl text-center">
+                                    <div class="text-4xl font-bold text-neutral-700 mb-2">100%</div>
+                                    <p class="text-neutral-700 font-medium">Concept Introduction</p>
+                                    <p class="text-sm text-neutral-600 mt-2">Successfully introduced empathy and tolerance</p>
+                                </div>
+                                <div class="bg-gradient-to-br from-accent/10 to-neutral-100 p-6 rounded-2xl text-center">
+                                    <div class="text-4xl font-bold text-neutral-900 mb-2">New</div>
+                                    <p class="text-neutral-700 font-medium">Personality Aspects</p>
+                                    <p class="text-sm text-neutral-600 mt-2">Brought out different aspects of personalities</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Call to Action -->
+                        <div class="methodology-section text-center bg-neutral-50 p-8 rounded-2xl">
+                            <h3 class="font-display text-2xl font-bold text-neutral-900 mb-4">Ready to Implement Our Methodology?</h3>
+                            <p class="text-neutral-600 mb-6">Let's discuss how our evidence-based approach can transform your learning environment.</p>
+                            <button class="btn-primary" onclick="closeMethodologyModal(); document.getElementById('contact').scrollIntoView({behavior: 'smooth'});">
+                                <i class="fas fa-handshake mr-2"></i>
+                                Start Your Collaboration
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Footer -->
+    <footer class="bg-neutral-900 text-white relative overflow-hidden">
+        <!-- Animated Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-10 left-10 w-32 h-32 border border-white/20 rounded-full animate-spin-slow"></div>
+            <div class="absolute bottom-10 right-10 w-24 h-24 border border-white/20 rounded-full animate-spin-slow" style="animation-delay: -4s;"></div>
+            <div class="absolute top-1/2 left-1/4 w-16 h-16 border border-white/20 rounded-full animate-spin-slow" style="animation-delay: -2s;"></div>
+        </div>
+        
+        <div class="relative z-10">
+            <!-- Main Footer Content -->
+            <div class="max-w-7xl mx-auto px-6 py-12">
+                <div class="text-center">
+                    <div class="flex items-center justify-center space-x-3 mb-6">
+                        <img src="logo.png" alt="ThinkHumanly Logo" class="w-10 h-10 brightness-0 invert">
+                        <span class="font-display font-bold text-xl">ThinkHumanly</span>
+                    </div>
+                    <p class="text-neutral-300 mb-8 leading-relaxed max-w-2xl mx-auto">
+                        Transforming learning through human-centric, activity-based methodologies that develop critical thinking and empathy worldwide.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Bottom Bar -->
+            <div class="border-t border-white/10">
+                <div class="max-w-7xl mx-auto px-6 py-6">
+                    <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                        <div class="flex items-center space-x-6">
+                            <p class="text-sm text-neutral-400">&copy; 2025 ThinkHumanly. All rights reserved.</p>
+                            <div class="hidden md:flex items-center space-x-1 text-xs text-neutral-500">
+                                <span>Made with</span>
+                                <span class="text-red-400 animate-pulse">❤️</span>
+                                <span>for better learning</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-6 text-sm">
+                            <button onclick="openPrivacyModal()" class="text-neutral-400 hover:text-accent transition-colors">Privacy Policy</button>
+                            <button onclick="openTermsModal()" class="text-neutral-400 hover:text-accent transition-colors">Terms of Service</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Functions
+        function openMobileMenu() {
+            document.getElementById('mobile-menu').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            document.getElementById('mobile-menu').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        // Mobile menu event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+            const mobileMenuOverlay = document.getElementById('mobile-menu');
+
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', openMobileMenu);
+            }
+
+            if (closeMobileMenuButton) {
+                closeMobileMenuButton.addEventListener('click', closeMobileMenu);
+            }
+
+            // Close mobile menu when clicking overlay
+            if (mobileMenuOverlay) {
+                mobileMenuOverlay.addEventListener('click', function(e) {
+                    if (e.target === mobileMenuOverlay) {
+                        closeMobileMenu();
+                    }
+                });
+            }
+        });
+
+        // Email client function
+        function openEmailClient() {
+            window.location.href = 'mailto:contact@thinkhumanly.co?subject=Collaboration Inquiry&body=Hi ThinkHumanly team,%0D%0A%0D%0AI am interested in learning more about your human-centric learning solutions.%0D%0A%0D%0APlease reach out to discuss how we can collaborate.%0D%0A%0D%0ABest regards';
+        }
+
+        // Form submission handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const firstName = formData.get('firstName') || '';
+            const lastName = formData.get('lastName') || '';
+            const email = formData.get('email') || '';
+            const organization = formData.get('organization') || '';
+            const message = formData.get('message') || '';
+            
+            // Create email content
+            const subject = 'Collaboration Inquiry from ' + firstName + ' ' + lastName;
+            const body = `Hi ThinkHumanly team,
+
+I'm interested in learning more about your human-centric learning solutions.
+
+Contact Details:
+- Name: ${firstName} ${lastName}
+- Email: ${email}
+- Organization: ${organization}
+
+Message:
+${message}
+
+Looking forward to hearing from you!
+
+Best regards,
+${firstName}`;
+            
+            // Open email client with pre-filled information
+            const mailtoLink = `mailto:contact@thinkhumanly.co?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            showFormSuccess();
+        }
+
+        // Success message function
+        function showFormSuccess() {
+            const button = document.querySelector('button[type="submit"]');
+            const originalText = button.innerHTML;
+            
+            button.innerHTML = '<i class="fas fa-check mr-2"></i>Email Client Opened!';
+            button.style.background = '#10b981';
+            
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.style.background = '';
+            }, 3000);
+        }
+
+        // Enhanced Stationary Animation System - Page Wide
+        class StationaryAnimation {
+            constructor() {
+                this.heroContainer = document.getElementById('stationeryContainer');
+                this.pageWideContainer = document.getElementById('pageWideStationery');
+                this.items = [
+                    // Writing Tools
+                    '✏️', '🖍️', '✒️', '🖊️', '🖋️', '🖌️',
+                    // Paper & Books
+                    '📝', '📄', '📋', '📚', '📖', '📓', '📔', '📕', '📗', '📘', '📙', '🗂️', '📰',
+                    // Art Supplies
+                    '🎨', '🖼️', '🎭', '🖨️', '🖇️', '📎',
+                    // Tools & Supplies
+                    '📏', '📐', '✂️', '📌', '📍', '🔖', '🏷️',
+                    // Learning Items
+                    '🔬', '🧪', '⚗️', '🔍', '🗺️', '📊', '📈', '📉',
+                    // School Items
+                    '🎒', '📐', '🖼️', '📋', '📝', '✏️'
+                ];
+                this.activeItems = [];
+                this.maxItems = 35; // Increased for page-wide animation
+                this.init();
+            }
+
+            init() {
+                this.createItem();
+                setInterval(() => this.createItem(), 400); // Even faster spawn rate
+                this.animate();
+            }
+
+            createItem() {
+                if (this.activeItems.length >= this.maxItems) return;
+
+                const item = document.createElement('div');
+                item.className = 'js-falling-item';
+                item.textContent = this.items[Math.floor(Math.random() * this.items.length)];
+                
+                // Random horizontal position across full page width
+                item.style.left = Math.random() * 100 + '%';
+                
+                // Random animation properties
+                const duration = 6000 + Math.random() * 6000; // 6-12 seconds
+                const rotation = Math.random() * 720 - 360; // -360 to 360 degrees
+                const sway = Math.random() * 150 - 75; // More horizontal sway for page-wide
+                const scale = 0.6 + Math.random() * 0.8; // 0.6 to 1.4 scale
+                
+                item.style.animationDuration = duration + 'ms';
+                item.style.transform = `scale(${scale})`;
+                
+                // Add custom CSS variables for animation
+                item.style.setProperty('--rotation', rotation + 'deg');
+                item.style.setProperty('--sway', sway + 'px');
+                
+                // Randomly choose between hero section and page-wide
+                const usePageWide = Math.random() > 0.3; // 70% chance for page-wide
+                const container = usePageWide ? this.pageWideContainer : this.heroContainer;
+                
+                container.appendChild(item);
+                this.activeItems.push({ element: item, duration });
+
+                // Remove item after animation
+                setTimeout(() => {
+                    this.removeItem(item);
+                }, duration);
+            }
+
+            removeItem(itemElement) {
+                const index = this.activeItems.findIndex(item => item.element === itemElement);
+                if (index > -1) {
+                    this.activeItems.splice(index, 1);
+                    if (itemElement.parentNode) {
+                        itemElement.parentNode.removeChild(itemElement);
+                    }
+                }
+            }
+
+            animate() {
+                // Enhanced falling animation with rotation and sway
+                const style = document.createElement('style');
+                style.textContent = `
+                    .js-falling-item {
+                        animation: fallAndRotate var(--duration, 10s) linear forwards;
+                        filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+                        transition: opacity 0.3s ease;
+                    }
+
+                    .js-falling-item:hover {
+                        opacity: 1 !important;
+                        transform: scale(1.2) !important;
+                        animation-play-state: paused;
+                    }
+
+                    @keyframes fallAndRotate {
+                        0% {
+                            transform: translateY(-60px) translateX(0) rotate(0deg) scale(var(--scale, 1));
+                            opacity: 0;
+                        }
+                        5% {
+                            opacity: 0.7;
+                        }
+                        25% {
+                            transform: translateY(25vh) translateX(var(--sway, 0px)) rotate(calc(var(--rotation, 0deg) * 0.25)) scale(var(--scale, 1));
+                        }
+                        50% {
+                            transform: translateY(50vh) translateX(calc(var(--sway, 0px) * -0.5)) rotate(calc(var(--rotation, 0deg) * 0.5)) scale(var(--scale, 1));
+                        }
+                        75% {
+                            transform: translateY(75vh) translateX(var(--sway, 0px)) rotate(calc(var(--rotation, 0deg) * 0.75)) scale(var(--scale, 1));
+                        }
+                        95% {
+                            opacity: 0.7;
+                        }
+                        100% {
+                            transform: translateY(120vh) translateX(0) rotate(var(--rotation, 0deg)) scale(var(--scale, 1));
+                            opacity: 0;
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+        }
+
+        // Initialize stationary animation when page loads
+        window.addEventListener('load', () => {
+            new StationaryAnimation();
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Reveal animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Gemini API Integration for Idea Spark
+        const generateBtn = document.getElementById('generate-btn');
+        const resultContainer = document.getElementById('result-container');
+        const loadingIndicator = document.getElementById('loading-indicator');
+        const resultTitle = document.getElementById('result-title');
+        const resultDescription = document.getElementById('result-description');
+        const resultOutcomes = document.getElementById('result-outcomes');
+
+        generateBtn.addEventListener('click', async () => {
+            const role = document.getElementById('role').value;
+            const audience = document.getElementById('audience').value;
+            const focus = document.getElementById('focus').value;
+            const context = document.getElementById('context').value;
+
+            generateBtn.disabled = true;
+            const originalContent = generateBtn.innerHTML;
+            generateBtn.innerHTML = '<div class="loader mr-2"></div><span>Generating...</span>';
+            resultContainer.classList.add('hidden');
+            loadingIndicator.classList.remove('hidden');
+            loadingIndicator.classList.add('flex');
+
+            const prompt = `
+                You are an expert curriculum designer for a company called ThinkHumanly, specializing in human-centric, activity-based learning. Your approach is collaborative, culturally aware, and avoids generic, mass-produced content.
+                Generate a creative, hands-on, and offline learning activity idea based on the following user request:
+                - Role of User: ${role}
+                - Target Audience: ${audience}
+                - Desired Focus: ${focus}
+                - Specific Context: ${context || 'General'}
+                The activity must be engaging and promote critical thinking or emotional intelligence.
+                Please provide the output in a simple, clean format, with clear sections. The output should be only the activity details, nothing else. Structure it like this:
+                Title: [A creative and descriptive title for the activity]
+                Description: [A 2-3 sentence paragraph describing the activity, what the learners will do.]
+                Outcomes:
+                - [A key learning outcome]
+                - [Another key learning outcome]
+                - [A third key learning outcome]
+            `;
+
+            try {
+                let chatHistory = [];
+                chatHistory.push({ role: 'user', parts: [{ text: prompt }] });
+                const payload = { contents: chatHistory };
+                // Replace with your API key
+                const apiKey = 'AIzaSyDcdhUe0iPkMlW1uu7KYZsOCCIofupiqmg'; // <-- PASTE YOUR API KEY HERE
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+                
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) { 
+                    throw new Error(`API request failed with status ${response.status}`); 
+                }
+                const result = await response.json();
+
+                if (result.candidates && result.candidates.length > 0) {
+                    const text = result.candidates[0].content.parts[0].text;
+                    parseAndDisplayResult(text);
+                } else { 
+                    throw new Error('No content received from API.'); 
+                }
+
+            } catch (error) {
+                console.error('Error calling Gemini API:', error);
+                resultContainer.classList.remove('hidden');
+                resultTitle.textContent = 'Connection Error';
+                resultDescription.textContent = 'Unable to generate activity at this moment. Please check your API key or try again later.';
+                resultOutcomes.innerHTML = '';
+            } finally {
+                generateBtn.disabled = false;
+                generateBtn.innerHTML = originalContent;
+                loadingIndicator.classList.add('hidden');
+                loadingIndicator.classList.remove('flex');
+            }
+        });
+
+        function parseAndDisplayResult(text) {
+            try {
+                const lines = text.split('\n').filter(line => line.trim() !== '');
+                const title = lines.find(line => line.startsWith('Title:')).replace('Title:', '').trim();
+                const description = lines.find(line => line.startsWith('Description:')).replace('Description:', '').trim();
+                const outcomes = lines.filter(line => line.startsWith('- ')).map(line => line.replace('- ', '').trim());
+                
+                resultTitle.textContent = title;
+                resultDescription.textContent = description;
+                resultOutcomes.innerHTML = '';
+                outcomes.forEach(outcome => {
+                    const li = document.createElement('li');
+                    li.className = 'flex items-start space-x-3';
+                    li.innerHTML = `
+                        <div class="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
+                        <span class="text-neutral-700 text-sm">${outcome}</span>
+                    `;
+                    resultOutcomes.appendChild(li);
+                });
+                resultContainer.classList.remove('hidden');
+                resultContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } catch (e) {
+                console.error('Error parsing API response:', e);
+                resultTitle.textContent = 'Creative Learning Activity';
+                resultDescription.textContent = text;
+                resultOutcomes.innerHTML = '';
+                resultContainer.classList.remove('hidden');
+            }
+        }
+
+        // Privacy Policy Modal Functions
+        function openPrivacyModal() {
+            const modal = document.getElementById('privacy-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('modal-backdrop');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePrivacyModal() {
+            const modal = document.getElementById('privacy-modal');
+            modal.classList.add('modal-closing');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('modal-backdrop', 'modal-closing');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        // Terms of Service Modal Functions
+        function openTermsModal() {
+            const modal = document.getElementById('terms-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('modal-backdrop');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeTermsModal() {
+            const modal = document.getElementById('terms-modal');
+            modal.classList.add('modal-closing');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('modal-backdrop', 'modal-closing');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        // Modal Functions
+        function openMethodologyModal() {
+            const modal = document.getElementById('methodology-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('modal-backdrop');
+            document.body.style.overflow = 'hidden';
+            
+            // Restart animations for methodology sections
+            const sections = modal.querySelectorAll('.methodology-section');
+            sections.forEach((section, index) => {
+                section.style.animation = 'none';
+                section.offsetHeight; // Trigger reflow
+                section.style.animation = `fadeInUp 0.6s ease-out forwards`;
+                section.style.animationDelay = `${(index + 1) * 0.1}s`;
+            });
+        }
+
+        function closeMethodologyModal() {
+            const modal = document.getElementById('methodology-modal');
+            modal.classList.add('modal-closing');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('modal-backdrop', 'modal-closing');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeMethodologyModal();
+                closePrivacyModal();
+                closeTermsModal();
+            }
+        });
+    </script>
+</body>
+</html>
