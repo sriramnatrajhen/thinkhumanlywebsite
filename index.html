@@ -1366,7 +1366,7 @@
             </div>
 
             <div class="card p-8 reveal animate-scale-in" style="animation-delay: 0.2s;">
-                <form id="idea-form" class="grid md:grid-cols-2 gap-6 mb-8">
+                <div id="idea-form" class="grid md:grid-cols-2 gap-6 mb-8">
                     <div class="space-y-3 animate-slide-in-left" style="animation-delay: 0.3s;">
                         <label class="block text-sm font-medium text-neutral-900">I am a...</label>
                         <select id="role" class="form-input animate-input-focus">
@@ -1405,7 +1405,7 @@
                         <input type="text" id="context" placeholder="e.g., 'for a multicultural classroom', 'for team building workshop'" 
                                class="form-input animate-input-focus">
                     </div>
-                </form>
+                </div>
 
                 <div class="text-center animate-fade-in-up" style="animation-delay: 0.8s;">
                     <button id="generate-btn" class="btn-primary animate-button-pulse">
@@ -1414,13 +1414,15 @@
                     </button>
                 </div>
 
-                <div id="loading-indicator" class="hidden mt-8 flex justify-center items-center">
-                    <div class="loader mr-3"></div>
-                    <span class="text-neutral-600 animate-fade-in-out">Creating your personalized activity...</span>
+                <div id="loading-indicator" class="hidden mt-8 text-center">
+                    <div class="flex justify-center items-center mb-4">
+                        <div class="loader mr-3"></div>
+                        <span class="text-neutral-600">Creating your personalized activity...</span>
+                    </div>
                 </div>
 
                 <div id="result-container" class="hidden mt-12">
-                    <div class="bg-neutral-50 border border-neutral-200 p-8 rounded-lg animate-scale-in">
+                    <div class="bg-neutral-50 border border-neutral-200 p-8 rounded-lg">
                         <div class="flex items-center space-x-4 mb-6">
                             <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center animate-icon-bounce">
                                 <i class="fas fa-lightbulb text-white"></i>
