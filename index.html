@@ -891,29 +891,61 @@
 
         /* Mobile-First Responsive Adjustments */
         @media (max-width: 768px) {
-            .section-full,
+            .section-full {
+                min-height: 100vh;
+                padding: 100px 0 60px 0; /* Top padding for fixed nav */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
             .section-large {
                 min-height: auto;
-                padding: 60px 0;
+                padding: 80px 0 60px 0;
+            }
+
+            /* Team Section Mobile Spacing */
+            .team-section {
+                padding: 60px 0 !important;
+            }
+
+            .team-section .mb-20 {
+                margin-bottom: 3rem; /* Reduce header bottom margin on mobile */
+            }
+
+            .team-section .grid {
+                margin-bottom: 3rem; /* Reduce grid bottom margin on mobile */
             }
 
             .content-container {
-                padding: 40px 24px;
-                margin: 0 16px;
+                padding: 40px 20px;
+                margin: 0 8px;
             }
 
             .js-falling-item {
                 font-size: 1.5rem;
             }
 
-            /* Mobile Navigation Improvements */
+            /* Mobile Navigation - Fixed positioning */
             .nav-blur {
-                padding: 16px 0;
+                padding: 12px 0;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 1000;
+                background: rgba(250, 250, 250, 0.95);
+                backdrop-filter: blur(20px);
             }
 
             /* Mobile Logo Sizing */
             .logo-main {
-                max-width: 85vw;
+                max-width: 80vw;
+            }
+
+            /* Mobile Text Sizing */
+            .hero-title {
+                font-size: clamp(32px, 8vw, 48px);
             }
 
             /* Mobile Form Spacing */
@@ -924,7 +956,7 @@
 
             /* Mobile Card Adjustments */
             .card {
-                margin: 0 8px;
+                margin: 0 4px;
             }
 
             /* Mobile Button Sizing */
@@ -951,6 +983,11 @@
                 gap: 24px;
             }
 
+            /* Mobile Team Section - Better Spacing */
+            .team-section {
+                padding: 60px 0; /* Reduced for mobile */
+            }
+
             /* Mobile Typography */
             .section-title {
                 font-size: clamp(24px, 6vw, 36px);
@@ -958,6 +995,19 @@
 
             .large-text {
                 font-size: clamp(16px, 4vw, 18px);
+            }
+
+            /* Mobile Menu Overlay Fix */
+            #mobile-menu {
+                z-index: 1001; /* Above nav */
+            }
+
+            /* Mobile Team Grid */
+            .lg\\:grid-cols-3 {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                max-width: 400px;
+                margin: 0 auto;
             }
         }
 
@@ -973,7 +1023,14 @@
             }
 
             .content-container {
-                padding: 32px 20px;
+                padding: 32px 16px;
+                margin: 0 4px;
+            }
+
+            /* Hero section for small screens */
+            .section-full {
+                padding: 90px 0 40px 0;
+                min-height: calc(100vh - 20px);
             }
 
             /* Ensure touch targets are adequate */
@@ -989,7 +1046,13 @@
 
             /* Mobile card padding */
             .card {
-                padding: 24px 20px;
+                padding: 24px 16px;
+            }
+
+            /* Team cards on small mobile */
+            .team-card {
+                max-width: 320px;
+                margin: 0 auto;
             }
         }
 
@@ -997,12 +1060,28 @@
         @media (max-height: 600px) and (orientation: landscape) {
             .section-full {
                 min-height: auto;
-                padding: 40px 0;
+                padding: 60px 0 40px 0;
             }
 
             .logo-main {
-                max-height: 120px;
+                max-height: 100px;
                 width: auto;
+            }
+
+            .content-container {
+                padding: 30px 20px;
+            }
+        }
+
+        /* Fix for very tall mobile screens */
+        @media (max-width: 768px) and (min-height: 800px) {
+            .section-full {
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding-top: 100px;
+                padding-bottom: 40px;
             }
         }
     </style>
@@ -1329,22 +1408,10 @@
                 </form>
 
                 <div class="text-center animate-fade-in-up" style="animation-delay: 0.8s;">
-                    <button id="generate-btn" class="btn-primary animate-button-pulse" onclick="showApiMessage()">
+                    <button id="generate-btn" class="btn-primary animate-button-pulse">
                         <i class="fas fa-magic mr-2 animate-icon-wiggle"></i>
                         Generate My Activity
                     </button>
-                </div>
-
-                <div id="api-message" class="hidden mt-8 text-center">
-                    <div class="bg-accent/10 border border-accent/20 p-6 rounded-lg">
-                        <div class="text-accent text-2xl mb-3">🚀</div>
-                        <h3 class="font-semibold text-neutral-900 mb-2">Ready for Your Custom Activity?</h3>
-                        <p class="text-neutral-600 mb-4">Contact us directly and we'll create a personalized activity idea for your specific context within 24 hours!</p>
-                        <button onclick="openEmailClient()" class="btn-primary">
-                            <i class="fas fa-envelope mr-2"></i>
-                            Get My Custom Activity
-                        </button>
-                    </div>
                 </div>
 
                 <div id="loading-indicator" class="hidden mt-8 flex justify-center items-center">
@@ -1387,8 +1454,174 @@
         </div>
     </section>
 
+    <!-- Team Section -->
+    <section class="team-section section-large bg-neutral-50 relative overflow-hidden py-20">
+        <!-- Background Elements -->
+        <div class="absolute inset-0">
+            <div class="absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-accent/10 to-accent/5 rounded-full blur-3xl animate-float-slow"></div>
+            <div class="absolute bottom-32 right-16 w-40 h-40 bg-gradient-to-br from-neutral-200/50 to-neutral-100/50 rounded-full blur-2xl animate-float-reverse"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <!-- Section Header -->
+            <div class="text-center mb-20 reveal animate-zoom-in">
+                <div class="inline-flex items-center space-x-2 bg-neutral-50 border border-neutral-200 px-4 py-2 rounded-full mb-8 animate-glow-pulse">
+                    <span class="text-lg animate-bounce">🎓</span>
+                    <span class="text-sm text-neutral-600 font-medium">Meet Our Team</span>
+                </div>
+                
+                <h2 class="font-display section-title text-neutral-900 mb-6 animate-typing">
+                    The Team
+                </h2>
+                <p class="large-text text-neutral-600 max-w-4xl mx-auto animate-fade-in-up leading-relaxed" style="animation-delay: 0.4s;">
+                    We believe that the most powerful learning happens when education is designed with deep understanding of human needs, cultural contexts, and individual potential. Our diverse backgrounds in technology, social development, and business allow us to create learning solutions that are both innovative and deeply human.
+                </p>
+            </div>
+
+            /* Team Members */
+            <div class="grid lg:grid-cols-3 gap-12 max-w-6xl mx-auto mb-20">
+                
+                <!-- Aashutosh Saini -->
+                <div class="reveal animate-fade-in-up group" style="animation-delay: 0.2s;">
+                    <div class="bg-white border border-neutral-200 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 relative overflow-hidden h-full flex flex-col">
+                        <!-- Background Pattern -->
+                        <div class="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-accent/10 to-transparent rounded-full blur-2xl group-hover:scale-125 transition-transform duration-700"></div>
+                        
+                        <div class="relative z-10 flex flex-col h-full">
+                            <!-- Photo -->
+                            <div class="relative mb-6 group-hover:scale-105 transition-transform duration-300">
+                                <img src="Ash.jpeg" alt="Aashutosh Saini" class="w-32 h-32 rounded-2xl mx-auto object-cover shadow-lg">
+                            </div>
+                            
+                            <!-- Info -->
+                            <div class="text-center mb-6">
+                                <h3 class="font-display text-xl font-bold text-neutral-900 mb-2">
+                                    <a href="https://www.linkedin.com/in/aashutoshsaini/" target="_blank" class="hover:text-accent transition-colors">
+                                        Aashutosh Saini
+                                    </a>
+                                </h3>
+                                <div class="space-y-1 text-sm text-neutral-600 mb-4 min-h-[72px] flex flex-col justify-center">
+                                    <p>• LSE (MSc in IS & Digital Innovation)</p>
+                                    <p>• IIM Ahmedabad (MBA)</p>
+                                    <p>• SRCC (Economics)</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Experience -->
+                            <div class="bg-neutral-50 rounded-2xl p-4 mb-6 flex-grow">
+                                <p class="text-sm text-neutral-700 leading-relaxed">
+                                    5+ years of experience in Product, GovTech, AI management and FMCG
+                                </p>
+                            </div>
+                            
+                            <!-- LinkedIn Link -->
+                            <div class="flex justify-center mt-auto">
+                                <a href="https://www.linkedin.com/in/aashutoshsaini/" target="_blank" 
+                                   class="inline-flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105 shadow-md">
+                                    <i class="fab fa-linkedin text-sm"></i>
+                                    <span class="text-sm font-medium">Connect</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ram Natrajhen -->
+                <div class="reveal animate-fade-in-up group" style="animation-delay: 0.4s;">
+                    <div class="bg-white border border-neutral-200 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 relative overflow-hidden h-full flex flex-col">
+                        <!-- Background Pattern -->
+                        <div class="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-neutral-700/10 to-transparent rounded-full blur-2xl group-hover:scale-125 transition-transform duration-700"></div>
+                        
+                        <div class="relative z-10 flex flex-col h-full">
+                            <!-- Photo -->
+                            <div class="relative mb-6 group-hover:scale-105 transition-transform duration-300">
+                                <img src="Ram.jpeg" alt="Ram Natrajhen" class="w-32 h-32 rounded-2xl mx-auto object-cover shadow-lg">
+                            </div>
+                            
+                            <!-- Info -->
+                            <div class="text-center mb-6">
+                                <h3 class="font-display text-xl font-bold text-neutral-900 mb-2">
+                                    <a href="https://www.linkedin.com/in/ramnatrajhen/" target="_blank" class="hover:text-accent transition-colors">
+                                        Ram Natrajhen
+                                    </a>
+                                </h3>
+                                <div class="space-y-1 text-sm text-neutral-600 mb-4 min-h-[72px] flex flex-col justify-center">
+                                    <p>• LSE (MSc in IS & Digital Innovation)</p>
+                                    <p>• UCL (Entrepreneurship)</p>
+                                    <p>• Essex (Computer Science)</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Experience -->
+                            <div class="bg-neutral-50 rounded-2xl p-4 mb-6 flex-grow">
+                                <p class="text-sm text-neutral-700 leading-relaxed">
+                                    6+ years building and scaling tech startups, with experience in non-profit collaboration
+                                </p>
+                            </div>
+                            
+                            <!-- LinkedIn Link -->
+                            <div class="flex justify-center mt-auto">
+                                <a href="https://www.linkedin.com/in/ramnatrajhen/" target="_blank" 
+                                   class="inline-flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105 shadow-md">
+                                    <i class="fab fa-linkedin text-sm"></i>
+                                    <span class="text-sm font-medium">Connect</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Anzal Abbas -->
+                <div class="reveal animate-fade-in-up group" style="animation-delay: 0.6s;">
+                    <div class="bg-white border border-neutral-200 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 relative overflow-hidden h-full flex flex-col">
+                        <!-- Background Pattern -->
+                        <div class="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-neutral-600/10 to-transparent rounded-full blur-2xl group-hover:scale-125 transition-transform duration-700"></div>
+                        
+                        <div class="relative z-10 flex flex-col h-full">
+                            <!-- Photo -->
+                            <div class="relative mb-6 group-hover:scale-105 transition-transform duration-300">
+                                <img src="Anzal.jpeg" alt="Anzal Abbas" class="w-32 h-32 rounded-2xl mx-auto object-cover shadow-lg">
+                            </div>
+                            
+                            <!-- Info -->
+                            <div class="text-center mb-6">
+                                <h3 class="font-display text-xl font-bold text-neutral-900 mb-2">
+                                    <a href="https://www.linkedin.com/in/anzal-abbas/" target="_blank" class="hover:text-accent transition-colors">
+                                        Anzal Abbas
+                                    </a>
+                                </h3>
+                                <div class="space-y-1 text-sm text-neutral-600 mb-4 min-h-[72px] flex flex-col justify-center">
+                                    <p>• LSE (MSc in Health & International Development)</p>
+                                    <p>• BSc Social Development & Policy</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Experience -->
+                            <div class="bg-neutral-50 rounded-2xl p-4 mb-6 flex-grow">
+                                <p class="text-sm text-neutral-700 leading-relaxed">
+                                    4+ years building and scaling social enterprise. Expertise in community-level qualitative research
+                                </p>
+                            </div>
+                            
+                            <!-- LinkedIn Link -->
+                            <div class="flex justify-center mt-auto">
+                                <a href="https://www.linkedin.com/in/anzal-abbas/" target="_blank" 
+                                   class="inline-flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105 shadow-md">
+                                    <i class="fab fa-linkedin text-sm"></i>
+                                    <span class="text-sm font-medium">Connect</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
     <!-- Contact Section - Simplified & Elegant -->
-    <section id="contact" class="section-large bg-gradient-to-br from-neutral-50 via-white to-neutral-50 relative overflow-hidden">
+    <section id="contact" class="section-large bg-white relative overflow-hidden">
         <!-- Enhanced Background Elements -->
         <div class="absolute inset-0">
             <div class="absolute top-20 right-20 w-40 h-40 bg-gradient-to-br from-accent/10 to-accent/5 rounded-full blur-3xl animate-float-slow"></div>
