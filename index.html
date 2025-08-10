@@ -1408,7 +1408,7 @@
                 </div>
 
                 <div class="text-center animate-fade-in-up" style="animation-delay: 0.8s;">
-                    <button id="generate-btn" class="btn-primary animate-button-pulse">
+                    <button id="generate-btn" class="btn-primary animate-button-pulse" onclick="generateActivity()">
                         <i class="fas fa-magic mr-2 animate-icon-wiggle"></i>
                         Generate My Activity
                     </button>
@@ -1480,7 +1480,7 @@
                 </p>
             </div>
 
-            /* Team Members */
+            <!-- Team Members -->
             <div class="grid lg:grid-cols-3 gap-12 max-w-6xl mx-auto mb-20">
                 
                 <!-- Aashutosh Saini -->
@@ -2124,6 +2124,294 @@
     </footer>
 
     <script>
+        // Activity Ideas Database
+        const activityDatabase = {
+            "Teacher": {
+                "Young Children (3-7)": {
+                    "Civic Engagement": {
+                        title: "Little Citizens Council",
+                        description: "Children create a classroom 'mini-town' where they take turns being mayor, shopkeepers, and citizens. They vote on classroom rules, solve playground problems together, and learn that everyone's voice matters in making their community better.",
+                        outcomes: ["Understanding basic democratic voting", "Learning to listen to different opinions", "Developing problem-solving skills", "Building confidence in expressing ideas"]
+                    },
+                    "Inclusivity & Diversity": {
+                        title: "Family Stories Quilt",
+                        description: "Each child brings a story or photo from their family traditions. Together, they create a classroom 'quilt' where every family's story gets a special square. They discover that different doesn't mean strange - it means interesting!",
+                        outcomes: ["Celebrating family differences", "Building respect for diverse traditions", "Developing storytelling skills", "Creating inclusive classroom culture"]
+                    },
+                    "Critical Thinking": {
+                        title: "Detective Mystery Box",
+                        description: "Present children with mystery boxes containing everyday objects. They work in pairs to observe, ask questions, make guesses, and test their ideas. 'Why is this spoon here? What do you think happened?' They become little detectives using clues and reasoning.",
+                        outcomes: ["Developing observation skills", "Learning to ask 'why' and 'how' questions", "Practicing logical reasoning", "Building evidence-based thinking"]
+                    },
+                    "Empathy & Tolerance": {
+                        title: "Feelings Puppet Theater",
+                        description: "Children create simple puppets and act out scenarios where characters feel different emotions. 'What happens when Puppet A feels left out?' They explore how actions affect others and practice kind responses to difficult situations.",
+                        outcomes: ["Recognizing emotions in others", "Understanding cause and effect of actions", "Developing compassionate responses", "Building emotional vocabulary"]
+                    },
+                    "Digital Citizenship": {
+                        title: "Screen Time Superheroes",
+                        description: "Children design their own 'superhero' rules for using tablets and computers. They create colorful posters showing 'Screen Time Superpowers' like taking breaks, asking before downloading, and being kind online (even in games they might play).",
+                        outcomes: ["Understanding basic screen time balance", "Learning to ask permission for digital activities", "Developing awareness of online kindness", "Creating personal technology boundaries"]
+                    },
+                    "Cultural Acceptance": {
+                        title: "World Music Movement",
+                        description: "Each week, children explore music and simple dances from different cultures. They learn that music is a universal language - everyone expresses joy, sadness, and celebration, just in different beautiful ways.",
+                        outcomes: ["Appreciating cultural expressions", "Finding common human experiences", "Developing rhythmic and movement skills", "Building curiosity about world cultures"]
+                    }
+                },
+                "Primary Students (8-12)": {
+                    "Civic Engagement": {
+                        title: "School Parliament Project",
+                        description: "Students form political parties, campaign on real school issues (playground improvements, lunch options, recycling), and hold elections. The winning party implements one small change, learning how democracy works through hands-on experience.",
+                        outcomes: ["Understanding democratic processes", "Developing public speaking confidence", "Learning compromise and negotiation", "Experiencing civic responsibility"]
+                    },
+                    "Inclusivity & Diversity": {
+                        title: "Heritage Recipe Exchange",
+                        description: "Students research and share family recipes (or foods from cultures they're curious about), then organize a international food festival. They learn that food tells stories about who we are and where we come from.",
+                        outcomes: ["Celebrating cultural heritage", "Building research skills", "Developing cultural curiosity", "Creating community connections"]
+                    },
+                    "Critical Thinking": {
+                        title: "Fact vs. Opinion Investigation",
+                        description: "Students analyze news articles, advertisements, and social media posts to identify facts vs. opinions. They create their own 'Truth Detective' guidelines and practice spotting bias in information they encounter daily.",
+                        outcomes: ["Distinguishing facts from opinions", "Identifying bias and persuasion techniques", "Developing information literacy", "Building analytical reasoning skills"]
+                    },
+                    "Empathy & Tolerance": {
+                        title: "Perspective Flip Stories",
+                        description: "Students read or watch conflicts from multiple viewpoints - the same story told by different characters. They discuss how the same event can feel completely different depending on your perspective, building understanding and compassion.",
+                        outcomes: ["Understanding multiple perspectives", "Developing empathetic thinking", "Improving conflict resolution skills", "Building emotional intelligence"]
+                    },
+                    "Digital Citizenship": {
+                        title: "Digital Footprint Detectives",
+                        description: "Students investigate their own digital footprints, learning what information they share online and how it can be used. They create guidelines for protecting privacy while still enjoying the benefits of technology.",
+                        outcomes: ["Understanding digital privacy", "Learning about online data collection", "Developing responsible sharing habits", "Building digital literacy skills"]
+                    },
+                    "Cultural Acceptance": {
+                        title: "Cultural Bridge Builders",
+                        description: "Students partner with classmates from different cultural backgrounds and create presentations about each other's cultures. They focus on finding surprising similarities and celebrating interesting differences.",
+                        outcomes: ["Building cross-cultural friendships", "Developing presentation skills", "Appreciating cultural diversity", "Finding common ground across differences"]
+                    }
+                },
+                "Teenagers (13-18)": {
+                    "Civic Engagement": {
+                        title: "Community Change Makers",
+                        description: "Students identify a real local issue (environmental, social, economic) and develop action plans. They research, contact local officials, organize awareness campaigns, and track their impact over the semester.",
+                        outcomes: ["Developing civic leadership skills", "Understanding local government processes", "Building project management abilities", "Creating real community impact"]
+                    },
+                    "Inclusivity & Diversity": {
+                        title: "Privilege & Perspective Simulation",
+                        description: "Through carefully designed role-playing scenarios, students experience different social positions and challenges. They reflect on systemic advantages and barriers, developing deeper understanding of inequality and justice.",
+                        outcomes: ["Understanding systemic privilege", "Developing social awareness", "Building empathy for different experiences", "Fostering commitment to equity"]
+                    },
+                    "Critical Thinking": {
+                        title: "Misinformation Defense League",
+                        description: "Students learn to identify fake news, manipulated images, and misleading statistics. They create educational content to help peers recognize and combat misinformation on social media platforms they actually use.",
+                        outcomes: ["Mastering information verification techniques", "Understanding media manipulation", "Developing research methodology", "Building digital literacy leadership"]
+                    },
+                    "Empathy & Tolerance": {
+                        title: "Difficult Conversations Lab",
+                        description: "Students practice having respectful dialogues about controversial topics. They learn listening techniques, find common ground, and discover how to disagree while maintaining relationships and mutual respect.",
+                        outcomes: ["Mastering respectful dialogue techniques", "Learning to listen actively", "Building conflict resolution skills", "Developing emotional regulation"]
+                    },
+                    "Digital Citizenship": {
+                        title: "Social Media Ethics Tribunal",
+                        description: "Students examine real social media dilemmas and ethical questions. They develop codes of conduct, debate platform responsibilities, and create guidelines for responsible digital participation and leadership.",
+                        outcomes: ["Understanding digital ethics", "Developing online leadership skills", "Learning platform accountability", "Building responsible digital habits"]
+                    },
+                    "Cultural Acceptance": {
+                        title: "Global Perspectives Project",
+                        description: "Students connect with peers from other countries via video calls and collaborative projects. They compare perspectives on global issues, challenge stereotypes, and build international understanding through direct relationship.",
+                        outcomes: ["Building global awareness", "Developing cross-cultural communication", "Challenging cultural stereotypes", "Creating international connections"]
+                    }
+                },
+                "Adults": {
+                    "Civic Engagement": {
+                        title: "Community Solutions Workshop",
+                        description: "Adult learners identify local issues and work collaboratively to develop actionable solutions. They practice presenting to local officials, building coalitions, and creating sustainable change in their communities.",
+                        outcomes: ["Developing civic leadership capabilities", "Building community organizing skills", "Learning local government processes", "Creating lasting community impact"]
+                    },
+                    "Inclusivity & Diversity": {
+                        title: "Workplace Inclusion Simulation",
+                        description: "Participants engage in role-playing scenarios that highlight unconscious bias and systemic barriers in professional settings. They develop strategies for creating more inclusive environments and allyship practices.",
+                        outcomes: ["Recognizing unconscious bias", "Developing inclusive leadership skills", "Building allyship practices", "Creating equitable workplace strategies"]
+                    },
+                    "Critical Thinking": {
+                        title: "Decision-Making Framework Lab",
+                        description: "Adults learn and practice systematic approaches to complex decisions. They analyze real-world scenarios, identify assumptions, weigh evidence, and develop robust decision-making processes for personal and professional use.",
+                        outcomes: ["Mastering systematic decision-making", "Learning to identify assumptions", "Developing analytical frameworks", "Building confident problem-solving skills"]
+                    },
+                    "Empathy & Tolerance": {
+                        title: "Perspective-Taking Deep Dive",
+                        description: "Through immersive scenarios and reflective exercises, adults explore how different life experiences shape worldviews. They develop advanced empathy skills and learn to bridge differences in personal and professional relationships.",
+                        outcomes: ["Deepening empathetic understanding", "Building perspective-taking skills", "Improving relationship quality", "Developing emotional intelligence"]
+                    },
+                    "Digital Citizenship": {
+                        title: "Digital Ethics Leadership Training",
+                        description: "Adults explore complex digital ethics issues including privacy, AI bias, and platform responsibility. They develop frameworks for making ethical digital decisions and leading digital transformation responsibly.",
+                        outcomes: ["Understanding digital ethics complexity", "Developing ethical decision frameworks", "Building digital leadership skills", "Creating responsible tech policies"]
+                    },
+                    "Cultural Acceptance": {
+                        title: "Cross-Cultural Competency Development",
+                        description: "Adults engage in deep cultural learning through direct interaction with people from different backgrounds. They develop cultural humility, communication skills, and strategies for building inclusive environments.",
+                        outcomes: ["Building cultural competency", "Developing communication across difference", "Learning cultural humility", "Creating inclusive environments"]
+                    }
+                },
+                "Mixed Age Groups": {
+                    "Civic Engagement": {
+                        title: "Intergenerational Democracy Lab",
+                        description: "Different age groups work together on community issues, sharing perspectives and experiences. Younger participants bring fresh ideas while older participants share wisdom, creating solutions that work for everyone.",
+                        outcomes: ["Building intergenerational understanding", "Learning from diverse life experiences", "Developing collaborative leadership", "Creating inclusive community solutions"]
+                    },
+                    "Inclusivity & Diversity": {
+                        title: "Story Bridge Building",
+                        description: "Participants of different ages and backgrounds share personal stories and find unexpected connections. They discover that despite surface differences, human experiences often have beautiful similarities.",
+                        outcomes: ["Finding common human experiences", "Building bridges across difference", "Developing storytelling skills", "Creating empathetic connections"]
+                    },
+                    "Critical Thinking": {
+                        title: "Multi-Perspective Problem Solving",
+                        description: "Mixed age groups tackle complex problems using their different knowledge bases and thinking styles. They learn that diverse perspectives lead to more creative and effective solutions.",
+                        outcomes: ["Leveraging diverse thinking styles", "Building collaborative problem-solving", "Learning from different generations", "Developing creative solution strategies"]
+                    },
+                    "Empathy & Tolerance": {
+                        title: "Wisdom Circle Dialogues",
+                        description: "Participants form circles where different ages and experiences are represented. They practice deep listening, share challenges and insights, and build mutual understanding and support.",
+                        outcomes: ["Practicing deep listening skills", "Building mutual understanding", "Sharing wisdom across generations", "Creating supportive communities"]
+                    },
+                    "Digital Citizenship": {
+                        title: "Digital Literacy Exchange",
+                        description: "Younger participants teach technology skills while older participants share wisdom about communication and relationships. Together they develop guidelines for healthy digital living across all ages.",
+                        outcomes: ["Bridging digital divides", "Learning from each other's strengths", "Developing age-appropriate digital skills", "Creating inclusive digital communities"]
+                    },
+                    "Cultural Acceptance": {
+                        title: "Cultural Wisdom Sharing",
+                        description: "Participants from different cultural backgrounds and age groups share traditions, stories, and perspectives. They discover how cultures evolve and how wisdom passes between generations.",
+                        outcomes: ["Appreciating cultural evolution", "Learning intergenerational wisdom", "Building cultural bridges", "Celebrating diverse traditions"]
+                    }
+                }
+            },
+            "Corporate Trainer": {
+                "Adults": {
+                    "Civic Engagement": {
+                        title: "Corporate Social Impact Challenge",
+                        description: "Teams identify community issues aligned with company values and develop employee volunteer programs or social impact initiatives. They present business cases for community engagement that benefit both society and organizational culture.",
+                        outcomes: ["Developing social impact strategy", "Building community partnership skills", "Creating employee engagement opportunities", "Aligning profit with purpose"]
+                    },
+                    "Inclusivity & Diversity": {
+                        title: "Inclusive Leadership Simulation",
+                        description: "Managers navigate complex scenarios involving team diversity, unconscious bias, and inclusive decision-making. They practice having difficult conversations and develop strategies for creating psychological safety for all team members.",
+                        outcomes: ["Building inclusive leadership skills", "Developing bias awareness", "Learning difficult conversation techniques", "Creating psychologically safe environments"]
+                    },
+                    "Critical Thinking": {
+                        title: "Strategic Decision Analysis Lab",
+                        description: "Teams work through real business cases, identifying assumptions, analyzing data quality, and considering long-term consequences. They develop frameworks for making better decisions under uncertainty and pressure.",
+                        outcomes: ["Mastering strategic analysis", "Improving decision quality under pressure", "Learning to identify hidden assumptions", "Building systematic thinking approaches"]
+                    },
+                    "Empathy & Tolerance": {
+                        title: "Customer Journey Empathy Mapping",
+                        description: "Employees step into customer shoes through detailed persona development and journey mapping. They identify pain points, emotions, and needs to build more customer-centric products and services.",
+                        outcomes: ["Developing customer empathy", "Improving service design", "Building user-centric thinking", "Enhancing customer satisfaction"]
+                    },
+                    "Digital Citizenship": {
+                        title: "Ethical AI & Technology Workshop",
+                        description: "Teams explore ethical implications of workplace technology, AI decision-making, and data privacy. They develop guidelines for responsible technology implementation and digital workplace policies.",
+                        outcomes: ["Understanding technology ethics", "Developing responsible AI policies", "Building digital workplace guidelines", "Creating ethical technology practices"]
+                    },
+                    "Cultural Acceptance": {
+                        title: "Global Team Effectiveness Training",
+                        description: "Multinational teams learn to navigate cultural differences in communication, conflict resolution, and collaboration. They develop strategies for leveraging cultural diversity as a competitive advantage.",
+                        outcomes: ["Building cross-cultural competency", "Improving global team performance", "Leveraging cultural diversity", "Developing international collaboration skills"]
+                    }
+                }
+            },
+            "Therapist / Psychologist": {
+                "Young Children (3-7)": {
+                    "Empathy & Tolerance": {
+                        title: "Emotion Animals Therapy",
+                        description: "Children work with different toy animals that represent various emotions and reactions. They create stories about how different 'emotion animals' can be friends despite feeling different things, learning that all feelings are okay.",
+                        outcomes: ["Emotional vocabulary development", "Learning emotional acceptance", "Building self-regulation skills", "Developing empathy for others' feelings"]
+                    },
+                    "Critical Thinking": {
+                        title: "Problem-Solving Adventure Stories",
+                        description: "Through interactive stories where children choose what characters do next, they explore cause-and-effect thinking. 'What happens if the character chooses this? What might work better?' They learn that thinking through options helps solve problems.",
+                        outcomes: ["Developing logical thinking", "Understanding cause and effect", "Building decision-making skills", "Learning problem-solving strategies"]
+                    }
+                },
+                "Primary Students (8-12)": {
+                    "Empathy & Tolerance": {
+                        title: "Feelings Detective Work",
+                        description: "Children learn to 'detect' emotions in themselves and others through body language, tone, and context clues. They practice responding helpfully when they notice someone is struggling, building emotional intelligence and compassion.",
+                        outcomes: ["Developing emotional awareness", "Learning to read social cues", "Building compassionate responses", "Improving interpersonal skills"]
+                    },
+                    "Critical Thinking": {
+                        title: "Thought Challenge Laboratory",
+                        description: "Children learn to examine their own thinking patterns, identify unhelpful thoughts, and develop more balanced perspectives. Through fun activities, they discover they can change how they think about situations.",
+                        outcomes: ["Learning cognitive flexibility", "Developing self-awareness", "Building resilience skills", "Understanding thought-feeling connections"]
+                    }
+                },
+                "Teenagers (13-18)": {
+                    "Empathy & Tolerance": {
+                        title: "Perspective-Taking Theater",
+                        description: "Teens role-play difficult social situations from multiple viewpoints, then reflect on how different perspectives change understanding. They practice responding with empathy even in challenging interpersonal situations.",
+                        outcomes: ["Building advanced empathy skills", "Learning perspective-taking", "Improving conflict resolution", "Developing emotional regulation"]
+                    },
+                    "Critical Thinking": {
+                        title: "Mind Trap Awareness Training",
+                        description: "Teens learn to identify thinking traps (catastrophizing, all-or-nothing thinking, etc.) and develop strategies for more balanced, realistic thinking. They practice applying these skills to real life situations and relationships.",
+                        outcomes: ["Identifying cognitive distortions", "Developing balanced thinking", "Building mental health resilience", "Learning self-advocacy skills"]
+                    }
+                },
+                "Adults": {
+                    "Empathy & Tolerance": {
+                        title: "Compassionate Communication Workshop",
+                        description: "Adults practice nonviolent communication techniques, learning to express needs without blame and listen with empathy. They explore how compassionate communication transforms relationships and reduces conflict.",
+                        outcomes: ["Mastering empathetic communication", "Learning conflict de-escalation", "Building deeper relationships", "Developing emotional intelligence"]
+                    },
+                    "Critical Thinking": {
+                        title: "Cognitive Restructuring Lab",
+                        description: "Participants learn to identify unhelpful thought patterns and develop more adaptive thinking styles. They practice examining evidence, considering alternatives, and developing more balanced perspectives on life challenges.",
+                        outcomes: ["Developing cognitive flexibility", "Building resilience skills", "Learning thought examination techniques", "Improving mental health outcomes"]
+                    }
+                }
+            },
+            "Educational Consultant": {
+                "Primary Students (8-12)": {
+                    "Civic Engagement": {
+                        title: "School Community Improvement Project",
+                        description: "Students identify improvement opportunities in their school environment and develop presentation proposals for administration. They learn how to research problems, propose solutions, and advocate for positive change.",
+                        outcomes: ["Building advocacy skills", "Learning project development", "Developing presentation abilities", "Understanding institutional change processes"]
+                    },
+                    "Inclusivity & Diversity": {
+                        title: "Universal Design Learning Lab",
+                        description: "Students design learning activities that work for different learning styles, physical abilities, and cultural backgrounds. They discover that designing for diversity makes learning better for everyone.",
+                        outcomes: ["Understanding learning differences", "Developing inclusive design thinking", "Building empathy for diverse needs", "Creating accessible solutions"]
+                    }
+                },
+                "Teenagers (13-18)": {
+                    "Civic Engagement": {
+                        title: "Youth Policy Impact Research",
+                        description: "Students research how local, state, or federal policies affect young people, then develop policy recommendations and present them to actual policymakers. They learn how research can drive social change.",
+                        outcomes: ["Building policy research skills", "Learning advocacy techniques", "Developing civic leadership", "Understanding government processes"]
+                    },
+                    "Critical Thinking": {
+                        title: "Academic Research Methods Workshop",
+                        description: "Students learn university-level research techniques including source evaluation, hypothesis formation, data analysis, and peer review. They conduct original research projects on topics they're passionate about.",
+                        outcomes: ["Mastering research methodology", "Developing analytical writing", "Learning peer review processes", "Building academic confidence"]
+                    }
+                },
+                "Adults": {
+                    "Inclusivity & Diversity": {
+                        title: "Culturally Responsive Teaching Lab",
+                        description: "Educators learn to design curriculum and teaching methods that honor and incorporate students' cultural backgrounds. They practice creating learning experiences that validate diverse ways of knowing and being.",
+                        outcomes: ["Developing culturally responsive pedagogy", "Building inclusive curriculum design", "Learning cultural asset-based approaches", "Creating equitable learning environments"]
+                    },
+                    "Critical Thinking": {
+                        title: "Educational Assessment Innovation Workshop",
+                        description: "Educators explore alternatives to traditional testing, designing authentic assessments that measure real learning and growth. They develop evaluation methods that serve learning rather than just measuring it.",
+                        outcomes: ["Designing authentic assessments", "Learning alternative evaluation methods", "Building growth-focused measurement", "Creating learner-centered evaluation"]
+                    }
+                }
+            }
+        };
+
         // Mobile Menu Functions
         function openMobileMenu() {
             document.getElementById('mobile-menu').classList.remove('hidden');
@@ -2217,10 +2505,87 @@ ${firstName}`;
             }, 3000);
         }
 
-        // Show API message instead of trying to generate
-        function showApiMessage() {
-            document.getElementById('api-message').classList.remove('hidden');
-            document.getElementById('api-message').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // Activity Generation Function - FIXED
+        function generateActivity() {
+            const role = document.getElementById('role').value;
+            const audience = document.getElementById('audience').value;
+            const focus = document.getElementById('focus').value;
+            const context = document.getElementById('context').value;
+
+            // Show loading indicator
+            document.getElementById('loading-indicator').classList.remove('hidden');
+            document.getElementById('result-container').classList.add('hidden');
+
+            // Simulate loading time for better UX
+            setTimeout(() => {
+                try {
+                    // Get activity from database
+                    let activity;
+                    
+                    if (activityDatabase[role] && activityDatabase[role][audience] && activityDatabase[role][audience][focus]) {
+                        activity = activityDatabase[role][audience][focus];
+                    } else if (activityDatabase[role] && activityDatabase[role]["Adults"] && activityDatabase[role]["Adults"][focus]) {
+                        // Fallback to Adults if specific audience not found
+                        activity = activityDatabase[role]["Adults"][focus];
+                    } else if (activityDatabase["Teacher"] && activityDatabase["Teacher"][audience] && activityDatabase["Teacher"][audience][focus]) {
+                        // Fallback to Teacher role if role not found
+                        activity = activityDatabase["Teacher"][audience][focus];
+                    } else {
+                        // Ultimate fallback
+                        activity = {
+                            title: "Custom Learning Experience",
+                            description: `A tailored ${focus.toLowerCase()} activity designed specifically for ${audience.toLowerCase()} in your ${role.toLowerCase()} context. This hands-on experience will engage learners through collaborative problem-solving and real-world application.`,
+                            outcomes: [
+                                `Developing ${focus.toLowerCase()} awareness`,
+                                "Building collaborative skills",
+                                "Enhancing critical thinking",
+                                "Creating meaningful connections"
+                            ]
+                        };
+                    }
+
+                    // Customize description if context provided
+                    if (context && context.trim()) {
+                        activity.description += ` This activity can be adapted ${context.trim()}.`;
+                    }
+
+                    // Hide loading and show results
+                    document.getElementById('loading-indicator').classList.add('hidden');
+                    document.getElementById('result-container').classList.remove('hidden');
+
+                    // Populate results
+                    document.getElementById('result-title').textContent = activity.title;
+                    document.getElementById('result-description').textContent = activity.description;
+
+                    // Populate outcomes
+                    const outcomesContainer = document.getElementById('result-outcomes');
+                    outcomesContainer.innerHTML = '';
+                    activity.outcomes.forEach(outcome => {
+                        const li = document.createElement('li');
+                        li.className = 'flex items-start space-x-3';
+                        li.innerHTML = `
+                            <div class="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
+                            <span class="text-neutral-700">${outcome}</span>
+                        `;
+                        outcomesContainer.appendChild(li);
+                    });
+
+                    // Scroll to results
+                    document.getElementById('result-container').scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'start' 
+                    });
+
+                } catch (error) {
+                    console.error('Error generating activity:', error);
+                    
+                    // Hide loading indicator
+                    document.getElementById('loading-indicator').classList.add('hidden');
+                    
+                    // Show error message
+                    alert('Sorry, there was an error generating your activity. Please try again or contact us directly for personalized recommendations.');
+                }
+            }, 2000); // 2 second delay for better UX
         }
 
         // Enhanced Stationary Animation System - Page Wide
@@ -2378,10 +2743,6 @@ ${firstName}`;
         document.querySelectorAll('.reveal').forEach(el => {
             observer.observe(el);
         });
-
-        // Gemini API Integration for Idea Spark - REMOVED FOR SECURITY
-        // Note: API functionality removed to protect API keys in public repository
-        // The generate button now shows a contact message instead
 
         // Privacy Policy Modal Functions
         function openPrivacyModal() {
