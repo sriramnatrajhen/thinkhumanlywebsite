@@ -1,0 +1,2798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="description" content="ThinkHumanly creates bespoke, human-centric learning solutions through activity-based methodologies for schools, corporations, and therapists worldwide.">
+    <meta name="keywords" content="human-centric learning, activity-based learning, bespoke curriculum, civic engagement, critical thinking, empathy development, digital citizenship, educational innovation">
+    <title>ThinkHumanly - Human-Centric Learning Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: #fafafa;
+            color: #262626;
+        }
+
+        .font-display {
+            font-family: 'DM Sans', system-ui, sans-serif;
+        }
+
+        /* Full Screen Sections */
+        .section-full {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 0 60px 0;
+            box-sizing: border-box;
+        }
+
+        .section-large {
+            padding: 80px 0;
+        }
+
+        /* Navigation */
+        .nav-blur {
+            background: rgba(250, 250, 250, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        /* Typography */
+        .hero-title {
+            font-size: clamp(48px, 6vw, 72px);
+            font-weight: 600;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .section-title {
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+
+        .large-text {
+            font-size: clamp(18px, 2.5vw, 22px);
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .body-text {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.7;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background: #262626;
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: #171717;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #262626;
+            border: 1px solid #e5e5e5;
+            padding: 14px 28px;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .btn-secondary:hover {
+            border-color: #262626;
+            background: #fafafa;
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border: 1px solid #e5e5e5;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: #d4d4d4;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+
+        /* Form Elements */
+        .form-input {
+            background: white;
+            border: 1px solid #e5e5e5;
+            border-radius: 6px;
+            padding: 12px 16px;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #262626;
+            box-shadow: 0 0 0 3px rgba(38, 38, 38, 0.1);
+        }
+
+        .form-input::placeholder {
+            color: #a3a3a3;
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Image Styling */
+        .image-rounded {
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .image-rounded:hover {
+            transform: scale(1.02);
+        }
+
+        /* Activity Book Styling */
+        .activity-book {
+            border-radius: 8px;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .activity-book:hover {
+            transform: scale(1.05) rotateY(5deg);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Enhanced Logo Animations */
+        .logo-main {
+            animation: logoFloat 6s ease-in-out infinite, logoGlow 8s ease-in-out infinite alternate;
+            transition: all 0.5s ease;
+            filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.1));
+        }
+
+        .logo-main:hover {
+            transform: scale(1.05) rotate(1deg);
+            filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.15)) brightness(1.05);
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg); 
+            }
+            25% { 
+                transform: translateY(-8px) rotate(0.5deg); 
+            }
+            50% { 
+                transform: translateY(-12px) rotate(0deg); 
+            }
+            75% { 
+                transform: translateY(-6px) rotate(-0.5deg); 
+            }
+        }
+
+        @keyframes logoGlow {
+            0%, 100% { 
+                filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.1)) drop-shadow(0 0 15px rgba(37, 99, 235, 0.1));
+            }
+            50% { 
+                filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.12)) drop-shadow(0 0 25px rgba(37, 99, 235, 0.2));
+            }
+        }
+
+        /* Logo Breathing Effect */
+        @keyframes logoBreathe {
+            0%, 100% { 
+                transform: scale(1); 
+            }
+            50% { 
+                transform: scale(1.02); 
+            }
+        }
+
+        /* Subtle Pulse Ring Around Logo */
+        .logo-pulse-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120%;
+            height: 120%;
+            border: 2px solid rgba(37, 99, 235, 0.1);
+            border-radius: 50%;
+            animation: logoPulse 4s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes logoPulse {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(0.9);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.1);
+                opacity: 0.1;
+            }
+        }
+
+        /* Sparkle Effects Around Logo */
+        .logo-sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.8), transparent);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .sparkle-1 {
+            top: 20%;
+            left: 15%;
+            animation: sparkleFloat 3s ease-in-out infinite;
+        }
+
+        .sparkle-2 {
+            top: 30%;
+            right: 20%;
+            animation: sparkleFloat 3.5s ease-in-out infinite;
+            animation-delay: -1s;
+        }
+
+        .sparkle-3 {
+            bottom: 25%;
+            left: 25%;
+            animation: sparkleFloat 2.8s ease-in-out infinite;
+            animation-delay: -2s;
+        }
+
+        .sparkle-4 {
+            bottom: 35%;
+            right: 15%;
+            animation: sparkleFloat 3.2s ease-in-out infinite;
+            animation-delay: -0.5s;
+        }
+
+        @keyframes sparkleFloat {
+            0%, 100% {
+                opacity: 0;
+                transform: translateY(0) scale(0);
+            }
+            25% {
+                opacity: 1;
+                transform: translateY(-10px) scale(1);
+            }
+            50% {
+                opacity: 0.8;
+                transform: translateY(-5px) scale(1.2);
+            }
+            75% {
+                opacity: 0.6;
+                transform: translateY(-15px) scale(0.8);
+            }
+        }
+
+        /* Text Shadows for Readability */
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .text-shadow-lg {
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Enhanced Glass Effect */
+        .glass-overlay {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Global Page-Wide Animation Container */
+        .page-wide-animation-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* JavaScript-Based Stationery Animation Container */
+        .stationery-animation-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .js-falling-item {
+            position: absolute;
+            font-size: 2rem;
+            pointer-events: none;
+            user-select: none;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Content Container Styling */
+        .content-container {
+            background: transparent;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .title-underline {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            margin: 0 auto;
+            border-radius: 2px;
+            margin-top: 16px;
+            animation: underlineGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes underlineGlow {
+            from { box-shadow: 0 0 5px rgba(59, 130, 246, 0.3); }
+            to { box-shadow: 0 0 15px rgba(139, 92, 246, 0.5); }
+        }
+
+        /* Dynamic Animations */
+        
+        /* Ken Burns Effect for Images */
+        .animate-ken-burns-1 {
+            animation: kenBurns1 20s ease-in-out infinite;
+        }
+
+        .animate-ken-burns-2 {
+            animation: kenBurns2 25s ease-in-out infinite;
+        }
+
+        .animate-ken-burns-3 {
+            animation: kenBurns3 30s ease-in-out infinite;
+        }
+
+        @keyframes kenBurns1 {
+            0%, 100% { transform: scale(1) translateX(0); }
+            50% { transform: scale(1.05) translateX(-2%); }
+        }
+
+        @keyframes kenBurns2 {
+            0%, 100% { transform: scale(1.02) translateY(0); }
+            50% { transform: scale(1.07) translateY(-1%); }
+        }
+
+        @keyframes kenBurns3 {
+            0%, 100% { transform: scale(1.01) translateX(0); }
+            50% { transform: scale(1.06) translateX(2%); }
+        }
+
+        /* Gradient Shift Animation */
+        .animate-gradient-shift {
+            animation: gradientShift 8s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 0.4; }
+        }
+
+        /* Subtle Pulse */
+        .animate-pulse-subtle {
+            animation: pulseSubtle 4s ease-in-out infinite;
+        }
+
+        @keyframes pulseSubtle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        /* Floating Particles */
+        .floating-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: floatUp 15s linear infinite;
+        }
+
+        .particle-1 { left: 10%; animation-delay: 0s; animation-duration: 20s; }
+        .particle-2 { left: 25%; animation-delay: -5s; animation-duration: 25s; }
+        .particle-3 { left: 50%; animation-delay: -10s; animation-duration: 18s; }
+        .particle-4 { left: 75%; animation-delay: -15s; animation-duration: 22s; }
+        .particle-5 { left: 90%; animation-delay: -8s; animation-duration: 28s; }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100px) translateX(20px);
+                opacity: 0;
+            }
+        }
+
+        /* Text Container Breathing Effect */
+        .animate-breathe {
+            animation: breathe 6s ease-in-out infinite;
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.01); }
+        }
+
+        /* Text Glow Effect */
+        .animate-text-glow {
+            animation: textGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            from { text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); }
+            to { text-shadow: 0 4px 20px rgba(255, 255, 255, 0.3), 0 4px 8px rgba(0, 0, 0, 0.4); }
+        }
+
+        /* Button Float Animation */
+        .animate-button-float {
+            animation: buttonFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes buttonFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-2px); }
+        }
+
+        /* Additional Dynamic Animations */
+
+        /* Slide In Animations */
+        .animate-slide-in-left {
+            animation: slideInLeft 1s ease-out forwards;
+        }
+
+        .animate-slide-in-right {
+            animation: slideInRight 1s ease-out forwards;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Floating Animations */
+        .animate-float-slow {
+            animation: floatSlow 8s ease-in-out infinite;
+        }
+
+        .animate-float-reverse {
+            animation: floatReverse 6s ease-in-out infinite;
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+
+        @keyframes floatReverse {
+            0%, 100% { transform: translateY(-10px) rotate(0deg); }
+            50% { transform: translateY(5px) rotate(-1deg); }
+        }
+
+        /* Icon Animations */
+        .animate-icon-bounce {
+            animation: iconBounce 2s ease-in-out infinite;
+        }
+
+        .animate-icon-float {
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+
+        .animate-icon-wiggle {
+            animation: iconWiggle 1s ease-in-out infinite;
+        }
+
+        @keyframes iconBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-3px) rotate(2deg); }
+        }
+
+        @keyframes iconWiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-5deg); }
+            75% { transform: rotate(5deg); }
+        }
+
+        /* Text Animations */
+        .animate-typing {
+            animation: typing 2s steps(20) forwards;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 2px solid transparent;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        .animate-text-shimmer {
+            animation: textShimmer 2s ease-in-out infinite;
+        }
+
+        @keyframes textShimmer {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Button Animations */
+        .animate-button-hover {
+            transition: all 0.3s ease;
+        }
+
+        .animate-button-hover:hover {
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        .animate-button-pulse {
+            animation: buttonPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes buttonPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(38, 38, 38, 0.4); }
+            50% { box-shadow: 0 0 0 10px rgba(38, 38, 38, 0); }
+        }
+
+        /* Card Animations */
+        .animate-card-rise {
+            animation: cardRise 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        @keyframes cardRise {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-scale-in {
+            animation: scaleIn 0.6s ease-out forwards;
+            opacity: 0;
+            transform: scale(0.95);
+        }
+
+        @keyframes scaleIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .animate-zoom-in {
+            animation: zoomIn 0.8s ease-out forwards;
+            opacity: 0;
+            transform: scale(0.9);
+        }
+
+        @keyframes zoomIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Form Animations */
+        .animate-form-rise {
+            animation: formRise 1s ease-out forwards;
+        }
+
+        @keyframes formRise {
+            from {
+                opacity: 0;
+                transform: translateY(20px) rotateX(10deg);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) rotateX(0deg);
+            }
+        }
+
+        .animate-input-focus {
+            transition: all 0.3s ease;
+        }
+
+        .animate-input-focus:focus {
+            transform: scale(1.02);
+        }
+
+        /* Badge Animations */
+        .animate-pulse-badge {
+            animation: pulseBadge 3s ease-in-out infinite;
+        }
+
+        @keyframes pulseBadge {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .animate-bounce-gentle {
+            animation: bounceGentle 2s ease-in-out infinite;
+        }
+
+        @keyframes bounceGentle {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+
+        /* Background Animations */
+        .animate-gradient-wave {
+            animation: gradientWave 15s ease-in-out infinite;
+        }
+
+        @keyframes gradientWave {
+            0%, 100% { transform: translateX(-10%) rotate(0deg); }
+            50% { transform: translateX(10%) rotate(1deg); }
+        }
+
+        /* Sparkle Effects */
+        .sparkle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: radial-gradient(circle, #2563eb, transparent);
+            border-radius: 50%;
+            animation: sparkle 3s ease-in-out infinite;
+        }
+
+        .sparkle-1 { top: 20%; left: 15%; animation-delay: 0s; }
+        .sparkle-2 { top: 40%; right: 20%; animation-delay: 1s; }
+        .sparkle-3 { bottom: 30%; left: 25%; animation-delay: 2s; }
+        .sparkle-4 { top: 60%; left: 60%; animation-delay: 0.5s; }
+        .sparkle-5 { bottom: 50%; right: 35%; animation-delay: 1.5s; }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+
+        .animate-glow-pulse {
+            animation: glowPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { box-shadow: 0 0 0 rgba(37, 99, 235, 0); }
+            50% { box-shadow: 0 0 20px rgba(37, 99, 235, 0.3); }
+        }
+
+        .animate-spin-slow {
+            animation: spinSlow 8s linear infinite;
+        }
+
+        @keyframes spinSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Line Drawing Animation */
+        .animate-draw-line {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: drawLine 4s ease-in-out forwards;
+        }
+
+        @keyframes drawLine {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        /* Scale In Up Animation */
+        .animate-scale-in-up {
+            animation: scaleInUp 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            opacity: 0;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Loader */
+        .loader {
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid #262626;
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+        }
+
+        /* Fade animations */
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-out {
+            animation: fadeInOut 2s ease-in-out infinite;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+
+        /* Modal Styles */
+        .modal-backdrop {
+            backdrop-filter: blur(10px);
+            animation: backdropFadeIn 0.3s ease-out;
+        }
+
+        .modal-closing {
+            animation: backdropFadeOut 0.3s ease-out;
+        }
+
+        .modal-content {
+            animation: modalSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .modal-closing .modal-content {
+            animation: modalSlideOut 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes backdropFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes backdropFadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95) translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        @keyframes modalSlideOut {
+            from {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+            to {
+                opacity: 0;
+                transform: scale(0.95) translateY(-20px);
+            }
+        }
+
+        /* Methodology section animation */
+        .methodology-section {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        /* Mobile-First Responsive Adjustments */
+        @media (max-width: 768px) {
+            .section-full {
+                min-height: auto;
+                padding: 100px 0 40px 0;
+            }
+            
+            .section-large {
+                padding: 60px 0;
+            }
+
+            /* Mobile Logo Sizing */
+            .logo-main {
+                width: min(16rem, 70vw) !important;
+            }
+
+            .content-container {
+                padding: 16px;
+            }
+
+            .js-falling-item {
+                font-size: 1.5rem;
+            }
+
+            /* Mobile Navigation */
+            .nav-blur {
+                padding: 12px 0;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 1000;
+                background: rgba(250, 250, 250, 0.95);
+                backdrop-filter: blur(20px);
+            }
+
+            /* Mobile Text Sizing */
+            .hero-title {
+                font-size: clamp(32px, 8vw, 48px);
+            }
+
+            /* Mobile Form Spacing */
+            .form-input {
+                padding: 14px 16px;
+                font-size: 16px;
+            }
+
+            /* Mobile Card Adjustments */
+            .card {
+                margin: 0 4px;
+            }
+
+            /* Mobile Button Sizing */
+            .btn-primary,
+            .btn-secondary {
+                padding: 16px 20px;
+                font-size: 16px;
+                min-height: 48px;
+            }
+
+            /* Mobile Modal Adjustments */
+            .modal-content {
+                margin: 16px;
+                max-height: 85vh;
+            }
+
+            .methodology-section .grid {
+                gap: 16px;
+            }
+
+            /* Mobile Contact Section */
+            #contact .grid {
+                gap: 24px;
+            }
+
+            /* Mobile Typography */
+            .section-title {
+                font-size: clamp(24px, 6vw, 36px);
+            }
+
+            .large-text {
+                font-size: clamp(16px, 4vw, 18px);
+            }
+
+            /* Mobile Menu Overlay Fix */
+            #mobile-menu {
+                z-index: 1001;
+            }
+
+            /* Mobile Books Section */
+            #books .grid {
+                gap: 2rem;
+            }
+
+            #books .rounded-3xl {
+                border-radius: 1rem;
+            }
+
+            /* Mobile Impact Section */
+            #impact .grid {
+                gap: 1rem;
+            }
+
+            /* Mobile YouTube Video */
+            .content-container iframe {
+                border-radius: 8px !important;
+            }
+
+            /* Mobile section header spacing */
+            .mb-20 {
+                margin-bottom: 3rem;
+            }
+
+            .mb-16 {
+                margin-bottom: 2.5rem;
+            }
+        }
+
+        /* Small Mobile Devices */
+        @media (max-width: 480px) {
+            .section-full {
+                padding: 90px 0 30px 0;
+            }
+
+            .logo-main {
+                width: min(14rem, 65vw) !important;
+            }
+
+            .stationery-animation-container,
+            .page-wide-animation-container {
+                overflow: hidden;
+            }
+
+            .js-falling-item {
+                font-size: 1.2rem;
+            }
+
+            .content-container {
+                padding: 12px;
+            }
+
+            button, .btn-primary, .btn-secondary {
+                min-height: 44px;
+                padding: 14px 18px;
+            }
+
+            .form-input {
+                padding: 16px 14px;
+            }
+
+            .card {
+                padding: 24px 16px;
+            }
+
+            /* Stats cards stack better */
+            #solutions .text-5xl {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Landscape Mobile */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .section-full {
+                min-height: auto;
+                padding: 60px 0 40px 0;
+            }
+
+            .logo-main {
+                width: min(12rem, 50vw) !important;
+            }
+
+            .content-container {
+                padding: 16px;
+            }
+        }
+
+        /* Fix for very tall mobile screens */
+        @media (max-width: 768px) and (min-height: 800px) {
+            .section-full {
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding-top: 100px;
+                padding-bottom: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Page-Wide Animation Container -->
+    <div class="page-wide-animation-container" id="pageWideStationery">
+        <!-- Page-wide falling items will be created here -->
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 nav-blur transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="logo.png" alt="ThinkHumanly Logo" class="h-12 w-auto object-contain" style="max-height: 48px;">
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#solutions" class="text-neutral-600 hover:text-neutral-900 transition-colors text-sm font-medium">Why This Matters</a>
+                    <a href="#books" class="text-neutral-600 hover:text-neutral-900 transition-colors text-sm font-medium">Our Books</a>
+                    <a href="#idea-spark" class="text-neutral-600 hover:text-neutral-900 transition-colors text-sm font-medium">✨ Idea Spark</a>
+                    <button class="btn-primary" onclick="openEmailClient()">
+                        Contact Us
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-neutral-600 hover:text-neutral-900 p-2">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Overlay -->
+                <div id="mobile-menu" class="hidden md:hidden fixed inset-0 z-50 bg-black/50 backdrop-blur-sm">
+                    <div class="bg-white h-full w-64 shadow-xl">
+                        <div class="p-6">
+                            <div class="flex justify-between items-center mb-8">
+                                <img src="logo.png" alt="ThinkHumanly Logo" class="h-8 w-auto">
+                                <button id="close-mobile-menu" class="text-neutral-600 hover:text-neutral-900 p-2">
+                                    <i class="fas fa-times text-xl"></i>
+                                </button>
+                            </div>
+                            <nav class="space-y-6">
+                                <a href="#solutions" class="block text-neutral-700 hover:text-accent font-medium transition-colors" onclick="closeMobileMenu()">Why This Matters</a>
+                                <a href="#books" class="block text-neutral-700 hover:text-accent font-medium transition-colors" onclick="closeMobileMenu()">Our Books</a>
+                                <a href="#idea-spark" class="block text-neutral-700 hover:text-accent font-medium transition-colors" onclick="closeMobileMenu()">✨ Idea Spark</a>
+                                <a href="#contact" class="block text-neutral-700 hover:text-accent font-medium transition-colors" onclick="closeMobileMenu()">Contact</a>
+                                <button class="btn-primary w-full mt-6" onclick="openEmailClient(); closeMobileMenu();">
+                                    Get Started
+                                </button>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section - JavaScript-Based Falling Stationery -->
+    <section class="section-full relative bg-white">
+        
+        <!-- Stationery Animation Container (overlay, doesn't affect layout) -->
+        <div class="stationery-animation-container" id="stationeryContainer">
+            <!-- Items will be dynamically created by JavaScript -->
+        </div>
+
+        <!-- Main Content Area - normal flow, not absolute -->
+        <div class="w-full max-w-4xl mx-auto px-6 text-center relative z-10">
+            
+            <!-- Clean Content Container -->
+            <div class="content-container">
+                <div class="reveal animate-fade-in-up">
+                    <!-- Enhanced Animated Logo -->
+                    <div class="mb-4 flex justify-center relative">
+                        <div class="relative">
+                            <!-- Pulse Ring Effect -->
+                            <div class="logo-pulse-ring"></div>
+                            
+                            <!-- Main Logo with Enhanced Animations -->
+                            <img src="logo.png" alt="ThinkHumanly" class="h-auto object-contain logo-main" style="width: min(20rem, 70vw); max-width: 100%;">
+                            
+                            <!-- Sparkle Effects -->
+                            <div class="logo-sparkle sparkle-1"></div>
+                            <div class="logo-sparkle sparkle-2"></div>
+                            <div class="logo-sparkle sparkle-3"></div>
+                            <div class="logo-sparkle sparkle-4"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="reveal animate-fade-in-up" style="animation-delay: 0.3s;">
+                    <p class="text-base md:text-xl text-neutral-600 mb-8 max-w-3xl mx-auto leading-relaxed font-medium">
+                        We craft activity-based learning experiences that develop critical thinking and empathy for organizations worldwide.
+                    </p>
+                </div>
+
+                <!-- YouTube Video Embed -->
+                <div class="reveal animate-fade-in-up" style="animation-delay: 0.6s;">
+                    <div class="max-w-xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-neutral-200" style="aspect-ratio: 16/9;">
+                        <iframe 
+                            width="100%" 
+                            height="100%" 
+                            src="https://www.youtube-nocookie.com/embed/2hTnQHyjt4E" 
+                            title="Think Humanly - Our Mission" 
+                            frameborder="0" 
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen
+                            style="border-radius: 16px;">
+                        </iframe>
+                    </div>
+                    <p class="text-sm text-neutral-400 mt-4">Watch: Why critical thinking matters more than ever</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <div class="w-6 h-10 border-2 border-neutral-400 rounded-full flex justify-center opacity-60">
+                <div class="w-1 h-3 bg-neutral-400 rounded-full mt-2 animate-pulse"></div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Why This Matters Section -->
+    <section id="solutions" class="section-large bg-neutral-50 relative overflow-hidden">
+        <!-- Animated Background Grid -->
+        <div class="absolute inset-0 opacity-30">
+            <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-transparent via-accent/5 to-transparent animate-gradient-wave"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-16 reveal animate-zoom-in">
+                <div class="inline-flex items-center space-x-2 bg-white border border-neutral-200 px-4 py-2 rounded-full mb-8 animate-glow-pulse">
+                    <span class="text-lg">⚡</span>
+                    <span class="text-sm text-neutral-600 font-medium">The Problem We're Solving</span>
+                </div>
+                <h2 class="font-display section-title text-neutral-900 mb-6">
+                    Why This Matters Now
+                </h2>
+                <p class="large-text text-neutral-600 max-w-3xl mx-auto animate-fade-in-up" style="animation-delay: 0.4s;">
+                    We aren't just offloading memory anymore. We're offloading thinking itself. And the generation growing up right now is paying the price.
+                </p>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <!-- Stat 1 -->
+                <div class="card p-8 reveal animate-card-rise text-center group" style="animation-delay: 0.2s;">
+                    <div class="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-hourglass-half text-red-500 text-2xl"></i>
+                    </div>
+                    <div class="font-display text-5xl font-bold text-neutral-900 mb-3">8<span class="text-xl text-neutral-400 ml-1">sec</span></div>
+                    <h3 class="font-display text-lg font-semibold text-neutral-900 mb-3">Shrinking Attention</h3>
+                    <p class="body-text text-neutral-600">
+                        The average human attention span has dropped to 8 seconds, shorter than a goldfish. For children raised on infinite scroll, the ability to focus deeply is eroding before it ever forms.
+                    </p>
+                </div>
+
+                <!-- Stat 2 -->
+                <div class="card p-8 reveal animate-card-rise text-center group" style="animation-delay: 0.4s;">
+                    <div class="w-16 h-16 bg-amber-50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-mobile-alt text-amber-500 text-2xl"></i>
+                    </div>
+                    <div class="font-display text-5xl font-bold text-neutral-900 mb-3">9<span class="text-xl text-neutral-400 ml-1">hrs</span></div>
+                    <h3 class="font-display text-lg font-semibold text-neutral-900 mb-3">Daily Screen Time</h3>
+                    <p class="body-text text-neutral-600">
+                        Tweens aged 11-14 now average 9 hours of daily screen time. That's more time on screens than sleeping, and most of it is passive consumption, not active learning.
+                    </p>
+                </div>
+
+                <!-- Stat 3 -->
+                <div class="card p-8 reveal animate-card-rise text-center group" style="animation-delay: 0.6s;">
+                    <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-baby text-accent text-2xl"></i>
+                    </div>
+                    <div class="font-display text-5xl font-bold text-neutral-900 mb-3">60<span class="text-xl text-neutral-400 ml-1">%</span></div>
+                    <h3 class="font-display text-lg font-semibold text-neutral-900 mb-3">Smartphones Before 5</h3>
+                    <p class="body-text text-neutral-600">
+                        60% of children under 12 begin using smartphones before the age of five, before their brains have developed the critical thinking skills needed to navigate what these devices deliver.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credibility Numbers Bar -->
+    <section class="bg-neutral-900 py-12 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-1/4 w-32 h-32 border border-white/20 rounded-full animate-spin-slow"></div>
+            <div class="absolute bottom-0 right-1/3 w-24 h-24 border border-white/20 rounded-full animate-spin-slow" style="animation-delay: -3s;"></div>
+        </div>
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="reveal animate-fade-in-up" style="animation-delay: 0.1s;">
+                    <div class="font-display text-4xl font-bold text-white mb-1">50+</div>
+                    <div class="text-neutral-400 text-sm">Hands-On Activities</div>
+                </div>
+                <div class="reveal animate-fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="font-display text-4xl font-bold text-white mb-1">2</div>
+                    <div class="text-neutral-400 text-sm">Published Books</div>
+                </div>
+                <div class="reveal animate-fade-in-up" style="animation-delay: 0.3s;">
+                    <div class="font-display text-4xl font-bold text-white mb-1">100%</div>
+                    <div class="text-neutral-400 text-sm">Offline & Screen-Free</div>
+                </div>
+                <div class="reveal animate-fade-in-up" style="animation-delay: 0.4s;">
+                    <div class="font-display text-4xl font-bold text-white mb-1">10+</div>
+                    <div class="text-neutral-400 text-sm">Countries Available</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Books Section -->
+    <section id="books" class="section-large bg-white relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute top-20 left-20 w-40 h-40 bg-gradient-to-br from-accent/5 to-transparent rounded-full blur-3xl animate-float-slow"></div>
+            <div class="absolute bottom-20 right-20 w-32 h-32 bg-gradient-to-br from-neutral-200/30 to-transparent rounded-full blur-2xl animate-float-reverse"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <!-- Section Header -->
+            <div class="text-center mb-12 reveal animate-zoom-in">
+                <div class="inline-flex items-center space-x-2 bg-neutral-50 border border-neutral-200 px-4 py-2 rounded-full mb-8 animate-glow-pulse">
+                    <span class="text-lg animate-bounce-gentle">📖</span>
+                    <span class="text-sm text-neutral-600 font-medium">Our Published Resources</span>
+                </div>
+                
+                <h2 class="font-display section-title text-neutral-900 mb-6">
+                    Tools to Think With
+                </h2>
+                <p class="large-text text-neutral-600 max-w-3xl mx-auto animate-fade-in-up" style="animation-delay: 0.4s;">
+                    Offline, hands-on activity books designed to rebuild the skills that screens are quietly eroding. No devices needed. Just a pencil and curiosity.
+                </p>
+            </div>
+
+            <!-- Books Grid -->
+            <div class="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                
+                <!-- Book 1: Other Thoughts -->
+                <div class="reveal animate-fade-in-up group" style="animation-delay: 0.2s;">
+                    <div class="bg-white border border-neutral-200 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
+                        <!-- Book Cover / Preview Area -->
+                        <div class="relative p-8 flex items-center justify-center cursor-pointer" onclick="openBookPreview('other-thoughts')" style="min-height: 260px; background: linear-gradient(135deg, #e8eaf0, #f0f2f8);">
+                            <div class="text-center">
+                                <img src="img3.jpg" alt="Other Thoughts: A Humanly Guide to AI" class="w-48 h-auto mx-auto activity-book mb-4">
+                                <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-neutral-900/20 backdrop-blur-sm text-neutral-800 text-xs px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <i class="fas fa-eye mr-1"></i> Click to preview pages
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Book Info -->
+                        <div class="p-8">
+                            <div class="flex items-center space-x-2 mb-3">
+                                <span class="bg-neutral-900 text-white text-xs font-semibold px-3 py-1 rounded-full">AI Literacy</span>
+                                <span class="bg-accent/10 text-accent text-xs font-semibold px-3 py-1 rounded-full">Ages 8–14</span>
+                            </div>
+                            <h3 class="font-display text-2xl font-bold text-neutral-900 mb-3">Other Thoughts</h3>
+                            <p class="text-sm text-neutral-500 mb-4 italic">A Humanly Guide to AI</p>
+                            <p class="body-text text-neutral-600 mb-6">
+                                42 pages of offline activities where kids explore how algorithms work, why AI gets things wrong, how to spot bias, and why their own thinking is irreplaceable. Through puzzles, creative challenges, and real questions worth sitting with.
+                            </p>
+                            
+                            <!-- Buy Links -->
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <a href="https://www.amazon.co.uk/Other-Thoughts-Emotional-Learning-Workbook/dp/B0GSK5M1N2?ref_=ast_author_dp&th=1&psc=1" target="_blank" 
+                                   class="btn-primary text-sm justify-center">
+                                    <i class="fab fa-amazon mr-2"></i> Buy on Amazon UK
+                                </a>
+                                <a href="https://www.amazon.in/dp/B0GSK5M1N2" target="_blank" 
+                                   class="btn-secondary text-sm justify-center">
+                                    <i class="fab fa-amazon mr-2"></i> Buy on Amazon India
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 2: Little Leaves -->
+                <div class="reveal animate-fade-in-up group" style="animation-delay: 0.4s;">
+                    <div class="bg-white border border-neutral-200 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
+                        <!-- Book Cover / Preview Area -->
+                        <div class="relative p-8 flex items-center justify-center cursor-pointer" onclick="openBookPreview('little-leaves')" style="min-height: 320px; background: linear-gradient(135deg, #f5e6d3, #fdf2e9);">
+                            <div class="text-center">
+                                <img src="img1.jpg" alt="Little Leaves: Play, Learn and Act" class="w-48 h-auto mx-auto activity-book mb-4">
+                                <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-neutral-900/20 backdrop-blur-sm text-neutral-800 text-xs px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <i class="fas fa-eye mr-1"></i> Click to preview pages
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Book Info -->
+                        <div class="p-8">
+                            <div class="flex items-center space-x-2 mb-3">
+                                <span class="bg-amber-600 text-white text-xs font-semibold px-3 py-1 rounded-full">Social-Emotional Learning</span>
+                                <span class="bg-amber-50 text-amber-700 text-xs font-semibold px-3 py-1 rounded-full">Ages 8–14</span>
+                            </div>
+                            <h3 class="font-display text-2xl font-bold text-neutral-900 mb-3">Little Leaves</h3>
+                            <p class="text-sm text-neutral-500 mb-4 italic">Play, Learn and Act</p>
+                            <p class="body-text text-neutral-600 mb-6">
+                                A warm, matte-finish activity book that explores identity, empathy, kindness, and real-world action, through drawing, storytelling, and hands-on activities that help children build the foundational human skills no technology can replicate.
+                            </p>
+                            
+                            <!-- Buy Links -->
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <a href="https://www.amazon.co.uk/Little-Leaves-Screen-Free-Building-Citizenship/dp/B0GS1JK83H?ref_=ast_author_mpb" target="_blank" 
+                                   class="btn-primary text-sm justify-center" style="background: #92400e;">
+                                    <i class="fab fa-amazon mr-2"></i> Buy on Amazon UK
+                                </a>
+                                <a href="https://www.amazon.in/dp/B0GS1JK83H" target="_blank" 
+                                   class="btn-secondary text-sm justify-center">
+                                    <i class="fab fa-amazon mr-2"></i> Buy on Amazon India
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Book Preview Modal -->
+    <div id="book-preview-modal" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeBookPreview()"></div>
+        <div class="relative w-full h-full flex items-center justify-center p-4">
+            <div class="modal-content bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl">
+                <div class="sticky top-0 bg-white/95 backdrop-blur-sm border-b border-neutral-200 p-6 flex justify-between items-center z-10">
+                    <h2 id="preview-title" class="font-display text-xl font-bold text-neutral-900">Book Preview</h2>
+                    <button onclick="closeBookPreview()" class="w-10 h-10 bg-neutral-100 hover:bg-neutral-200 rounded-full flex items-center justify-center transition-colors">
+                        <i class="fas fa-times text-neutral-600"></i>
+                    </button>
+                </div>
+                <div class="overflow-y-auto max-h-[calc(90vh-100px)] p-6">
+                    <!-- Preview Navigation -->
+                    <div class="flex items-center justify-between mb-6">
+                        <button onclick="prevPreviewPage()" class="w-10 h-10 bg-neutral-100 hover:bg-neutral-200 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fas fa-chevron-left text-neutral-600"></i>
+                        </button>
+                        <span id="preview-page-indicator" class="text-sm text-neutral-500">Page 1 of 4</span>
+                        <button onclick="nextPreviewPage()" class="w-10 h-10 bg-neutral-100 hover:bg-neutral-200 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fas fa-chevron-right text-neutral-600"></i>
+                        </button>
+                    </div>
+                    <!-- Preview Image -->
+                    <div class="flex justify-center">
+                        <img id="preview-image" src="" alt="Book preview page" class="max-w-full h-auto rounded-xl shadow-lg" style="max-height: 60vh;">
+                    </div>
+                    <!-- Thumbnail Navigation -->
+                    <div id="preview-thumbnails" class="flex justify-center gap-3 mt-6">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Idea Spark Section -->
+    <section id="idea-spark" class="section-large bg-neutral-50 relative overflow-hidden">
+        <!-- Sparkle Animation Background -->
+        <div class="absolute inset-0">
+            <div class="sparkle sparkle-1"></div>
+            <div class="sparkle sparkle-2"></div>
+            <div class="sparkle sparkle-3"></div>
+            <div class="sparkle sparkle-4"></div>
+            <div class="sparkle sparkle-5"></div>
+        </div>
+        
+        <div class="max-w-5xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-16 reveal animate-zoom-in">
+                <div class="inline-flex items-center space-x-2 bg-neutral-50 border border-neutral-200 px-4 py-2 rounded-full mb-8 animate-glow-pulse">
+                    <span class="text-lg animate-spin-slow">✨</span>
+                    <span class="text-sm text-neutral-600">Experience Our Approach</span>
+                </div>
+                
+                <h2 class="font-display section-title text-neutral-900 mb-6 animate-typing">
+                    Activity Idea Spark
+                </h2>
+                
+                <p class="large-text text-neutral-600 max-w-3xl mx-auto animate-fade-in-up" style="animation-delay: 0.4s;">
+                    Get a glimpse of our human-centric methodology. Select your context and let ThinkHumanly generate a unique, hands-on activity idea for you.
+                </p>
+            </div>
+
+            <div class="card p-8 reveal animate-scale-in" style="animation-delay: 0.2s;">
+                <div id="idea-form" class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div class="space-y-3 animate-slide-in-left" style="animation-delay: 0.3s;">
+                        <label class="block text-sm font-medium text-neutral-900">I am a...</label>
+                        <select id="role" class="form-input animate-input-focus">
+                            <option value="Teacher">Teacher</option>
+                            <option value="Corporate Trainer">Corporate Trainer</option>
+                            <option value="Therapist / Psychologist">Therapist / Psychologist</option>
+                            <option value="Educational Consultant">Educational Consultant</option>
+                        </select>
+                    </div>
+
+                    <div class="space-y-3 animate-slide-in-right" style="animation-delay: 0.4s;">
+                        <label class="block text-sm font-medium text-neutral-900">My learners are...</label>
+                        <select id="audience" class="form-input animate-input-focus">
+                            <option value="Young Children (3-7)">Young Children (3-7)</option>
+                            <option value="Primary Students (8-12)">Primary Students (8-12)</option>
+                            <option value="Teenagers (13-18)">Teenagers (13-18)</option>
+                            <option value="Adults">Adults</option>
+                            <option value="Mixed Age Groups">Mixed Age Groups</option>
+                        </select>
+                    </div>
+
+                    <div class="md:col-span-2 space-y-3 animate-fade-in-up" style="animation-delay: 0.5s;">
+                        <label class="block text-sm font-medium text-neutral-900">I want to focus on...</label>
+                        <select id="focus" class="form-input animate-input-focus">
+                            <option value="Civic Engagement">Civic Engagement</option>
+                            <option value="Inclusivity & Diversity">Inclusivity & Diversity</option>
+                            <option value="Critical Thinking">Critical Thinking</option>
+                            <option value="Empathy & Tolerance">Empathy & Tolerance</option>
+                            <option value="Digital Citizenship">Digital Citizenship</option>
+                            <option value="Cultural Acceptance">Cultural Acceptance</option>
+                        </select>
+                    </div>
+
+                    <div class="md:col-span-2 space-y-3 animate-fade-in-up" style="animation-delay: 0.6s;">
+                        <label class="block text-sm font-medium text-neutral-900">Add specific context (optional)</label>
+                        <input type="text" id="context" placeholder="e.g., 'for a multicultural classroom', 'for team building workshop'" 
+                               class="form-input animate-input-focus">
+                    </div>
+                </div>
+
+                <div class="text-center animate-fade-in-up" style="animation-delay: 0.8s;">
+                    <button id="generate-btn" class="btn-primary animate-button-pulse" onclick="generateActivity()">
+                        <i class="fas fa-magic mr-2 animate-icon-wiggle"></i>
+                        Generate My Activity
+                    </button>
+                </div>
+
+                <div id="loading-indicator" class="hidden mt-8 text-center">
+                    <div class="flex justify-center items-center mb-4">
+                        <div class="loader mr-3"></div>
+                        <span class="text-neutral-600">Creating your personalized activity...</span>
+                    </div>
+                </div>
+
+                <div id="result-container" class="hidden mt-12">
+                    <div class="bg-neutral-50 border border-neutral-200 p-8 rounded-lg">
+                        <div class="flex items-center space-x-4 mb-6">
+                            <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center animate-icon-bounce">
+                                <i class="fas fa-lightbulb text-white"></i>
+                            </div>
+                            <div>
+                                <h3 id="result-title" class="font-display text-xl font-semibold text-neutral-900"></h3>
+                                <div class="text-sm text-neutral-500">Human-Centric Learning Activity</div>
+                            </div>
+                        </div>
+                        
+                        <p id="result-description" class="body-text text-neutral-700 mb-6"></p>
+                        
+                        <div class="bg-white border border-neutral-200 p-6 rounded-lg">
+                            <h4 class="font-medium text-neutral-900 mb-4 flex items-center">
+                                <i class="fas fa-target mr-2 text-accent animate-icon-wiggle"></i>
+                                Key Learning Outcomes:
+                            </h4>
+                            <ul id="result-outcomes" class="space-y-3"></ul>
+                        </div>
+
+                        <div class="mt-8 text-center">
+                            <p class="body-text text-neutral-600 mb-4">Love this approach? Let's create something transformational together!</p>
+                            <button class="btn-primary animate-button-pulse" onclick="openEmailClient()">
+                                <i class="fas fa-handshake mr-2"></i>
+                                Start Full Collaboration
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Measuring Impact Section -->
+    <section id="impact" class="section-large bg-white relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0">
+            <div class="absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-accent/10 to-accent/5 rounded-full blur-3xl animate-float-slow"></div>
+            <div class="absolute bottom-32 right-16 w-40 h-40 bg-gradient-to-br from-neutral-200/50 to-neutral-100/50 rounded-full blur-2xl animate-float-reverse"></div>
+        </div>
+        
+        <div class="max-w-5xl mx-auto px-6 relative z-10">
+            <!-- Section Header -->
+            <div class="text-center mb-12 reveal animate-zoom-in">
+                <div class="inline-flex items-center space-x-2 bg-neutral-50 border border-neutral-200 px-4 py-2 rounded-full mb-8 animate-glow-pulse">
+                    <span class="text-lg animate-bounce-gentle">📊</span>
+                    <span class="text-sm text-neutral-600 font-medium">Beyond the Books</span>
+                </div>
+                
+                <h2 class="font-display section-title text-neutral-900 mb-6">
+                    We Don't Just Teach. We Measure.
+                </h2>
+                <p class="large-text text-neutral-600 max-w-2xl mx-auto animate-fade-in-up" style="animation-delay: 0.4s;">
+                    Every book comes with a Digital Impact Toolkit that tracks real progress in the skills that matter most.
+                </p>
+            </div>
+
+            <!-- Three clean metrics -->
+            <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="reveal animate-fade-in-up text-center" style="animation-delay: 0.2s;">
+                    <div class="w-16 h-16 bg-neutral-900 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <span class="text-2xl">🧩</span>
+                    </div>
+                    <h4 class="font-display font-bold text-neutral-900 mb-2">Logical Reasoning</h4>
+                    <p class="text-sm text-neutral-600">Tracks how children improve at sequencing, debugging instructions, and building cause-and-effect thinking.</p>
+                </div>
+
+                <div class="reveal animate-fade-in-up text-center" style="animation-delay: 0.3s;">
+                    <div class="w-16 h-16 bg-accent rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <span class="text-2xl">🤝</span>
+                    </div>
+                    <h4 class="font-display font-bold text-neutral-900 mb-2">Social Competence</h4>
+                    <p class="text-sm text-neutral-600">Measures growth in empathy, kindness, and positive interaction through activities like Kindness Bingo.</p>
+                </div>
+
+                <div class="reveal animate-fade-in-up text-center" style="animation-delay: 0.4s;">
+                    <div class="w-16 h-16 bg-neutral-700 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <span class="text-2xl">🔍</span>
+                    </div>
+                    <h4 class="font-display font-bold text-neutral-900 mb-2">Critical Evaluation</h4>
+                    <p class="text-sm text-neutral-600">Assesses a child's ability to spot bias, question AI outputs, and form independent opinions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section - Simplified & Elegant -->
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-modal" class="fixed inset-0 z-50 hidden">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closePrivacyModal()"></div>
+        
+        <!-- Modal Container -->
+        <div class="relative w-full h-full flex items-center justify-center p-4">
+            <div class="modal-content bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl">
+                
+                <!-- Modal Header -->
+                <div class="sticky top-0 bg-white/95 backdrop-blur-sm border-b border-neutral-200 p-6 flex justify-between items-center z-10">
+                    <h2 class="font-display text-2xl font-bold text-neutral-900">Privacy Policy</h2>
+                    <button onclick="closePrivacyModal()" class="w-10 h-10 bg-neutral-100 hover:bg-neutral-200 rounded-full flex items-center justify-center transition-colors">
+                        <i class="fas fa-times text-neutral-600"></i>
+                    </button>
+                </div>
+
+                <!-- Modal Content -->
+                <div class="overflow-y-auto max-h-[calc(90vh-100px)] p-6 space-y-6">
+                    
+                    <div class="prose prose-neutral max-w-none">
+                        <p class="text-sm text-neutral-500 mb-6">Effective Date: July 2025</p>
+                        
+                        <h3 class="text-lg font-semibold text-neutral-900 mb-3">Information We Collect</h3>
+                        <p class="text-neutral-700 mb-4">
+                            ThinkHumanly operates on a privacy-first approach. We only collect information when you voluntarily contact us through:
+                        </p>
+                        <ul class="list-disc list-inside text-neutral-700 mb-6 space-y-2">
+                            <li>Email communications to contact@thinkhumanly.co</li>
+                            <li>Information you provide in consultation requests</li>
+                        </ul>
+
+                        <h3 class="text-lg font-semibold text-neutral-900 mb-3">How We Use Your Information</h3>
+                        <p class="text-neutral-700 mb-4">
+                            We use the information you provide solely to:
+                        </p>
+                        <ul class="list-disc list-inside text-neutral-700 mb-6 space-y-2">
+                            <li>Respond to your inquiries about our services</li>
+                            <li>Provide educational consultation and collaboration</li>
+                            <li>Develop bespoke learning solutions for your organization</li>
+                        </ul>
+
+                        <h3 class="text-lg font-semibold text-neutral-900 mb-3">Data Security</h3>
+                        <p class="text-neutral-700 mb-6">
+                            We implement appropriate technical and organizational measures to protect your personal information. We do not store personal data on our website - all communications are handled through secure email systems.
+                        </p>
+
+                        <h3 class="text-lg font-semibold text-neutral-900 mb-3">Third-Party Services</h3>
+                        <p class="text-neutral-700 mb-6">
+                            Our website may use third-party services for functionality (such as analytics or CDNs). These services have their own privacy policies, and we recommend reviewing them.
+                        </p>
+
+                        <h3 class="text-lg font-semibold text-neutral-900 mb-3">Your Rights</h3>
+                        <p class="text-neutral-700 mb-4">
+                            You have the right to:
+                        </p>
+                        <ul class="list-disc list-inside text-neutral-700 mb-6 space-y-2">
+                            <li>Request information about data we hold about you</li>
+                            <li>Request correction or deletion of your personal information</li>
+                            <li>Withdraw consent for communications at any time</li>
+                        </ul>
+
+                        <h3 class="text-lg font-semibold text-neutral-900 mb-3">Contact Us</h3>
+                        <p class="text-neutral-700 mb-4">
+                            If you have questions about this Privacy Policy, please contact us at:
+                        </p>
+                        <div class="bg-neutral-50 p-4 rounded-lg">
+                            <p class="text-neutral-700 font-medium">ThinkHumanly</p>
+                            <p class="text-neutral-600">Email: contact@thinkhumanly.co</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div id="terms-modal" class="fixed inset-0 z-50 hidden">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeTermsModal()"></div>
+        
+        <!-- Modal Container -->
+        <div class="relative w-full h-full flex items-center justify-center p-4">
+            <div class="modal-content bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl">
+                
+                <!-- Modal Header -->
+                <div class="sticky top-0 bg-white/95 backdrop-blur-sm border-b border-neutral-200 p-6 flex justify-between items-center z-10">
+                    <h2 class="font-display text-2xl font-bold text-neutral-900">Terms of Service</h2>
+                    <button onclick="closeTermsModal()" class="w-10 h-10 bg-neutral-100 hover:bg-neutral-200 rounded-full flex items-center justify-center transition-colors">
+                        <i class="fas fa-times text-neutral-600"></i>
+                    </button>
+                </div>
+
+                <!-- Modal Content -->
+                <div class="overflow-y-auto max-h-[calc(90vh-100px)] p-6 space-y-6">
+                    
+                    <div class="prose prose-neutral max-w-none">
+                        
+                        <p class="text-sm text-neutral-500 mb-6">Effective Date: July 2025</p>
+                        
+                        <h3 class="text-lg font-semibold text-neutral-900 mb-3">Our Services</h3>
+                        <p class="text-neutral-700 mb-4">
+                            ThinkHumanly provides human-centric, activity-based learning solutions including:
+                        </p>
+                        <ul class="list-disc list-inside text-neutral-700 mb-6 space-y-2">
+                            <li>Bespoke learning tool development</li>
+                            <li>Curriculum and program design</li>
+                            <li>Educational consultation and training</li>
+                            <li>Impact analytics and assessment</li>
+                        </ul>
+
+                        <h3 class="text-lg font-semibold text-neutral-900 mb-3">Intellectual Property Rights</h3>
+                        <p class="text-neutral-700 mb-4">
+                            <strong>Our Creative Work:</strong> All educational content, methodologies, activity designs, curricula, and learning frameworks developed by ThinkHumanly are protected by intellectual property rights and remain our exclusive property unless otherwise agreed in writing.
+                        </p>
+                        <p class="text-neutral-700 mb-4">
+                            <strong>Bespoke Solutions:</strong> When we create customized learning solutions for your organization, the specific implementation may be licensed for your use while the underlying methodology and framework remain our intellectual property.
+                        </p>
+                        <p class="text-neutral-700 mb-6">
+                            <strong>Client Content:</strong> Any content, information, or materials provided by clients remain their property. We will not use client-specific information for other projects without explicit permission.
+                        </p>
+
+                        <h3 class="text-lg font-semibold text-neutral-900 mb-3">Usage Rights</h3>
+                        <p class="text-neutral-700 mb-4">
+                            Upon completion and payment for services:
+                        </p>
+                        <ul class="list-disc list-inside text-neutral-700 mb-6 space-y-2">
+                            <li>Clients receive usage rights for the specific deliverables within their organization</li>
+                            <li>Modification or redistribution of our content requires written permission</li>
+                            <li>Credit to ThinkHumanly should be maintained where feasible</li>
+                        </ul>
+
+                        <h3 class="text-lg font-semibold text-neutral-900 mb-3">Service Delivery</h3>
+                        <p class="text-neutral-700 mb-6">
+                            We commit to delivering high-quality, evidence-based educational solutions. All projects will be clearly scoped with deliverables, timelines, and expectations outlined in separate agreements.
+                        </p>
+
+                        <h3 class="text-lg font-semibold text-neutral-900 mb-3">Limitation of Liability</h3>
+                        <p class="text-neutral-700 mb-6">
+                            ThinkHumanly provides educational consultation and content creation. While we strive for excellence, we cannot guarantee specific learning outcomes as these depend on various factors including implementation, context, and learner engagement.
+                        </p>
+
+                        <h3 class="text-lg font-semibold text-neutral-900 mb-3">Confidentiality</h3>
+                        <p class="text-neutral-700 mb-6">
+                            We maintain strict confidentiality regarding all client information, educational contexts, and proprietary content shared during our collaboration.
+                        </p>
+
+                        <h3 class="text-lg font-semibold text-neutral-900 mb-3">Modification of Terms</h3>
+                        <p class="text-neutral-700 mb-6">
+                            We reserve the right to update these terms as our services evolve. Significant changes will be communicated to active clients.
+                        </p>
+
+                        <h3 class="text-lg font-semibold text-neutral-900 mb-3">Contact Information</h3>
+                        <p class="text-neutral-700 mb-4">
+                            For questions about these terms or to discuss licensing arrangements:
+                        </p>
+                        <div class="bg-neutral-50 p-4 rounded-lg">
+                            <p class="text-neutral-700 font-medium">ThinkHumanly</p>
+                            <p class="text-neutral-600">Email: contact@thinkhumanly.co</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Methodology Modal -->
+    <div id="methodology-modal" class="fixed inset-0 z-50 hidden">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeMethodologyModal()"></div>
+        
+        <!-- Modal Container -->
+        <div class="relative w-full h-full flex items-center justify-center p-4">
+            <div class="modal-content bg-white rounded-3xl max-w-6xl w-full max-h-[90vh] overflow-hidden shadow-2xl">
+                
+                <!-- Modal Header -->
+                <div class="sticky top-0 bg-white/95 backdrop-blur-sm border-b border-neutral-200 p-6 flex justify-between items-center z-10">
+                    <h2 class="font-display text-2xl font-bold text-neutral-900">Our Methodology</h2>
+                    <button onclick="closeMethodologyModal()" class="w-10 h-10 bg-neutral-100 hover:bg-neutral-200 rounded-full flex items-center justify-center transition-colors">
+                        <i class="fas fa-times text-neutral-600"></i>
+                    </button>
+                </div>
+
+                <!-- Modal Content -->
+                <div class="overflow-y-auto max-h-[calc(90vh-100px)]">
+                    <div class="p-6 space-y-12">
+                        
+                        <!-- Hero Section -->
+                        <div class="text-center methodology-section">
+                            <div class="w-20 h-20 bg-gradient-to-r from-accent to-neutral-700 rounded-3xl flex items-center justify-center mx-auto mb-6 animate-icon-float">
+                                <i class="fas fa-lightbulb text-white text-2xl"></i>
+                            </div>
+                            <h3 class="font-display text-3xl font-bold text-neutral-900 mb-4">Activity-Based Learning</h3>
+                            <p class="large-text text-neutral-600 max-w-4xl mx-auto">
+                                The most powerful learning happens through activities that are engaging, personally meaningful, and intrinsically rewarding - where the joy of discovery drives the learning process.
+                            </p>
+                        </div>
+
+                        <!-- Four Strategic Pillars - Enhanced Interactive Design -->
+                        <div class="methodology-section">
+                            <h3 class="font-display text-2xl font-bold text-neutral-900 mb-8 text-center">Four Strategic Pillars</h3>
+                            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                                
+                                <!-- Pillar 1: Survive & Thrive -->
+                                <div class="group relative overflow-hidden">
+                                    <div class="bg-gradient-to-br from-rose-50 to-pink-50 p-8 rounded-3xl border border-rose-100 hover:border-rose-300 transition-all duration-500 hover:scale-105 hover:shadow-xl cursor-pointer">
+                                        <div class="flex items-center space-x-4 mb-4">
+                                            <div class="relative">
+                                                <div class="w-16 h-16 bg-gradient-to-br from-rose-400 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-12 group-hover:scale-110 transition-all duration-500">
+                                                    <div class="text-white text-2xl animate-pulse">💖</div>
+                                                </div>
+                                                <div class="absolute -top-2 -right-2 w-6 h-6 bg-rose-200 rounded-full animate-ping group-hover:animate-bounce"></div>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-lg text-rose-800 group-hover:text-rose-900 transition-colors">Survive & Thrive</h4>
+                                                <p class="text-rose-600 text-sm">Holistic well-being</p>
+                                            </div>
+                                        </div>
+                                        <p class="text-neutral-700 text-sm leading-relaxed">Every child deserves to grow in a supportive environment that nurtures their physical, emotional, and social development.</p>
+                                        <div class="absolute top-4 right-4 opacity-20 group-hover:opacity-40 transition-opacity duration-300">
+                                            <div class="text-6xl">🌱</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Pillar 2: Learn -->
+                                <div class="group relative overflow-hidden">
+                                    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-3xl border border-blue-100 hover:border-blue-300 transition-all duration-500 hover:scale-105 hover:shadow-xl cursor-pointer">
+                                        <div class="flex items-center space-x-4 mb-4">
+                                            <div class="relative">
+                                                <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-12 group-hover:scale-110 transition-all duration-500">
+                                                    <div class="text-white text-2xl animate-bounce">🎓</div>
+                                                </div>
+                                                <div class="absolute -top-2 -right-2 w-6 h-6 bg-blue-200 rounded-full animate-ping group-hover:animate-bounce"></div>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-lg text-blue-800 group-hover:text-blue-900 transition-colors">Learn</h4>
+                                                <p class="text-blue-600 text-sm">Quality education</p>
+                                            </div>
+                                        </div>
+                                        <p class="text-neutral-700 text-sm leading-relaxed">Access to meaningful, engaging educational experiences that develop critical thinking and prepare learners for the future.</p>
+                                        <div class="absolute top-4 right-4 opacity-20 group-hover:opacity-40 transition-opacity duration-300">
+                                            <div class="text-6xl">📚</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Pillar 3: Protected -->
+                                <div class="group relative overflow-hidden">
+                                    <div class="bg-gradient-to-br from-emerald-50 to-green-50 p-8 rounded-3xl border border-emerald-100 hover:border-emerald-300 transition-all duration-500 hover:scale-105 hover:shadow-xl cursor-pointer">
+                                        <div class="flex items-center space-x-4 mb-4">
+                                            <div class="relative">
+                                                <div class="w-16 h-16 bg-gradient-to-br from-emerald-400 to-green-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-12 group-hover:scale-110 transition-all duration-500">
+                                                    <div class="text-white text-2xl animate-pulse">🛡️</div>
+                                                </div>
+                                                <div class="absolute -top-2 -right-2 w-6 h-6 bg-emerald-200 rounded-full animate-ping group-hover:animate-bounce"></div>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-lg text-emerald-800 group-hover:text-emerald-900 transition-colors">Protected</h4>
+                                                <p class="text-emerald-600 text-sm">Safety & security</p>
+                                            </div>
+                                        </div>
+                                        <p class="text-neutral-700 text-sm leading-relaxed">Creating safe learning environments free from harm, discrimination, and barriers to personal growth and expression.</p>
+                                        <div class="absolute top-4 right-4 opacity-20 group-hover:opacity-40 transition-opacity duration-300">
+                                            <div class="text-6xl">🏰</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Pillar 4: Participate -->
+                                <div class="group relative overflow-hidden">
+                                    <div class="bg-gradient-to-br from-amber-50 to-orange-50 p-8 rounded-3xl border border-amber-100 hover:border-amber-300 transition-all duration-500 hover:scale-105 hover:shadow-xl cursor-pointer">
+                                        <div class="flex items-center space-x-4 mb-4">
+                                            <div class="relative">
+                                                <div class="w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-12 group-hover:scale-110 transition-all duration-500">
+                                                    <div class="text-white text-2xl animate-bounce">👥</div>
+                                                </div>
+                                                <div class="absolute -top-2 -right-2 w-6 h-6 bg-amber-200 rounded-full animate-ping group-hover:animate-bounce"></div>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-lg text-amber-800 group-hover:text-amber-900 transition-colors">Participate</h4>
+                                                <p class="text-amber-600 text-sm">Active engagement</p>
+                                            </div>
+                                        </div>
+                                        <p class="text-neutral-700 text-sm leading-relaxed">Empowering every learner to have their voice heard and to actively contribute to their communities and learning environments.</p>
+                                        <div class="absolute top-4 right-4 opacity-20 group-hover:opacity-40 transition-opacity duration-300">
+                                            <div class="text-6xl">🤝</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- Interactive Connection Lines -->
+                            <div class="mt-12 relative">
+                                <div class="absolute inset-0 flex items-center justify-center opacity-20">
+                                    <svg width="300" height="200" viewBox="0 0 300 200" class="animate-pulse">
+                                        <path d="M50,50 Q150,0 250,50 Q150,100 50,150 Q150,200 250,150 Q150,100 50,50" stroke="#2563eb" stroke-width="2" fill="none" opacity="0.3"/>
+                                    </svg>
+                                </div>
+                                <div class="text-center">
+                                    <p class="text-sm text-neutral-600 italic">Working together to create transformational learning experiences</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Core Themes -->
+                        <div class="methodology-section">
+                            <h3 class="font-display text-2xl font-bold text-neutral-900 mb-8 text-center">Core Learning Themes</h3>
+                            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                                <div class="bg-neutral-50 p-4 rounded-lg text-center hover:bg-accent/10 transition-all duration-300 hover:scale-105">
+                                    <div class="text-accent text-xl mb-2 animate-bounce">🗳️</div>
+                                    <p class="text-sm font-medium text-neutral-700">Civic Engagement</p>
+                                </div>
+                                <div class="bg-neutral-50 p-4 rounded-lg text-center hover:bg-accent/10 transition-all duration-300 hover:scale-105">
+                                    <div class="text-accent text-xl mb-2 animate-pulse">🤝</div>
+                                    <p class="text-sm font-medium text-neutral-700">Inclusivity</p>
+                                </div>
+                                <div class="bg-neutral-50 p-4 rounded-lg text-center hover:bg-accent/10 transition-all duration-300 hover:scale-105">
+                                    <div class="text-accent text-xl mb-2 animate-bounce">👥</div>
+                                    <p class="text-sm font-medium text-neutral-700">Diversity</p>
+                                </div>
+                                <div class="bg-neutral-50 p-4 rounded-lg text-center hover:bg-accent/10 transition-all duration-300 hover:scale-105">
+                                    <div class="text-accent text-xl mb-2 animate-pulse">⚖️</div>
+                                    <p class="text-sm font-medium text-neutral-700">Tolerance</p>
+                                </div>
+                                <div class="bg-neutral-50 p-4 rounded-lg text-center hover:bg-accent/10 transition-all duration-300 hover:scale-105">
+                                    <div class="text-accent text-xl mb-2 animate-bounce">🧠</div>
+                                    <p class="text-sm font-medium text-neutral-700">Critical Thinking</p>
+                                </div>
+                                <div class="bg-neutral-50 p-4 rounded-lg text-center hover:bg-accent/10 transition-all duration-300 hover:scale-105">
+                                    <div class="text-accent text-xl mb-2 animate-pulse">🏛️</div>
+                                    <p class="text-sm font-medium text-neutral-700">Citizenship</p>
+                                </div>
+                                <div class="bg-neutral-50 p-4 rounded-lg text-center hover:bg-accent/10 transition-all duration-300 hover:scale-105">
+                                    <div class="text-accent text-xl mb-2 animate-bounce">🌍</div>
+                                    <p class="text-sm font-medium text-neutral-700">Cultural Acceptance</p>
+                                </div>
+                                <div class="bg-neutral-50 p-4 rounded-lg text-center hover:bg-accent/10 transition-all duration-300 hover:scale-105">
+                                    <div class="text-accent text-xl mb-2 animate-pulse">🔐</div>
+                                    <p class="text-sm font-medium text-neutral-700">Digital Citizenship</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Evidence & Impact -->
+                        <div class="methodology-section">
+                            <h3 class="font-display text-2xl font-bold text-neutral-900 mb-8 text-center">Proven Impact</h3>
+                            <div class="grid md:grid-cols-3 gap-6">
+                                <div class="bg-gradient-to-br from-accent/10 to-accent/5 p-6 rounded-2xl text-center">
+                                    <div class="text-4xl font-bold text-accent mb-2">80-100%</div>
+                                    <p class="text-neutral-700 font-medium">Knowledge Retention</p>
+                                    <p class="text-sm text-neutral-600 mt-2">Students remembered and understood key concepts</p>
+                                </div>
+                                <div class="bg-gradient-to-br from-neutral-100 to-neutral-50 p-6 rounded-2xl text-center">
+                                    <div class="text-4xl font-bold text-neutral-700 mb-2">100%</div>
+                                    <p class="text-neutral-700 font-medium">Concept Introduction</p>
+                                    <p class="text-sm text-neutral-600 mt-2">Successfully introduced empathy and tolerance</p>
+                                </div>
+                                <div class="bg-gradient-to-br from-accent/10 to-neutral-100 p-6 rounded-2xl text-center">
+                                    <div class="text-4xl font-bold text-neutral-900 mb-2">New</div>
+                                    <p class="text-neutral-700 font-medium">Personality Aspects</p>
+                                    <p class="text-sm text-neutral-600 mt-2">Brought out different aspects of personalities</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Call to Action -->
+                        <div class="methodology-section text-center bg-neutral-50 p-8 rounded-2xl">
+                            <h3 class="font-display text-2xl font-bold text-neutral-900 mb-4">Ready to Implement Our Methodology?</h3>
+                            <p class="text-neutral-600 mb-6">Let's discuss how our evidence-based approach can transform your learning environment.</p>
+                            <button class="btn-primary" onclick="closeMethodologyModal(); document.getElementById('contact').scrollIntoView({behavior: 'smooth'});">
+                                <i class="fas fa-handshake mr-2"></i>
+                                Start Your Collaboration
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-neutral-900 text-white">
+        <div style="max-width: 560px; margin: 0 auto; padding: 60px 24px 40px; text-align: center;">
+
+            <h2 style="font-family: 'DM Sans', sans-serif; font-size: 28px; font-weight: 700; margin: 0 0 8px;">Let's Create Together</h2>
+            <p style="color: #a3a3a3; font-size: 14px; margin: 0 0 32px;">Schools, parents, organizations - we'd love to hear from you.</p>
+
+            <p style="color: #2563eb; font-weight: 600; font-size: 18px; margin: 0 0 4px;">contact@thinkhumanly.co</p>
+            <p style="color: #737373; font-size: 12px; margin: 0 0 20px;">We respond within 24 hours</p>
+
+            <div style="margin: 0 0 40px;">
+                <button onclick="openEmailClient()" style="background: white; color: #171717; font-weight: 600; padding: 12px 32px; border-radius: 12px; border: none; font-size: 14px; cursor: pointer;">
+                    Start Conversation <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+                </button>
+            </div>
+
+            <div style="display: flex; justify-content: center; gap: 16px; margin: 0 0 40px;">
+                <a href="https://instagram.com/thinkhumanly.co" target="_blank" style="width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none;"><i class="fab fa-instagram" style="color: white;"></i></a>
+                <a href="https://www.youtube.com/@thinkhumanlyco" target="_blank" style="width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none;"><i class="fab fa-youtube" style="color: white;"></i></a>
+                <a href="https://www.linkedin.com/company/thinkhumanly" target="_blank" style="width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none;"><i class="fab fa-linkedin-in" style="color: white;"></i></a>
+            </div>
+
+            <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;">
+                <p style="color: #737373; font-size: 11px; margin: 0 0 8px;">Made with &#10084;&#65039; for better learning</p>
+                <p style="margin: 0 0 8px;">
+                    <button onclick="openPrivacyModal()" style="color: #737373; font-size: 11px; background: none; border: none; cursor: pointer;">Privacy Policy</button>
+                    <span style="color: #404040; font-size: 11px; margin: 0 4px;">|</span>
+                    <button onclick="openTermsModal()" style="color: #737373; font-size: 11px; background: none; border: none; cursor: pointer;">Terms of Service</button>
+                </p>
+                <p style="color: #525252; font-size: 11px; margin: 0;">&copy; 2026 ThinkHumanly. All rights reserved.</p>
+            </div>
+
+        </div>
+    </footer>
+
+    <script>
+        // Activity Ideas Database
+        const activityDatabase = {
+            "Teacher": {
+                "Young Children (3-7)": {
+                    "Civic Engagement": {
+                        title: "Little Citizens Council",
+                        description: "Children create a classroom 'mini-town' where they take turns being mayor, shopkeepers, and citizens. They vote on classroom rules, solve playground problems together, and learn that everyone's voice matters in making their community better.",
+                        outcomes: ["Understanding basic democratic voting", "Learning to listen to different opinions", "Developing problem-solving skills", "Building confidence in expressing ideas"]
+                    },
+                    "Inclusivity & Diversity": {
+                        title: "Family Stories Quilt",
+                        description: "Each child brings a story or photo from their family traditions. Together, they create a classroom 'quilt' where every family's story gets a special square. They discover that different doesn't mean strange - it means interesting!",
+                        outcomes: ["Celebrating family differences", "Building respect for diverse traditions", "Developing storytelling skills", "Creating inclusive classroom culture"]
+                    },
+                    "Critical Thinking": {
+                        title: "Detective Mystery Box",
+                        description: "Present children with mystery boxes containing everyday objects. They work in pairs to observe, ask questions, make guesses, and test their ideas. 'Why is this spoon here? What do you think happened?' They become little detectives using clues and reasoning.",
+                        outcomes: ["Developing observation skills", "Learning to ask 'why' and 'how' questions", "Practicing logical reasoning", "Building evidence-based thinking"]
+                    },
+                    "Empathy & Tolerance": {
+                        title: "Feelings Puppet Theater",
+                        description: "Children create simple puppets and act out scenarios where characters feel different emotions. 'What happens when Puppet A feels left out?' They explore how actions affect others and practice kind responses to difficult situations.",
+                        outcomes: ["Recognizing emotions in others", "Understanding cause and effect of actions", "Developing compassionate responses", "Building emotional vocabulary"]
+                    },
+                    "Digital Citizenship": {
+                        title: "Screen Time Superheroes",
+                        description: "Children design their own 'superhero' rules for using tablets and computers. They create colorful posters showing 'Screen Time Superpowers' like taking breaks, asking before downloading, and being kind online (even in games they might play).",
+                        outcomes: ["Understanding basic screen time balance", "Learning to ask permission for digital activities", "Developing awareness of online kindness", "Creating personal technology boundaries"]
+                    },
+                    "Cultural Acceptance": {
+                        title: "World Music Movement",
+                        description: "Each week, children explore music and simple dances from different cultures. They learn that music is a universal language - everyone expresses joy, sadness, and celebration, just in different beautiful ways.",
+                        outcomes: ["Appreciating cultural expressions", "Finding common human experiences", "Developing rhythmic and movement skills", "Building curiosity about world cultures"]
+                    }
+                },
+                "Primary Students (8-12)": {
+                    "Civic Engagement": {
+                        title: "School Parliament Project",
+                        description: "Students form political parties, campaign on real school issues (playground improvements, lunch options, recycling), and hold elections. The winning party implements one small change, learning how democracy works through hands-on experience.",
+                        outcomes: ["Understanding democratic processes", "Developing public speaking confidence", "Learning compromise and negotiation", "Experiencing civic responsibility"]
+                    },
+                    "Inclusivity & Diversity": {
+                        title: "Heritage Recipe Exchange",
+                        description: "Students research and share family recipes (or foods from cultures they're curious about), then organize a international food festival. They learn that food tells stories about who we are and where we come from.",
+                        outcomes: ["Celebrating cultural heritage", "Building research skills", "Developing cultural curiosity", "Creating community connections"]
+                    },
+                    "Critical Thinking": {
+                        title: "Fact vs. Opinion Investigation",
+                        description: "Students analyze news articles, advertisements, and social media posts to identify facts vs. opinions. They create their own 'Truth Detective' guidelines and practice spotting bias in information they encounter daily.",
+                        outcomes: ["Distinguishing facts from opinions", "Identifying bias and persuasion techniques", "Developing information literacy", "Building analytical reasoning skills"]
+                    },
+                    "Empathy & Tolerance": {
+                        title: "Perspective Flip Stories",
+                        description: "Students read or watch conflicts from multiple viewpoints - the same story told by different characters. They discuss how the same event can feel completely different depending on your perspective, building understanding and compassion.",
+                        outcomes: ["Understanding multiple perspectives", "Developing empathetic thinking", "Improving conflict resolution skills", "Building emotional intelligence"]
+                    },
+                    "Digital Citizenship": {
+                        title: "Digital Footprint Detectives",
+                        description: "Students investigate their own digital footprints, learning what information they share online and how it can be used. They create guidelines for protecting privacy while still enjoying the benefits of technology.",
+                        outcomes: ["Understanding digital privacy", "Learning about online data collection", "Developing responsible sharing habits", "Building digital literacy skills"]
+                    },
+                    "Cultural Acceptance": {
+                        title: "Cultural Bridge Builders",
+                        description: "Students partner with classmates from different cultural backgrounds and create presentations about each other's cultures. They focus on finding surprising similarities and celebrating interesting differences.",
+                        outcomes: ["Building cross-cultural friendships", "Developing presentation skills", "Appreciating cultural diversity", "Finding common ground across differences"]
+                    }
+                },
+                "Teenagers (13-18)": {
+                    "Civic Engagement": {
+                        title: "Community Change Makers",
+                        description: "Students identify a real local issue (environmental, social, economic) and develop action plans. They research, contact local officials, organize awareness campaigns, and track their impact over the semester.",
+                        outcomes: ["Developing civic leadership skills", "Understanding local government processes", "Building project management abilities", "Creating real community impact"]
+                    },
+                    "Inclusivity & Diversity": {
+                        title: "Privilege & Perspective Simulation",
+                        description: "Through carefully designed role-playing scenarios, students experience different social positions and challenges. They reflect on systemic advantages and barriers, developing deeper understanding of inequality and justice.",
+                        outcomes: ["Understanding systemic privilege", "Developing social awareness", "Building empathy for different experiences", "Fostering commitment to equity"]
+                    },
+                    "Critical Thinking": {
+                        title: "Misinformation Defense League",
+                        description: "Students learn to identify fake news, manipulated images, and misleading statistics. They create educational content to help peers recognize and combat misinformation on social media platforms they actually use.",
+                        outcomes: ["Mastering information verification techniques", "Understanding media manipulation", "Developing research methodology", "Building digital literacy leadership"]
+                    },
+                    "Empathy & Tolerance": {
+                        title: "Difficult Conversations Lab",
+                        description: "Students practice having respectful dialogues about controversial topics. They learn listening techniques, find common ground, and discover how to disagree while maintaining relationships and mutual respect.",
+                        outcomes: ["Mastering respectful dialogue techniques", "Learning to listen actively", "Building conflict resolution skills", "Developing emotional regulation"]
+                    },
+                    "Digital Citizenship": {
+                        title: "Social Media Ethics Tribunal",
+                        description: "Students examine real social media dilemmas and ethical questions. They develop codes of conduct, debate platform responsibilities, and create guidelines for responsible digital participation and leadership.",
+                        outcomes: ["Understanding digital ethics", "Developing online leadership skills", "Learning platform accountability", "Building responsible digital habits"]
+                    },
+                    "Cultural Acceptance": {
+                        title: "Global Perspectives Project",
+                        description: "Students connect with peers from other countries via video calls and collaborative projects. They compare perspectives on global issues, challenge stereotypes, and build international understanding through direct relationship.",
+                        outcomes: ["Building global awareness", "Developing cross-cultural communication", "Challenging cultural stereotypes", "Creating international connections"]
+                    }
+                },
+                "Adults": {
+                    "Civic Engagement": {
+                        title: "Community Solutions Workshop",
+                        description: "Adult learners identify local issues and work collaboratively to develop actionable solutions. They practice presenting to local officials, building coalitions, and creating sustainable change in their communities.",
+                        outcomes: ["Developing civic leadership capabilities", "Building community organizing skills", "Learning local government processes", "Creating lasting community impact"]
+                    },
+                    "Inclusivity & Diversity": {
+                        title: "Workplace Inclusion Simulation",
+                        description: "Participants engage in role-playing scenarios that highlight unconscious bias and systemic barriers in professional settings. They develop strategies for creating more inclusive environments and allyship practices.",
+                        outcomes: ["Recognizing unconscious bias", "Developing inclusive leadership skills", "Building allyship practices", "Creating equitable workplace strategies"]
+                    },
+                    "Critical Thinking": {
+                        title: "Decision-Making Framework Lab",
+                        description: "Adults learn and practice systematic approaches to complex decisions. They analyze real-world scenarios, identify assumptions, weigh evidence, and develop robust decision-making processes for personal and professional use.",
+                        outcomes: ["Mastering systematic decision-making", "Learning to identify assumptions", "Developing analytical frameworks", "Building confident problem-solving skills"]
+                    },
+                    "Empathy & Tolerance": {
+                        title: "Perspective-Taking Deep Dive",
+                        description: "Through immersive scenarios and reflective exercises, adults explore how different life experiences shape worldviews. They develop advanced empathy skills and learn to bridge differences in personal and professional relationships.",
+                        outcomes: ["Deepening empathetic understanding", "Building perspective-taking skills", "Improving relationship quality", "Developing emotional intelligence"]
+                    },
+                    "Digital Citizenship": {
+                        title: "Digital Ethics Leadership Training",
+                        description: "Adults explore complex digital ethics issues including privacy, AI bias, and platform responsibility. They develop frameworks for making ethical digital decisions and leading digital transformation responsibly.",
+                        outcomes: ["Understanding digital ethics complexity", "Developing ethical decision frameworks", "Building digital leadership skills", "Creating responsible tech policies"]
+                    },
+                    "Cultural Acceptance": {
+                        title: "Cross-Cultural Competency Development",
+                        description: "Adults engage in deep cultural learning through direct interaction with people from different backgrounds. They develop cultural humility, communication skills, and strategies for building inclusive environments.",
+                        outcomes: ["Building cultural competency", "Developing communication across difference", "Learning cultural humility", "Creating inclusive environments"]
+                    }
+                },
+                "Mixed Age Groups": {
+                    "Civic Engagement": {
+                        title: "Intergenerational Democracy Lab",
+                        description: "Different age groups work together on community issues, sharing perspectives and experiences. Younger participants bring fresh ideas while older participants share wisdom, creating solutions that work for everyone.",
+                        outcomes: ["Building intergenerational understanding", "Learning from diverse life experiences", "Developing collaborative leadership", "Creating inclusive community solutions"]
+                    },
+                    "Inclusivity & Diversity": {
+                        title: "Story Bridge Building",
+                        description: "Participants of different ages and backgrounds share personal stories and find unexpected connections. They discover that despite surface differences, human experiences often have beautiful similarities.",
+                        outcomes: ["Finding common human experiences", "Building bridges across difference", "Developing storytelling skills", "Creating empathetic connections"]
+                    },
+                    "Critical Thinking": {
+                        title: "Multi-Perspective Problem Solving",
+                        description: "Mixed age groups tackle complex problems using their different knowledge bases and thinking styles. They learn that diverse perspectives lead to more creative and effective solutions.",
+                        outcomes: ["Leveraging diverse thinking styles", "Building collaborative problem-solving", "Learning from different generations", "Developing creative solution strategies"]
+                    },
+                    "Empathy & Tolerance": {
+                        title: "Wisdom Circle Dialogues",
+                        description: "Participants form circles where different ages and experiences are represented. They practice deep listening, share challenges and insights, and build mutual understanding and support.",
+                        outcomes: ["Practicing deep listening skills", "Building mutual understanding", "Sharing wisdom across generations", "Creating supportive communities"]
+                    },
+                    "Digital Citizenship": {
+                        title: "Digital Literacy Exchange",
+                        description: "Younger participants teach technology skills while older participants share wisdom about communication and relationships. Together they develop guidelines for healthy digital living across all ages.",
+                        outcomes: ["Bridging digital divides", "Learning from each other's strengths", "Developing age-appropriate digital skills", "Creating inclusive digital communities"]
+                    },
+                    "Cultural Acceptance": {
+                        title: "Cultural Wisdom Sharing",
+                        description: "Participants from different cultural backgrounds and age groups share traditions, stories, and perspectives. They discover how cultures evolve and how wisdom passes between generations.",
+                        outcomes: ["Appreciating cultural evolution", "Learning intergenerational wisdom", "Building cultural bridges", "Celebrating diverse traditions"]
+                    }
+                }
+            },
+            "Corporate Trainer": {
+                "Adults": {
+                    "Civic Engagement": {
+                        title: "Corporate Social Impact Challenge",
+                        description: "Teams identify community issues aligned with company values and develop employee volunteer programs or social impact initiatives. They present business cases for community engagement that benefit both society and organizational culture.",
+                        outcomes: ["Developing social impact strategy", "Building community partnership skills", "Creating employee engagement opportunities", "Aligning profit with purpose"]
+                    },
+                    "Inclusivity & Diversity": {
+                        title: "Inclusive Leadership Simulation",
+                        description: "Managers navigate complex scenarios involving team diversity, unconscious bias, and inclusive decision-making. They practice having difficult conversations and develop strategies for creating psychological safety for all team members.",
+                        outcomes: ["Building inclusive leadership skills", "Developing bias awareness", "Learning difficult conversation techniques", "Creating psychologically safe environments"]
+                    },
+                    "Critical Thinking": {
+                        title: "Strategic Decision Analysis Lab",
+                        description: "Teams work through real business cases, identifying assumptions, analyzing data quality, and considering long-term consequences. They develop frameworks for making better decisions under uncertainty and pressure.",
+                        outcomes: ["Mastering strategic analysis", "Improving decision quality under pressure", "Learning to identify hidden assumptions", "Building systematic thinking approaches"]
+                    },
+                    "Empathy & Tolerance": {
+                        title: "Customer Journey Empathy Mapping",
+                        description: "Employees step into customer shoes through detailed persona development and journey mapping. They identify pain points, emotions, and needs to build more customer-centric products and services.",
+                        outcomes: ["Developing customer empathy", "Improving service design", "Building user-centric thinking", "Enhancing customer satisfaction"]
+                    },
+                    "Digital Citizenship": {
+                        title: "Ethical AI & Technology Workshop",
+                        description: "Teams explore ethical implications of workplace technology, AI decision-making, and data privacy. They develop guidelines for responsible technology implementation and digital workplace policies.",
+                        outcomes: ["Understanding technology ethics", "Developing responsible AI policies", "Building digital workplace guidelines", "Creating ethical technology practices"]
+                    },
+                    "Cultural Acceptance": {
+                        title: "Global Team Effectiveness Training",
+                        description: "Multinational teams learn to navigate cultural differences in communication, conflict resolution, and collaboration. They develop strategies for leveraging cultural diversity as a competitive advantage.",
+                        outcomes: ["Building cross-cultural competency", "Improving global team performance", "Leveraging cultural diversity", "Developing international collaboration skills"]
+                    }
+                }
+            },
+            "Therapist / Psychologist": {
+                "Young Children (3-7)": {
+                    "Empathy & Tolerance": {
+                        title: "Emotion Animals Therapy",
+                        description: "Children work with different toy animals that represent various emotions and reactions. They create stories about how different 'emotion animals' can be friends despite feeling different things, learning that all feelings are okay.",
+                        outcomes: ["Emotional vocabulary development", "Learning emotional acceptance", "Building self-regulation skills", "Developing empathy for others' feelings"]
+                    },
+                    "Critical Thinking": {
+                        title: "Problem-Solving Adventure Stories",
+                        description: "Through interactive stories where children choose what characters do next, they explore cause-and-effect thinking. 'What happens if the character chooses this? What might work better?' They learn that thinking through options helps solve problems.",
+                        outcomes: ["Developing logical thinking", "Understanding cause and effect", "Building decision-making skills", "Learning problem-solving strategies"]
+                    }
+                },
+                "Primary Students (8-12)": {
+                    "Empathy & Tolerance": {
+                        title: "Feelings Detective Work",
+                        description: "Children learn to 'detect' emotions in themselves and others through body language, tone, and context clues. They practice responding helpfully when they notice someone is struggling, building emotional intelligence and compassion.",
+                        outcomes: ["Developing emotional awareness", "Learning to read social cues", "Building compassionate responses", "Improving interpersonal skills"]
+                    },
+                    "Critical Thinking": {
+                        title: "Thought Challenge Laboratory",
+                        description: "Children learn to examine their own thinking patterns, identify unhelpful thoughts, and develop more balanced perspectives. Through fun activities, they discover they can change how they think about situations.",
+                        outcomes: ["Learning cognitive flexibility", "Developing self-awareness", "Building resilience skills", "Understanding thought-feeling connections"]
+                    }
+                },
+                "Teenagers (13-18)": {
+                    "Empathy & Tolerance": {
+                        title: "Perspective-Taking Theater",
+                        description: "Teens role-play difficult social situations from multiple viewpoints, then reflect on how different perspectives change understanding. They practice responding with empathy even in challenging interpersonal situations.",
+                        outcomes: ["Building advanced empathy skills", "Learning perspective-taking", "Improving conflict resolution", "Developing emotional regulation"]
+                    },
+                    "Critical Thinking": {
+                        title: "Mind Trap Awareness Training",
+                        description: "Teens learn to identify thinking traps (catastrophizing, all-or-nothing thinking, etc.) and develop strategies for more balanced, realistic thinking. They practice applying these skills to real life situations and relationships.",
+                        outcomes: ["Identifying cognitive distortions", "Developing balanced thinking", "Building mental health resilience", "Learning self-advocacy skills"]
+                    }
+                },
+                "Adults": {
+                    "Empathy & Tolerance": {
+                        title: "Compassionate Communication Workshop",
+                        description: "Adults practice nonviolent communication techniques, learning to express needs without blame and listen with empathy. They explore how compassionate communication transforms relationships and reduces conflict.",
+                        outcomes: ["Mastering empathetic communication", "Learning conflict de-escalation", "Building deeper relationships", "Developing emotional intelligence"]
+                    },
+                    "Critical Thinking": {
+                        title: "Cognitive Restructuring Lab",
+                        description: "Participants learn to identify unhelpful thought patterns and develop more adaptive thinking styles. They practice examining evidence, considering alternatives, and developing more balanced perspectives on life challenges.",
+                        outcomes: ["Developing cognitive flexibility", "Building resilience skills", "Learning thought examination techniques", "Improving mental health outcomes"]
+                    }
+                }
+            },
+            "Educational Consultant": {
+                "Primary Students (8-12)": {
+                    "Civic Engagement": {
+                        title: "School Community Improvement Project",
+                        description: "Students identify improvement opportunities in their school environment and develop presentation proposals for administration. They learn how to research problems, propose solutions, and advocate for positive change.",
+                        outcomes: ["Building advocacy skills", "Learning project development", "Developing presentation abilities", "Understanding institutional change processes"]
+                    },
+                    "Inclusivity & Diversity": {
+                        title: "Universal Design Learning Lab",
+                        description: "Students design learning activities that work for different learning styles, physical abilities, and cultural backgrounds. They discover that designing for diversity makes learning better for everyone.",
+                        outcomes: ["Understanding learning differences", "Developing inclusive design thinking", "Building empathy for diverse needs", "Creating accessible solutions"]
+                    }
+                },
+                "Teenagers (13-18)": {
+                    "Civic Engagement": {
+                        title: "Youth Policy Impact Research",
+                        description: "Students research how local, state, or federal policies affect young people, then develop policy recommendations and present them to actual policymakers. They learn how research can drive social change.",
+                        outcomes: ["Building policy research skills", "Learning advocacy techniques", "Developing civic leadership", "Understanding government processes"]
+                    },
+                    "Critical Thinking": {
+                        title: "Academic Research Methods Workshop",
+                        description: "Students learn university-level research techniques including source evaluation, hypothesis formation, data analysis, and peer review. They conduct original research projects on topics they're passionate about.",
+                        outcomes: ["Mastering research methodology", "Developing analytical writing", "Learning peer review processes", "Building academic confidence"]
+                    }
+                },
+                "Adults": {
+                    "Inclusivity & Diversity": {
+                        title: "Culturally Responsive Teaching Lab",
+                        description: "Educators learn to design curriculum and teaching methods that honor and incorporate students' cultural backgrounds. They practice creating learning experiences that validate diverse ways of knowing and being.",
+                        outcomes: ["Developing culturally responsive pedagogy", "Building inclusive curriculum design", "Learning cultural asset-based approaches", "Creating equitable learning environments"]
+                    },
+                    "Critical Thinking": {
+                        title: "Educational Assessment Innovation Workshop",
+                        description: "Educators explore alternatives to traditional testing, designing authentic assessments that measure real learning and growth. They develop evaluation methods that serve learning rather than just measuring it.",
+                        outcomes: ["Designing authentic assessments", "Learning alternative evaluation methods", "Building growth-focused measurement", "Creating learner-centered evaluation"]
+                    }
+                }
+            }
+        };
+
+        // Mobile Menu Functions
+        function openMobileMenu() {
+            document.getElementById('mobile-menu').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            document.getElementById('mobile-menu').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        // Mobile menu event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+            const mobileMenuOverlay = document.getElementById('mobile-menu');
+
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', openMobileMenu);
+            }
+
+            if (closeMobileMenuButton) {
+                closeMobileMenuButton.addEventListener('click', closeMobileMenu);
+            }
+
+            // Close mobile menu when clicking overlay
+            if (mobileMenuOverlay) {
+                mobileMenuOverlay.addEventListener('click', function(e) {
+                    if (e.target === mobileMenuOverlay) {
+                        closeMobileMenu();
+                    }
+                });
+            }
+        });
+
+        // Email client function
+        function openEmailClient() {
+            window.location.href = 'mailto:contact@thinkhumanly.co?subject=Collaboration Inquiry&body=Hi ThinkHumanly team,%0D%0A%0D%0AI am interested in learning more about your human-centric learning solutions.%0D%0A%0D%0APlease reach out to discuss how we can collaborate.%0D%0A%0D%0ABest regards';
+        }
+
+        // Form submission handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const firstName = formData.get('firstName') || '';
+            const lastName = formData.get('lastName') || '';
+            const email = formData.get('email') || '';
+            const organization = formData.get('organization') || '';
+            const message = formData.get('message') || '';
+            
+            // Create email content
+            const subject = 'Collaboration Inquiry from ' + firstName + ' ' + lastName;
+            const body = `Hi ThinkHumanly team,
+
+I'm interested in learning more about your human-centric learning solutions.
+
+Contact Details:
+- Name: ${firstName} ${lastName}
+- Email: ${email}
+- Organization: ${organization}
+
+Message:
+${message}
+
+Looking forward to hearing from you!
+
+Best regards,
+${firstName}`;
+            
+            // Open email client with pre-filled information
+            const mailtoLink = `mailto:contact@thinkhumanly.co?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            showFormSuccess();
+        }
+
+        // Success message function
+        function showFormSuccess() {
+            const button = document.querySelector('button[type="submit"]');
+            const originalText = button.innerHTML;
+            
+            button.innerHTML = '<i class="fas fa-check mr-2"></i>Email Client Opened!';
+            button.style.background = '#10b981';
+            
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.style.background = '';
+            }, 3000);
+        }
+
+        // Activity Generation Function - FIXED
+        function generateActivity() {
+            const role = document.getElementById('role').value;
+            const audience = document.getElementById('audience').value;
+            const focus = document.getElementById('focus').value;
+            const context = document.getElementById('context').value;
+
+            // Show loading indicator
+            document.getElementById('loading-indicator').classList.remove('hidden');
+            document.getElementById('result-container').classList.add('hidden');
+
+            // Simulate loading time for better UX
+            setTimeout(() => {
+                try {
+                    // Get activity from database
+                    let activity;
+                    
+                    if (activityDatabase[role] && activityDatabase[role][audience] && activityDatabase[role][audience][focus]) {
+                        activity = activityDatabase[role][audience][focus];
+                    } else if (activityDatabase[role] && activityDatabase[role]["Adults"] && activityDatabase[role]["Adults"][focus]) {
+                        // Fallback to Adults if specific audience not found
+                        activity = activityDatabase[role]["Adults"][focus];
+                    } else if (activityDatabase["Teacher"] && activityDatabase["Teacher"][audience] && activityDatabase["Teacher"][audience][focus]) {
+                        // Fallback to Teacher role if role not found
+                        activity = activityDatabase["Teacher"][audience][focus];
+                    } else {
+                        // Ultimate fallback
+                        activity = {
+                            title: "Custom Learning Experience",
+                            description: `A tailored ${focus.toLowerCase()} activity designed specifically for ${audience.toLowerCase()} in your ${role.toLowerCase()} context. This hands-on experience will engage learners through collaborative problem-solving and real-world application.`,
+                            outcomes: [
+                                `Developing ${focus.toLowerCase()} awareness`,
+                                "Building collaborative skills",
+                                "Enhancing critical thinking",
+                                "Creating meaningful connections"
+                            ]
+                        };
+                    }
+
+                    // Customize description if context provided
+                    if (context && context.trim()) {
+                        activity.description += ` This activity can be adapted ${context.trim()}.`;
+                    }
+
+                    // Hide loading and show results
+                    document.getElementById('loading-indicator').classList.add('hidden');
+                    document.getElementById('result-container').classList.remove('hidden');
+
+                    // Populate results
+                    document.getElementById('result-title').textContent = activity.title;
+                    document.getElementById('result-description').textContent = activity.description;
+
+                    // Populate outcomes
+                    const outcomesContainer = document.getElementById('result-outcomes');
+                    outcomesContainer.innerHTML = '';
+                    activity.outcomes.forEach(outcome => {
+                        const li = document.createElement('li');
+                        li.className = 'flex items-start space-x-3';
+                        li.innerHTML = `
+                            <div class="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
+                            <span class="text-neutral-700">${outcome}</span>
+                        `;
+                        outcomesContainer.appendChild(li);
+                    });
+
+                    // Scroll to results
+                    document.getElementById('result-container').scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'start' 
+                    });
+
+                } catch (error) {
+                    console.error('Error generating activity:', error);
+                    
+                    // Hide loading indicator
+                    document.getElementById('loading-indicator').classList.add('hidden');
+                    
+                    // Show error message
+                    alert('Sorry, there was an error generating your activity. Please try again or contact us directly for personalized recommendations.');
+                }
+            }, 2000); // 2 second delay for better UX
+        }
+
+        // Enhanced Stationary Animation System - Page Wide
+        class StationaryAnimation {
+            constructor() {
+                this.heroContainer = document.getElementById('stationeryContainer');
+                this.pageWideContainer = document.getElementById('pageWideStationery');
+                this.items = [
+                    // Writing Tools
+                    '✏️', '🖍️', '✒️', '🖊️', '🖋️', '🖌️',
+                    // Paper & Books
+                    '📝', '📄', '📋', '📚', '📖', '📓', '📔', '📕', '📗', '📘', '📙', '🗂️', '📰',
+                    // Art Supplies
+                    '🎨', '🖼️', '🎭', '🖨️', '🖇️', '📎',
+                    // Tools & Supplies
+                    '📏', '📐', '✂️', '📌', '📍', '🔖', '🏷️',
+                    // Learning Items
+                    '🔬', '🧪', '⚗️', '🔍', '🗺️', '📊', '📈', '📉',
+                    // School Items
+                    '🎒', '📐', '🖼️', '📋', '📝', '✏️'
+                ];
+                this.activeItems = [];
+                this.maxItems = 35; // Increased for page-wide animation
+                this.init();
+            }
+
+            init() {
+                this.createItem();
+                setInterval(() => this.createItem(), 400); // Even faster spawn rate
+                this.animate();
+            }
+
+            createItem() {
+                if (this.activeItems.length >= this.maxItems) return;
+
+                const item = document.createElement('div');
+                item.className = 'js-falling-item';
+                item.textContent = this.items[Math.floor(Math.random() * this.items.length)];
+                
+                // Random horizontal position across full page width
+                item.style.left = Math.random() * 100 + '%';
+                
+                // Random animation properties
+                const duration = 6000 + Math.random() * 6000; // 6-12 seconds
+                const rotation = Math.random() * 720 - 360; // -360 to 360 degrees
+                const sway = Math.random() * 150 - 75; // More horizontal sway for page-wide
+                const scale = 0.6 + Math.random() * 0.8; // 0.6 to 1.4 scale
+                
+                item.style.animationDuration = duration + 'ms';
+                item.style.transform = `scale(${scale})`;
+                
+                // Add custom CSS variables for animation
+                item.style.setProperty('--rotation', rotation + 'deg');
+                item.style.setProperty('--sway', sway + 'px');
+                
+                // Randomly choose between hero section and page-wide
+                const usePageWide = Math.random() > 0.3; // 70% chance for page-wide
+                const container = usePageWide ? this.pageWideContainer : this.heroContainer;
+                
+                container.appendChild(item);
+                this.activeItems.push({ element: item, duration });
+
+                // Remove item after animation
+                setTimeout(() => {
+                    this.removeItem(item);
+                }, duration);
+            }
+
+            removeItem(itemElement) {
+                const index = this.activeItems.findIndex(item => item.element === itemElement);
+                if (index > -1) {
+                    this.activeItems.splice(index, 1);
+                    if (itemElement.parentNode) {
+                        itemElement.parentNode.removeChild(itemElement);
+                    }
+                }
+            }
+
+            animate() {
+                // Enhanced falling animation with rotation and sway
+                const style = document.createElement('style');
+                style.textContent = `
+                    .js-falling-item {
+                        animation: fallAndRotate var(--duration, 10s) linear forwards;
+                        filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+                        transition: opacity 0.3s ease;
+                    }
+
+                    .js-falling-item:hover {
+                        opacity: 1 !important;
+                        transform: scale(1.2) !important;
+                        animation-play-state: paused;
+                    }
+
+                    @keyframes fallAndRotate {
+                        0% {
+                            transform: translateY(-60px) translateX(0) rotate(0deg) scale(var(--scale, 1));
+                            opacity: 0;
+                        }
+                        5% {
+                            opacity: 0.7;
+                        }
+                        25% {
+                            transform: translateY(25vh) translateX(var(--sway, 0px)) rotate(calc(var(--rotation, 0deg) * 0.25)) scale(var(--scale, 1));
+                        }
+                        50% {
+                            transform: translateY(50vh) translateX(calc(var(--sway, 0px) * -0.5)) rotate(calc(var(--rotation, 0deg) * 0.5)) scale(var(--scale, 1));
+                        }
+                        75% {
+                            transform: translateY(75vh) translateX(var(--sway, 0px)) rotate(calc(var(--rotation, 0deg) * 0.75)) scale(var(--scale, 1));
+                        }
+                        95% {
+                            opacity: 0.7;
+                        }
+                        100% {
+                            transform: translateY(120vh) translateX(0) rotate(var(--rotation, 0deg)) scale(var(--scale, 1));
+                            opacity: 0;
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+        }
+
+        // Initialize stationary animation when page loads
+        window.addEventListener('load', () => {
+            new StationaryAnimation();
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Reveal animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Privacy Policy Modal Functions
+        function openPrivacyModal() {
+            const modal = document.getElementById('privacy-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('modal-backdrop');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePrivacyModal() {
+            const modal = document.getElementById('privacy-modal');
+            modal.classList.add('modal-closing');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('modal-backdrop', 'modal-closing');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        // Terms of Service Modal Functions
+        function openTermsModal() {
+            const modal = document.getElementById('terms-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('modal-backdrop');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeTermsModal() {
+            const modal = document.getElementById('terms-modal');
+            modal.classList.add('modal-closing');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('modal-backdrop', 'modal-closing');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        // Modal Functions
+        function openMethodologyModal() {
+            const modal = document.getElementById('methodology-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('modal-backdrop');
+            document.body.style.overflow = 'hidden';
+            
+            // Restart animations for methodology sections
+            const sections = modal.querySelectorAll('.methodology-section');
+            sections.forEach((section, index) => {
+                section.style.animation = 'none';
+                section.offsetHeight; // Trigger reflow
+                section.style.animation = `fadeInUp 0.6s ease-out forwards`;
+                section.style.animationDelay = `${(index + 1) * 0.1}s`;
+            });
+        }
+
+        function closeMethodologyModal() {
+            const modal = document.getElementById('methodology-modal');
+            modal.classList.add('modal-closing');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('modal-backdrop', 'modal-closing');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        // Book Preview Modal
+        let currentBook = '';
+        let currentPage = 0;
+        
+        // Configure your preview images here
+        // Replace these placeholder paths with actual preview image paths
+        const bookPreviews = {
+            'other-thoughts': {
+                title: 'Other Thoughts - Preview',
+                pages: [
+                    'preview-ot-1.jpg',
+                    'preview-ot-2.jpg',
+                    'preview-ot-3.jpg',
+                    'preview-ot-4.jpg'
+                ]
+            },
+            'little-leaves': {
+                title: 'Little Leaves - Preview',
+                pages: [
+                    'preview-ll-1.jpg',
+                    'preview-ll-2.jpg',
+                    'preview-ll-3.jpg',
+                    'preview-ll-4.jpg'
+                ]
+            }
+        };
+
+        function openBookPreview(bookId) {
+            currentBook = bookId;
+            currentPage = 0;
+            const book = bookPreviews[bookId];
+            
+            document.getElementById('preview-title').textContent = book.title;
+            updatePreviewPage();
+            buildThumbnails();
+            
+            const modal = document.getElementById('book-preview-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('modal-backdrop');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeBookPreview() {
+            const modal = document.getElementById('book-preview-modal');
+            modal.classList.add('modal-closing');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('modal-backdrop', 'modal-closing');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        function updatePreviewPage() {
+            const book = bookPreviews[currentBook];
+            document.getElementById('preview-image').src = book.pages[currentPage];
+            document.getElementById('preview-image').alt = `${book.title} - Page ${currentPage + 1}`;
+            document.getElementById('preview-page-indicator').textContent = `Page ${currentPage + 1} of ${book.pages.length}`;
+            
+            // Update thumbnail highlights
+            const thumbs = document.querySelectorAll('.preview-thumb');
+            thumbs.forEach((thumb, i) => {
+                thumb.classList.toggle('ring-2', i === currentPage);
+                thumb.classList.toggle('ring-accent', i === currentPage);
+                thumb.classList.toggle('opacity-50', i !== currentPage);
+                thumb.classList.toggle('opacity-100', i === currentPage);
+            });
+        }
+
+        function buildThumbnails() {
+            const book = bookPreviews[currentBook];
+            const container = document.getElementById('preview-thumbnails');
+            container.innerHTML = '';
+            book.pages.forEach((page, i) => {
+                const thumb = document.createElement('img');
+                thumb.src = page;
+                thumb.alt = `Page ${i + 1}`;
+                thumb.className = `preview-thumb w-16 h-20 object-cover rounded-lg cursor-pointer transition-all duration-200 hover:opacity-100 ${i === 0 ? 'ring-2 ring-accent opacity-100' : 'opacity-50'}`;
+                thumb.onclick = () => { currentPage = i; updatePreviewPage(); };
+                container.appendChild(thumb);
+            });
+        }
+
+        function prevPreviewPage() {
+            const book = bookPreviews[currentBook];
+            currentPage = (currentPage - 1 + book.pages.length) % book.pages.length;
+            updatePreviewPage();
+        }
+
+        function nextPreviewPage() {
+            const book = bookPreviews[currentBook];
+            currentPage = (currentPage + 1) % book.pages.length;
+            updatePreviewPage();
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeMethodologyModal();
+                closePrivacyModal();
+                closeTermsModal();
+                closeBookPreview();
+            }
+        });
+    </script>
+</body>
+</html>
