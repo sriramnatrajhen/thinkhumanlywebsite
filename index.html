@@ -1069,6 +1069,7 @@
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#solutions" class="text-neutral-600 hover:text-neutral-900 transition-colors text-sm font-medium">Why This Matters</a>
                     <a href="#books" class="text-neutral-600 hover:text-neutral-900 transition-colors text-sm font-medium">Our Books</a>
+                    <a href="#csr" class="text-neutral-600 hover:text-neutral-900 transition-colors text-sm font-medium">Corporate CSR</a>
                     <a href="#idea-spark" class="text-neutral-600 hover:text-neutral-900 transition-colors text-sm font-medium">✨ Idea Spark</a>
                     <button class="btn-primary" onclick="openEmailClient()">
                         Contact Us
@@ -1095,6 +1096,7 @@
                             <nav class="space-y-6">
                                 <a href="#solutions" class="block text-neutral-700 hover:text-accent font-medium transition-colors" onclick="closeMobileMenu()">Why This Matters</a>
                                 <a href="#books" class="block text-neutral-700 hover:text-accent font-medium transition-colors" onclick="closeMobileMenu()">Our Books</a>
+                                <a href="#csr" class="block text-neutral-700 hover:text-accent font-medium transition-colors" onclick="closeMobileMenu()">Corporate CSR</a>
                                 <a href="#idea-spark" class="block text-neutral-700 hover:text-accent font-medium transition-colors" onclick="closeMobileMenu()">✨ Idea Spark</a>
                                 <a href="#contact" class="block text-neutral-700 hover:text-accent font-medium transition-colors" onclick="closeMobileMenu()">Contact</a>
                                 <button class="btn-primary w-full mt-6" onclick="openEmailClient(); closeMobileMenu();">
@@ -1372,6 +1374,92 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+    <!-- Corporate CSR Section -->
+    <section id="csr" class="section-large bg-neutral-50 relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0">
+            <div class="absolute top-20 right-20 w-40 h-40 bg-gradient-to-br from-accent/10 to-accent/5 rounded-full blur-3xl animate-float-slow"></div>
+            <div class="absolute bottom-32 left-16 w-32 h-32 bg-gradient-to-br from-neutral-200/40 to-neutral-100/40 rounded-full blur-2xl animate-float-reverse"></div>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <!-- Section Header -->
+            <div class="text-center mb-16 reveal animate-zoom-in">
+                <div class="inline-flex items-center space-x-2 bg-white border border-neutral-200 px-4 py-2 rounded-full mb-8 animate-glow-pulse">
+                    <span class="text-lg">🏛️</span>
+                    <span class="text-sm text-neutral-600 font-medium">Corporate CSR</span>
+                </div>
+
+                <h2 class="font-display section-title text-neutral-900 mb-6">
+                    Corporate CSR.<br>Real impact in classrooms.
+                </h2>
+
+                <p class="large-text text-neutral-600 max-w-3xl mx-auto animate-fade-in-up" style="animation-delay: 0.4s;">
+                    We design and deliver activity-based learning programmes in schools, funded through corporate CSR. Your budget reaches children directly. You get a measurable impact report. Schools get resources that actually work.
+                </p>
+            </div>
+
+            <!-- Three concrete blocks -->
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <!-- Block 1: How it works -->
+                <div class="card p-8 reveal animate-card-rise" style="animation-delay: 0.2s;">
+                    <div class="w-16 h-16 bg-neutral-900 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-route text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-neutral-900 mb-4">How it works</h3>
+                    <p class="body-text text-neutral-600">
+                        You fund the programme through your CSR mandate. We design, print, and deploy the resources into schools. 
+                    </p>
+                </div>
+
+                <!-- Block 2: What's included -->
+                <div class="card p-8 reveal animate-card-rise" style="animation-delay: 0.3s;">
+                    <div class="w-16 h-16 bg-accent rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-box-open text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-neutral-900 mb-4">What's included</h3>
+                    <p class="body-text text-neutral-600">
+                        Bespoke activity books, workshop kits, and facilitation support for every school. 
+                    </p>
+                </div>
+
+                <!-- Block 3: Tailored by sector -->
+                <div class="card p-8 reveal animate-card-rise" style="animation-delay: 0.4s;">
+                    <div class="w-16 h-16 bg-neutral-700 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-puzzle-piece text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-neutral-900 mb-4">Tailored by sector</h3>
+                    <p class="body-text text-neutral-600">
+                        Banking partners get financial literacy. Healthcare partners get empathy and well-being. Technology partners get AI literacy and critical thinking. Every programme is built around your impact goals.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Closing CTA strip -->
+            <div class="reveal animate-fade-in-up" style="animation-delay: 0.5s;">
+                <div class="bg-neutral-900 rounded-3xl p-8 relative overflow-hidden">
+                    <div class="absolute inset-0 opacity-10">
+                        <div class="absolute top-0 right-0 w-40 h-40 border border-white/20 rounded-full animate-spin-slow"></div>
+                    </div>
+                    <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+                        <div class="text-center">
+                            <h3 class="font-display text-3xl font-bold text-white mb-3">
+                                Planning your next CSR cycle?
+                            </h3>
+                            <p class="text-neutral-300 max-w-xl">
+                                Tell us your sector, your budget, and the schools you want to reach. We'll come back with a programme designed to deliver.
+                            </p>
+                        </div>
+                        <button class="btn-primary" onclick="openEmailClient()" style="background: #2563eb; white-space: nowrap;">
+                            <i class="fas fa-handshake mr-2"></i>
+                            Start the conversation
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
