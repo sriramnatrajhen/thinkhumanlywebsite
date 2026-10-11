@@ -1067,7 +1067,7 @@
         .th-links a:hover, .th-links a.is-active { color: #171717; }
         .th-links a.is-active::after { content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 2px; border-radius: 2px; background: linear-gradient(90deg, #3b82f6, #8b5cf6); }
         .th-burger { display: block; }
-        @media (min-width: 1000px) { .th-links { display: flex; } .th-burger { display: none; } }
+        @media (min-width: 1100px) { .th-links { display: flex; } .th-burger { display: none; } }
 
         /* Hero buttons */
         .th-hero-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin: 0 0 40px; }
@@ -1145,8 +1145,17 @@
         .th-person li { font-size: 13.5px; color: #737373; }
         .th-person li b { color: #404040; font-weight: 600; }
 
+        /* Third background shade: very light grey, used to alternate with white sections */
+        .bg-soft { background-color: #f2f2f3; }
+
+        /* Workshop gallery */
+        .th-gallery-item { margin: 0; overflow: hidden; border-radius: 14px; border: 1px solid #e5e5e5; background: #fff; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06); }
+        .th-gallery-item img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; transition: transform .5s ease; }
+        .th-gallery-item:hover img { transform: scale(1.04); }
+
         @media (prefers-reduced-motion: reduce) {
             .th-bar i { transition: none; }
+            .th-gallery-item img { transition: none; }
         }
     </style>
 </head>
@@ -1168,6 +1177,7 @@
                     <a href="#solutions">Why Now</a>
                     <a href="#workshops">Workshops</a>
                     <a href="#books">Books</a>
+                    <a href="https://www.thinkhumanly.app/" target="_blank" rel="noopener">Courses <i class="fas fa-arrow-up-right-from-square" style="font-size: 10px; margin-left: 3px;"></i></a>
                     <a href="#team">Team</a>
                     <a href="#csr">Corporate CSR</a>
                     <a href="#idea-spark">&#10024; Idea Spark</a>
@@ -1194,6 +1204,7 @@
                                 <a href="#solutions" class="block text-neutral-700 hover:text-accent font-medium transition-colors" onclick="closeMobileMenu()">Why Now</a>
                                 <a href="#workshops" class="block text-neutral-700 hover:text-accent font-medium transition-colors" onclick="closeMobileMenu()">Workshops</a>
                                 <a href="#books" class="block text-neutral-700 hover:text-accent font-medium transition-colors" onclick="closeMobileMenu()">Books</a>
+                                <a href="https://www.thinkhumanly.app/" target="_blank" rel="noopener" class="block text-neutral-700 hover:text-accent font-medium transition-colors" onclick="closeMobileMenu()">Courses <i class="fas fa-arrow-up-right-from-square" style="font-size: 11px; margin-left: 4px;"></i></a>
                                 <a href="#team" class="block text-neutral-700 hover:text-accent font-medium transition-colors" onclick="closeMobileMenu()">Team</a>
                                 <a href="#csr" class="block text-neutral-700 hover:text-accent font-medium transition-colors" onclick="closeMobileMenu()">Corporate CSR</a>
                                 <a href="#idea-spark" class="block text-neutral-700 hover:text-accent font-medium transition-colors" onclick="closeMobileMenu()">&#10024; Idea Spark</a>
@@ -1281,7 +1292,7 @@
 
 
     <!-- Purpose Section -->
-    <section id="purpose" class="section-large bg-white relative overflow-hidden">
+    <section id="purpose" class="section-large bg-soft relative overflow-hidden">
         <div class="absolute inset-0">
             <div class="absolute top-20 left-20 w-40 h-40 bg-gradient-to-br from-accent/5 to-transparent rounded-full blur-3xl animate-float-slow"></div>
             <div class="absolute bottom-20 right-20 w-32 h-32 bg-gradient-to-br from-neutral-200/30 to-transparent rounded-full blur-2xl animate-float-reverse"></div>
@@ -1335,7 +1346,7 @@
     </section>
 
     <!-- Why This Matters Section -->
-    <section id="solutions" class="section-large bg-neutral-50 relative overflow-hidden">
+    <section id="solutions" class="section-large bg-white relative overflow-hidden">
         <!-- Animated Background Grid -->
         <div class="absolute inset-0 opacity-30">
             <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-transparent via-accent/5 to-transparent animate-gradient-wave"></div>
@@ -1445,7 +1456,7 @@
     
 
     <!-- Workshops Section -->
-    <section id="workshops" class="section-large bg-white relative overflow-hidden">
+    <section id="workshops" class="section-large bg-soft relative overflow-hidden">
         <div class="absolute inset-0">
             <div class="absolute top-20 right-20 w-40 h-40 bg-gradient-to-br from-accent/5 to-transparent rounded-full blur-3xl animate-float-slow"></div>
             <div class="absolute bottom-20 left-20 w-32 h-32 bg-gradient-to-br from-neutral-200/30 to-transparent rounded-full blur-2xl animate-float-reverse"></div>
@@ -1512,6 +1523,35 @@
         </div>
     </section>
 
+    <!-- Workshop Gallery Section -->
+    <section id="gallery" class="section-large bg-white relative overflow-hidden">
+        <div class="th-wrap">
+            <div class="text-center mb-12 reveal animate-zoom-in">
+                <div class="inline-flex items-center space-x-2 bg-white border border-neutral-200 px-4 py-2 rounded-full mb-8 animate-glow-pulse">
+                    <span class="text-lg">&#128247;</span>
+                    <span class="text-sm text-neutral-600 font-medium">From the Classroom</span>
+                </div>
+                <h2 class="font-display section-title text-neutral-900 mb-6">
+                    Our workshops in action
+                </h2>
+                <p class="large-text text-neutral-600 max-w-3xl mx-auto animate-fade-in-up" style="animation-delay: 0.4s;">
+                    A few moments from sessions we have run with students in school.
+                </p>
+            </div>
+            <div class="th-grid th-g3">
+                <figure class="th-gallery-item reveal animate-card-rise" style="animation-delay: 0.1s;">
+                    <img src="KWorkshop1.jpeg" alt="Students working at computers during a ThinkHumanly workshop while a facilitator checks in with them" loading="lazy">
+                </figure>
+                <figure class="th-gallery-item reveal animate-card-rise" style="animation-delay: 0.2s;">
+                    <img src="KWorkshop2.jpeg" alt="A facilitator guiding a class of students seated at computers in a school lab" loading="lazy">
+                </figure>
+                <figure class="th-gallery-item reveal animate-card-rise" style="animation-delay: 0.3s;">
+                    <img src="KWorkshop3.jpeg" alt="A facilitator speaking to students during a workshop session in a school computer lab" loading="lazy">
+                </figure>
+            </div>
+        </div>
+    </section>
+
     <!-- Credibility Numbers Bar -->
     <section class="bg-neutral-900 py-12 relative overflow-hidden">
         <div class="absolute inset-0 opacity-10">
@@ -1541,7 +1581,7 @@
     </section>
 
     <!-- Our Books Section -->
-    <section id="books" class="section-large bg-white relative overflow-hidden">
+    <section id="books" class="section-large bg-soft relative overflow-hidden">
         <div class="absolute inset-0">
             <div class="absolute top-20 left-20 w-40 h-40 bg-gradient-to-br from-accent/5 to-transparent rounded-full blur-3xl animate-float-slow"></div>
             <div class="absolute bottom-20 right-20 w-32 h-32 bg-gradient-to-br from-neutral-200/30 to-transparent rounded-full blur-2xl animate-float-reverse"></div>
@@ -1651,7 +1691,7 @@
     </section>
 
     <!-- Measuring Impact Section -->
-    <section id="impact" class="section-large bg-neutral-50 relative overflow-hidden">
+    <section id="impact" class="section-large bg-white relative overflow-hidden">
         <!-- Background Elements -->
         <div class="absolute inset-0">
             <div class="absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-accent/10 to-accent/5 rounded-full blur-3xl animate-float-slow"></div>
@@ -1704,7 +1744,7 @@
     </section>
 
     <!-- Roadmap Section -->
-    <section id="roadmap" class="section-large bg-white relative overflow-hidden">
+    <section id="roadmap" class="section-large bg-soft relative overflow-hidden">
         <div class="absolute inset-0">
             <div class="absolute top-20 left-20 w-40 h-40 bg-gradient-to-br from-accent/5 to-transparent rounded-full blur-3xl animate-float-slow"></div>
             <div class="absolute bottom-20 right-20 w-32 h-32 bg-gradient-to-br from-neutral-200/30 to-transparent rounded-full blur-2xl animate-float-reverse"></div>
@@ -1756,7 +1796,7 @@
     </section>
 
     <!-- Team Section -->
-    <section id="team" class="section-large bg-neutral-50 relative overflow-hidden">
+    <section id="team" class="section-large bg-white relative overflow-hidden">
         <div class="absolute inset-0">
             <div class="absolute top-20 right-20 w-40 h-40 bg-gradient-to-br from-accent/5 to-transparent rounded-full blur-3xl animate-float-slow"></div>
             <div class="absolute bottom-20 left-20 w-32 h-32 bg-gradient-to-br from-neutral-200/30 to-transparent rounded-full blur-2xl animate-float-reverse"></div>
@@ -1810,7 +1850,7 @@
     </section>
 
     <!-- Corporate CSR Section -->
-    <section id="csr" class="section-large bg-white relative overflow-hidden">
+    <section id="csr" class="section-large bg-soft relative overflow-hidden">
         <!-- Background Elements -->
         <div class="absolute inset-0">
             <div class="absolute top-20 right-20 w-40 h-40 bg-gradient-to-br from-accent/10 to-accent/5 rounded-full blur-3xl animate-float-slow"></div>
@@ -1930,7 +1970,7 @@
     </div>
 
     <!-- Idea Spark Section -->
-    <section id="idea-spark" class="section-large bg-neutral-50 relative overflow-hidden">
+    <section id="idea-spark" class="section-large bg-white relative overflow-hidden">
         <!-- Sparkle Animation Background -->
         <div class="absolute inset-0">
             <div class="sparkle sparkle-1"></div>
