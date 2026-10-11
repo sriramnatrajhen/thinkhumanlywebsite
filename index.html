@@ -1133,18 +1133,6 @@
         .th-stage p { margin: 0; font-size: 14.5px; line-height: 1.65; color: #525252; }
         .th-stage:not(.now) { opacity: .92; }
 
-        /* Team */
-        .th-person { padding: 32px 28px; text-align: center; }
-        .th-avatar { width: 96px; height: 96px; border-radius: 50%; margin: 0 auto 18px; display: flex; align-items: center; justify-content: center; font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 30px; color: #fff; overflow: hidden; background: linear-gradient(135deg, #262626, #525252); }
-        .th-avatar img { width: 100%; height: 100%; object-fit: cover; }
-        .th-person:nth-child(2) .th-avatar { background: linear-gradient(135deg, #2563eb, #7c3aed); }
-        .th-person:nth-child(3) .th-avatar { background: linear-gradient(135deg, #92400e, #d97706); }
-        .th-person h3 { font-family: 'DM Sans', sans-serif; font-size: 21px; font-weight: 700; color: #171717; margin: 0 0 4px; }
-        .th-person .th-role { font-size: 14.5px; color: #525252; line-height: 1.6; margin: 0 0 14px; }
-        .th-person ul { list-style: none; margin: 0; padding: 14px 0 0; border-top: 1px solid #e5e5e5; display: grid; gap: 6px; }
-        .th-person li { font-size: 13.5px; color: #737373; }
-        .th-person li b { color: #404040; font-weight: 600; }
-
         /* Third background shade: very light grey, used to alternate with white sections */
         .bg-soft { background-color: #f2f2f3; }
 
@@ -1178,7 +1166,7 @@
                     <a href="#workshops">Workshops</a>
                     <a href="#books">Books</a>
                     <a href="https://www.thinkhumanly.app/" target="_blank" rel="noopener">Courses <i class="fas fa-arrow-up-right-from-square" style="font-size: 10px; margin-left: 3px;"></i></a>
-                    <a href="#team">Team</a>
+                    <a href="team.html">Team</a>
                     <a href="#csr">Corporate CSR</a>
                     <a href="#idea-spark">&#10024; Idea Spark</a>
                     <button class="btn-primary" onclick="openEmailClient()">Book a workshop</button>
@@ -1205,7 +1193,7 @@
                                 <a href="#workshops" class="block text-neutral-700 hover:text-accent font-medium transition-colors" onclick="closeMobileMenu()">Workshops</a>
                                 <a href="#books" class="block text-neutral-700 hover:text-accent font-medium transition-colors" onclick="closeMobileMenu()">Books</a>
                                 <a href="https://www.thinkhumanly.app/" target="_blank" rel="noopener" class="block text-neutral-700 hover:text-accent font-medium transition-colors" onclick="closeMobileMenu()">Courses <i class="fas fa-arrow-up-right-from-square" style="font-size: 11px; margin-left: 4px;"></i></a>
-                                <a href="#team" class="block text-neutral-700 hover:text-accent font-medium transition-colors" onclick="closeMobileMenu()">Team</a>
+                                <a href="team.html" class="block text-neutral-700 hover:text-accent font-medium transition-colors">Team</a>
                                 <a href="#csr" class="block text-neutral-700 hover:text-accent font-medium transition-colors" onclick="closeMobileMenu()">Corporate CSR</a>
                                 <a href="#idea-spark" class="block text-neutral-700 hover:text-accent font-medium transition-colors" onclick="closeMobileMenu()">&#10024; Idea Spark</a>
                                 <a href="#contact" class="block text-neutral-700 hover:text-accent font-medium transition-colors" onclick="closeMobileMenu()">Contact</a>
@@ -1795,62 +1783,8 @@
         </div>
     </section>
 
-    <!-- Team Section -->
-    <section id="team" class="section-large bg-white relative overflow-hidden">
-        <div class="absolute inset-0">
-            <div class="absolute top-20 right-20 w-40 h-40 bg-gradient-to-br from-accent/5 to-transparent rounded-full blur-3xl animate-float-slow"></div>
-            <div class="absolute bottom-20 left-20 w-32 h-32 bg-gradient-to-br from-neutral-200/30 to-transparent rounded-full blur-2xl animate-float-reverse"></div>
-        </div>
-        <div class="th-wrap">
-            <div class="text-center mb-16 reveal animate-zoom-in">
-                <div class="inline-flex items-center space-x-2 bg-white border border-neutral-200 px-4 py-2 rounded-full mb-8 animate-glow-pulse">
-                    <span class="text-lg">&#128075;</span>
-                    <span class="text-sm text-neutral-600 font-medium">The Team</span>
-                </div>
-                <h2 class="font-display section-title text-neutral-900 mb-6">
-                    The people behind ThinkHumanly
-                </h2>
-                <p class="large-text text-neutral-600 max-w-3xl mx-auto animate-fade-in-up" style="animation-delay: 0.4s;">
-                    Product, technology and education, working together on one question: how do children keep thinking for themselves?
-                </p>
-            </div>
-            <!-- To add photos: replace the initials with <img src="aashutosh.jpg" alt="Aashutosh Saini"> inside .th-avatar -->
-            <div class="th-grid th-g3">
-                <div class="card th-person reveal animate-card-rise" style="animation-delay: 0.2s;">
-                    <div class="th-avatar">AS</div>
-                    <h3>Aashutosh Saini</h3>
-                    <p class="th-role">5+ years in product, GovTech, AI management and FMCG.</p>
-                    <ul>
-                        <li><b>LSE</b> &middot; MSc Information Systems and Digital Innovation</li>
-                        <li><b>IIM Ahmedabad</b> &middot; MBA</li>
-                        <li><b>SRCC</b> &middot; Economics</li>
-                    </ul>
-                </div>
-                <div class="card th-person reveal animate-card-rise" style="animation-delay: 0.3s;">
-                    <div class="th-avatar">RN</div>
-                    <h3>Ram Natrajhen</h3>
-                    <p class="th-role">8+ years building and scaling tech startups, with experience in non-profit collaboration.</p>
-                    <ul>
-                        <li><b>LSE</b> &middot; MSc Information Systems and Digital Innovation</li>
-                        <li><b>UCL</b> &middot; Entrepreneurship</li>
-                        <li><b>Essex</b> &middot; Computer Science</li>
-                    </ul>
-                </div>
-                <div class="card th-person reveal animate-card-rise" style="animation-delay: 0.4s;">
-                    <div class="th-avatar">AA</div>
-                    <h3>Anzal Abbas</h3>
-                    <p class="th-role">4+ years at the intersection of health and education, building educational products. Currently working with British schools.</p>
-                    <ul>
-                        <li><b>LSE</b> &middot; MSc Health and International Development</li>
-                        <li><b>BSc</b> &middot; Social Development and Policy</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Corporate CSR Section -->
-    <section id="csr" class="section-large bg-soft relative overflow-hidden">
+    <section id="csr" class="section-large bg-white relative overflow-hidden">
         <!-- Background Elements -->
         <div class="absolute inset-0">
             <div class="absolute top-20 right-20 w-40 h-40 bg-gradient-to-br from-accent/10 to-accent/5 rounded-full blur-3xl animate-float-slow"></div>
@@ -1970,7 +1904,7 @@
     </div>
 
     <!-- Idea Spark Section -->
-    <section id="idea-spark" class="section-large bg-white relative overflow-hidden">
+    <section id="idea-spark" class="section-large bg-soft relative overflow-hidden">
         <!-- Sparkle Animation Background -->
         <div class="absolute inset-0">
             <div class="sparkle sparkle-1"></div>
@@ -3289,6 +3223,12 @@ ${firstName}`;
             currentPage = (currentPage + 1) % book.pages.length;
             updatePreviewPage();
         }
+
+        // Open Privacy / Terms when arriving from another page (e.g. the Team page footer)
+        window.addEventListener('load', function() {
+            if (location.hash === '#privacy') { openPrivacyModal(); }
+            if (location.hash === '#terms') { openTermsModal(); }
+        });
 
         // Close modal on Escape key
         document.addEventListener('keydown', function(e) {
